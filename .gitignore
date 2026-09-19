@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Env (keys)
+.env
+
+# Temp PDF conversion cache
+data/_tmp_pdf/
+
+# Temp / cache
+.pytest_cache/
+*.tmp
+pageindex_doc_ids.json
+pageindex_pdfs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
