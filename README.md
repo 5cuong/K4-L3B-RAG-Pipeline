@@ -21,6 +21,7 @@ Nhóm tự chọn bài toán và thu thập dữ liệu phù hợp; repo không 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
+python -m pip install --upgrade pip setuptools wheel
 python -m pip install -e ".[dev]"
 python -m playwright install chromium
 cp .env.example .env
