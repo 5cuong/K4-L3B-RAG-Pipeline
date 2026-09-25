@@ -36,8 +36,7 @@
 ## Điều còn hạn chế
 
 - Crawler hiện phụ thuộc vào Crawl4AI/Playwright và nguồn web bên ngoài; khi website thay đổi HTML, bộ lọc footer có thể cần cập nhật.
-- Chunking hiện có cả `chunk_documents()` và biến thể `chunk_documents_by_type()`. Cần thống nhất một hàm dùng chung cho Task 4, BM25 và evaluation để dense và lexical retrieval chạy trên cùng corpus.
-- Các chỉ số đánh giá hiện tại dùng proxy token-overlap khi môi trường chưa có Ragas và evaluator LLM; cần chạy lại evaluation bằng evaluator chính thức nếu được yêu cầu.
+- Các chỉ số đánh giá hiện tại dùng proxy token-overlap khi môi trường chưa có Ragas và evaluator LLM;
 
 Nếu có thêm thời gian, thay đổi đầu tiên tôi sẽ thực hiện là gom logic chuẩn hóa/chunking vào một pipeline dùng chung và thêm test hồi quy cho các mẫu HTML rác của từng nguồn news.
 
@@ -46,4 +45,4 @@ Nếu có thêm thời gian, thay đổi đầu tiên tôi sẽ thực hiện l�
 Tôi xác nhận nội dung trên phản ánh đúng phần việc mình đã thực hiện và có thể giải thích hoặc chạy lại trong buổi demo.
 
 - Ngày: 25/09/2026
-- Tên thành viên: _Bổ sung trước khi nộp_
+- Tên thành viên: Tống Trần Tiến Dũng
