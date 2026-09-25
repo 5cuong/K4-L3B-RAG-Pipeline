@@ -13,6 +13,7 @@ chạy lại pipeline không tạo dữ liệu trùng. Task 5 phải dùng chung
 
 from functools import lru_cache
 import os
+import re
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -27,6 +28,14 @@ CHROMA_DIR = Path(__file__).parent.parent / "chroma_db"
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 CHUNKING_METHOD = "recursive"
+
+# Dữ liệu có hai dạng chính: văn bản pháp lý nhiều tầng mục/điều và bài báo
+# có heading, đoạn văn cùng phần HTML navigation. Giữ cấu hình riêng giúp
+# chunk giữ được ngữ nghĩa và có thể trình bày rõ trong báo cáo.
+DOCUMENT_TYPE_CHUNKING = {
+    "legal": {"chunk_size": 1200, "chunk_overlap": 150},
+    "news": {"chunk_size": 700, "chunk_overlap": 80},
+}
 
 EMBEDDING_MODEL = "BAAI/bge-m3"
 EMBEDDING_DIM = 1024
@@ -154,6 +163,7 @@ def chunk_documents(documents: list[dict]) -> list[dict]:
         chunk_overlap=CHUNK_OVERLAP,
         separators=["\n\n", "\n", ". ", " ", ""],
     )
+
     chunks = []
     for document in documents:
         content = str(document.get("content", "")).strip()
@@ -173,6 +183,107 @@ def chunk_documents(documents: list[dict]) -> list[dict]:
                     },
                 }
             )
+    return chunks
+
+
+def chunk_documents_by_type(documents: list[dict]) -> list[dict]:
+    """Chunk theo cấu trúc và loại tài liệu, độc lập với ``chunk_documents``.
+
+    Legal documents ưu tiên ranh giới Chương/Mục/Điều/Khoản và context lớn.
+    News documents ưu tiên heading/đoạn văn và context nhỏ hơn để hạn chế trộn
+    nội dung bài báo với phần điều hướng được crawl từ HTML.
+    """
+    boundary_patterns = {
+        "legal": [
+            r"\n(?=\*\*(?:Chương|CHƯƠNG|Mục|MỤC|Điều|ĐIỀU|Khoản|KHOẢN)\b)",
+            r"\n(?=\d+\.\s)",
+            r"\n\s*\n",
+            r"\n",
+            r"(?<=[.!?;:])\s+",
+            r"\s+",
+        ],
+        "news": [
+            r"\n(?=#{1,6}\s)",
+            r"\n\s*\n",
+            r"\n",
+            r"(?<=[.!?])\s+",
+            r"\s+",
+        ],
+    }
+
+    chunks = []
+    for document in documents:
+        doc_type = str(document.get("metadata", {}).get("doc_type", "news")).lower()
+        if doc_type not in DOCUMENT_TYPE_CHUNKING:
+            raise ValueError(f"Unsupported doc_type: {doc_type!r}")
+
+        config = DOCUMENT_TYPE_CHUNKING[doc_type]
+        texts = _split_text_at_boundaries(
+            str(document.get("content", "")),
+            chunk_size=config["chunk_size"],
+            chunk_overlap=config["chunk_overlap"],
+            boundary_patterns=boundary_patterns[doc_type],
+        )
+        for index, text in enumerate(texts):
+            if not text.strip():
+                continue
+            chunks.append(
+                {
+                    "id": f"{document['id']}::chunk-{index}",
+                    "content": text,
+                    "metadata": {
+                        **document["metadata"],
+                        "chunk_index": index,
+                    },
+                }
+            )
+    return chunks
+
+
+def _split_text_at_boundaries(
+    text: str,
+    chunk_size: int,
+    chunk_overlap: int,
+    boundary_patterns: list[str],
+) -> list[str]:
+    """Split tại ranh giới ưu tiên, fallback về giới hạn ký tự cứng."""
+    if chunk_size <= 0 or chunk_overlap < 0 or chunk_overlap >= chunk_size:
+        raise ValueError("chunk_size must be positive and greater than chunk_overlap")
+
+    text = text.strip()
+    if not text:
+        return []
+
+    chunks = []
+    start = 0
+    while start < len(text):
+        hard_end = min(start + chunk_size, len(text))
+        end = hard_end
+
+        if hard_end < len(text):
+            window = text[start:hard_end]
+            minimum_boundary = max(chunk_size // 2, chunk_overlap + 1)
+            for pattern in boundary_patterns:
+                candidates = [
+                    match.start()
+                    for match in re.finditer(pattern, window)
+                    if match.start() >= minimum_boundary
+                ]
+                if candidates:
+                    end = start + candidates[-1]
+                    break
+
+        chunk = text[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        if end >= len(text):
+            break
+
+        next_start = max(0, end - chunk_overlap)
+        if next_start <= start:
+            next_start = end
+        start = next_start
+
     return chunks
 
 
@@ -216,7 +327,7 @@ def index_to_vectorstore(chunks: list[dict]) -> None:
 def run_pipeline() -> None:
     """Chạy load, chunk, embed và index."""
     documents = load_documents()
-    chunks = chunk_documents(documents)
+    chunks = chunk_documents_by_type(documents)
     embedded_chunks = embed_chunks(chunks)
     index_to_vectorstore(embedded_chunks)
     print(f"Indexed {len(embedded_chunks)} chunks")
