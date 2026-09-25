@@ -205,6 +205,54 @@ def test_reorder_is_non_mutating_and_context_contains_source():
     context = format_context(reordered)
     assert "tuition.md" in context
     assert "Tuition policy" in context
+    assert "[Source S1 | ID: chunk-0" in context
+
+
+def test_generation_expands_short_citations_to_stable_chunk_ids():
+    from src.task10_generation import _expand_citation_aliases
+
+    chunks = [result("legal/law.md::chunk-4", 0.9)]
+    answer = _expand_citation_aliases("Người bán phải xác thực [s1].", chunks)
+
+    assert answer == "Người bán phải xác thực [legal/law.md::chunk-4]."
+
+
+def test_call_llm_uses_openai_sdk_with_groq_compatible_config(monkeypatch):
+    import sys
+    from types import SimpleNamespace
+
+    from src.task10_generation import call_llm
+
+    captured = {}
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            captured["request"] = kwargs
+            return SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content="OK"))]
+            )
+
+    class FakeOpenAI:
+        def __init__(self, **kwargs):
+            captured["client"] = kwargs
+            self.chat = SimpleNamespace(completions=FakeCompletions())
+
+    monkeypatch.setitem(sys.modules, "openai", SimpleNamespace(OpenAI=FakeOpenAI))
+    monkeypatch.setenv("LLM_PROVIDER", "groq")
+    monkeypatch.setenv("LLM_MODEL", "openai/gpt-oss-20b")
+    monkeypatch.setenv("GROQ_API_KEY", "test-key")
+    monkeypatch.setenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
+
+    assert call_llm("system", "question") == "OK"
+    assert captured["client"] == {
+        "api_key": "test-key",
+        "base_url": "https://api.groq.com/openai/v1",
+    }
+    assert captured["request"]["model"] == "openai/gpt-oss-20b"
+    assert captured["request"]["messages"] == [
+        {"role": "system", "content": "system"},
+        {"role": "user", "content": "question"},
+    ]
 
 
 def test_retrieve_uses_dense_score_for_fallback(monkeypatch):

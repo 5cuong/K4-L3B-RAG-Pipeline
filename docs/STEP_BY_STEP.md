@@ -84,7 +84,7 @@ Hoàn thiện Task 10:
 
 - Reorder chunks nhưng không làm mất ID.
 - Context có title/source.
-- Dispatch theo `LLM_PROVIDER`: OpenAI, Gemini hoặc Anthropic Claude.
+- Dispatch theo `LLM_PROVIDER`: OpenAI, Groq (OpenAI-compatible), Gemini hoặc Anthropic Claude.
 - Không đủ evidence thì trả safe refusal.
 
 ```bash

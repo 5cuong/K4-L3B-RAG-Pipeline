@@ -28,6 +28,16 @@ cp .env.example .env
 ```
 
 Điền API key cần dùng trong `.env`; không commit file này.
+Để dùng Groq qua OpenAI SDK, đặt các giá trị sau trong `.env`:
+
+```dotenv
+LLM_PROVIDER=groq
+LLM_MODEL=openai/gpt-oss-20b
+GROQ_BASE_URL=https://api.groq.com/openai/v1
+GROQ_API_KEY=<Groq API key>
+```
+
+Embedding vẫn chạy local theo mặc định, không cần OpenAI API key.
 
 ```bash
 # 1. Thu thập và chuẩn hoá

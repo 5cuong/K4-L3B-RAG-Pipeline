@@ -29,8 +29,9 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")
 LLM_MODEL = os.getenv("LLM_MODEL", "")
 
 SYSTEM_PROMPT = """Trả lời chỉ từ context được cung cấp.
-Mỗi khẳng định phải có citation theo dạng [chunk_id], dùng đúng ID xuất hiện
-trong context. Nếu thiếu evidence, hãy từ chối xác minh."""
+Mỗi câu hoặc ý trả lời phải có citation dạng [S1], [S2], ... đúng với nhãn
+Citation được gán cho nguồn trong context. Không tự tạo nhãn hoặc rút gọn ID.
+Nếu thiếu evidence, hãy từ chối xác minh."""
 
 SAFE_REFUSAL = "Tôi không thể xác minh thông tin này từ nguồn hiện có."
 _CITATION_PATTERN = re.compile(r"\[([^\[\]\s]+)\]")
@@ -51,12 +52,23 @@ def format_context(chunks: list[dict]) -> str:
     for index, chunk in enumerate(chunks, 1):
         metadata = chunk["metadata"]
         parts.append(
-            f"[Document {index} | ID: {chunk['id']} | "
+            f"[Source S{index} | ID: {chunk['id']} | "
             f"Title: {metadata['title']} | Source: {metadata['source']} | "
             f"URL: {metadata.get('url') or 'not provided'}]\n"
             f"{chunk['content']}"
         )
     return "\n\n---\n\n".join(parts)
+
+
+def _expand_citation_aliases(answer: str, chunks: list[dict]) -> str:
+    """Expand short prompt labels back to stable chunk IDs for the API/UI."""
+    labels = {str(index): chunk["id"] for index, chunk in enumerate(chunks, 1)}
+
+    def replace(match: re.Match) -> str:
+        chunk_id = labels.get(match.group(1))
+        return f"[{chunk_id}]" if chunk_id is not None else match.group(0)
+
+    return re.sub(r"\[S(\d+)\]", replace, answer, flags=re.IGNORECASE)
 
 
 def citations_map_to_sources(answer: str, sources: list[dict]) -> bool:
@@ -69,20 +81,32 @@ def citations_map_to_sources(answer: str, sources: list[dict]) -> bool:
 
 
 def call_llm(system_prompt: str, user_message: str) -> str:
-    """Gọi OpenAI, Gemini hoặc Anthropic theo cấu hình."""
+    """Gọi OpenAI-compatible API, Gemini hoặc Anthropic theo cấu hình."""
     provider = os.getenv("LLM_PROVIDER", LLM_PROVIDER).strip().lower()
     model = os.getenv("LLM_MODEL", LLM_MODEL).strip()
 
-    if provider == "openai":
-        api_key = os.getenv("OPENAI_API_KEY")
+    if provider in {"openai", "groq"}:
+        if provider == "groq":
+            api_key = os.getenv("GROQ_API_KEY")
+            base_url = os.getenv(
+                "GROQ_BASE_URL", "https://api.groq.com/openai/v1"
+            ).strip() or "https://api.groq.com/openai/v1"
+            default_model = "openai/gpt-oss-20b"
+            key_name = "GROQ_API_KEY"
+        else:
+            api_key = os.getenv("OPENAI_API_KEY")
+            base_url = os.getenv("OPENAI_BASE_URL", "").strip() or None
+            default_model = "gpt-4o-mini"
+            key_name = "OPENAI_API_KEY"
+
         if not api_key:
-            raise RuntimeError("OPENAI_API_KEY is required for the OpenAI provider")
+            raise RuntimeError(f"{key_name} is required for the {provider} provider")
 
         from openai import OpenAI
 
-        client = OpenAI(api_key=api_key)
+        client = OpenAI(api_key=api_key, base_url=base_url)
         response = client.chat.completions.create(
-            model=model or "gpt-4o-mini",
+            model=model or default_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message},
@@ -139,7 +163,7 @@ def call_llm(system_prompt: str, user_message: str) -> str:
         return "\n".join(text_parts).strip()
 
     raise ValueError(
-        f"Unsupported LLM_PROVIDER={provider!r}; use openai, gemini or anthropic"
+        f"Unsupported LLM_PROVIDER={provider!r}; use openai, groq, gemini or anthropic"
     )
 
 
@@ -171,7 +195,9 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
     user_message = f"Context:\n{context}\n\nQuestion: {query.strip()}"
 
     try:
-        answer = call_llm(SYSTEM_PROMPT, user_message).strip()
+        answer = _expand_citation_aliases(
+            call_llm(SYSTEM_PROMPT, user_message).strip(), reordered
+        )
     except Exception:
         answer = ""
 
