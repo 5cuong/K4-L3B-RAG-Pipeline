@@ -1,0 +1,279 @@
+# Một số trách nhiệm quan trọng về bảo vệ quyền lợi người tiêu dùng của các tổ chức, cá nhân phân ...
+
+**Source:** https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-trach-nhiem-quan-trong-ve-bao-ve-quyen-loi-nguoi-tieu-dung-cua-cac-to-chuc-ca-nhan-phan-phoi-ban-le-hang-tieu-dun.html?utm_source=chatgpt.com
+
+**Crawled:** 2026-09-25T02:19:10.991965+00:00
+
+---
+
+[ ![Logo](https://moit.gov.vn/upload/2005517/20210618/logo-bocongthuong_c2c7ef2468.png) ](https://moit.gov.vn/ "Trang chủ")
+[ ![Logo](https://moit.gov.vn/Project/MOIT/images/logo-mobi.png) ](https://moit.gov.vn/ "Trang chủ") Toggle navigation
+  * [Đăng nhập](https://moit.gov.vn/?page=login "Đăng nhập")|
+  * [Đăng ký](https://moit.gov.vn/?page=register "Đăng ký")
+
+
+  * [ Trang chủ ](https://moit.gov.vn/ "Trang chủ")
+  * [ Giới thiệu ](https://moit.gov.vn/gioi-thieu "Giới thiệu") [](javascript:;)
+    * [ Lãnh đạo Bộ ](https://moit.gov.vn/gioi-thieu/lanh-dao-bo "Lãnh đạo Bộ")
+    * [ Chức năng nhiệm vụ ](https://moit.gov.vn/gioi-thieu/chuc-nang-nhiem-vu "Chức năng nhiệm vụ")
+    * [ Cơ cấu tổ chức ](https://moit.gov.vn/gioi-thieu/co-cau-to-chuc "Cơ cấu tổ chức")
+  * [ Tin tức ](https://moit.gov.vn/tin-tuc "Tin tức") [](javascript:;)
+    * [ Hoạt động ](https://moit.gov.vn/tin-tuc/hoat-dong "Hoạt động") [](javascript:;)
+      * [ Hoạt động của lãnh đạo Đảng, Nhà nước ](https://moit.gov.vn/tin-tuc/hoat-dong/hoat-dong-cua-lanh-dao-dang-nha-nuoc "Hoạt động của lãnh đạo Đảng, Nhà nước")
+      * [ Hoạt động của Lãnh đạo Bộ ](https://moit.gov.vn/tin-tuc/hoat-dong/hoat-dong-cua-lanh-dao-bo "Hoạt động của Lãnh đạo Bộ")
+      * [ Hoạt động của các đơn vị ](https://moit.gov.vn/tin-tuc/hoat-dong/hoat-dong-cua-cac-don-vi "Hoạt động của các đơn vị")
+    * [ Giải thưởng Công nghiệp, Thương mại, Dịch vụ Việt Nam 2026 ](https://moit.gov.vn/tin-tuc/giai-thuong-cong-nghiep-thuong-mai-dich-vu-viet-nam-2026 "Giải thưởng Công nghiệp, Thương mại, Dịch vụ Việt Nam 2026")
+    * [ Công Thương 57 ](https://moit.gov.vn/tin-tuc/cong-thuong-57 "Công Thương 57")
+    * [ Hoạt động của Bộ trưởng ](https://moit.gov.vn/tin-tuc/hoat-dong-cua-bo-truong2 "Hoạt động của Bộ trưởng")
+    * [ Công Thương - Công luận ](https://moit.gov.vn/tin-tuc/cong-thuong-cong-luan "Công Thương - Công luận") [](javascript:;)
+      * [ Họp báo ](https://moit.gov.vn/tin-tuc/cong-thuong-cong-luan/hop-bao "Họp báo")
+      * [ Thông cáo báo chí ](https://moit.gov.vn/tin-tuc/cong-thuong-cong-luan/thong-cao-bao-chi "Thông cáo báo chí")
+      * [ Điểm báo ](https://moit.gov.vn/tin-tuc/cong-thuong-cong-luan/diem-bao "Điểm báo")
+    * [ Chuyển đổi số ](https://moit.gov.vn/tin-tuc/chuyen-doi-so "Chuyển đổi số")
+    * [ Lịch sử phát triển ](https://moit.gov.vn/lich-su-phat-trien "Lịch sử phát triển")
+    * [ Bản tin Thị trường Nông Lâm Thủy sản ](https://moit.gov.vn/tin-tuc/ban-tin-thi-truong-nong-lam-thuy-san "Bản tin Thị trường Nông Lâm Thủy sản")
+    * [ Phát triển nguồn nhân lực ](https://moit.gov.vn/tin-tuc/phat-trien-nguon-nhan-luc "Phát triển nguồn nhân lực")
+    * [ Phát triển bền vững ](https://moit.gov.vn/phat-trien-ben-vung "Phát triển bền vững")
+    * [ Tổ chức kiểm định ](https://moit.gov.vn/to-chuc-kiem-dinh "Tổ chức kiểm định") [](javascript:;)
+      * [ Tổ chức kiểm định kỹ thuật an toàn lao động thuộc thẩm quyền quản lý của Bộ Công Thương ](https://moit.gov.vn/to-chuc-kiem-dinh/to-chuc-kiem-dinh-ky-thuat-an-toan-lao-dong-thuoc-tham-quyen "Tổ chức kiểm định kỹ thuật an toàn lao động thuộc thẩm quyền quản lý của Bộ Công Thương")
+      * [ Tổ chức được cấp GCN đăng ký, hoạt động kiểm định thiết bị, dụng cụ điện làm việc ở môi trường không có nguy hiểm khí, bụi nổ ](https://moit.gov.vn/to-chuc-kiem-dinh/to-chuc-duoc-cap-gcn-dang-ky-hoat-dong-kiem-dinh-thiet-bi-du "Tổ chức được cấp GCN đăng ký, hoạt động kiểm định thiết bị, dụng cụ điện làm việc ở môi trường không có nguy hiểm khí, bụi nổ")
+      * [ Cơ sở sản xuất, sửa chữa chai chứa LPG ](https://moit.gov.vn/to-chuc-kiem-dinh/co-so-san-xuat-sua-chua-chai-chua-lpg- "Cơ sở sản xuất, sửa chữa chai chứa LPG")
+      * [ Tổ chức huấn luyện, bồi dưỡng nghiệp vụ kiểm định kỹ thuật an toàn lao động ](https://moit.gov.vn/to-chuc-kiem-dinh/to-chuc-huan-luyen-boi-duong-nghiep-vu-kiem-dinh-ky-thuat-an "Tổ chức huấn luyện, bồi dưỡng nghiệp vụ kiểm định kỹ thuật an toàn lao động")
+    * [ Văn hóa ngành Công Thương ](https://moit.gov.vn/tin-tuc/van-hoa-nganh-cong-thuong "Văn hóa ngành Công Thương")
+    * [ Tái cơ cấu ngành Công Thương ](https://moit.gov.vn/tin-tuc/tai-co-cau-nganh-cong-thuong "Tái cơ cấu ngành Công Thương")
+    * [ Quản lý thị trường ](https://moit.gov.vn/quan-ly-thi-truong "Quản lý thị trường")
+    * [ Sử dụng năng lượng tiết kiệm và hiệu quả ](https://moit.gov.vn/tin-tuc/su-dung-nang-luong-tiet-kiem-va-hieu-qua "Sử dụng năng lượng tiết kiệm và hiệu quả") [](javascript:;)
+      * [ Hiệu quả năng lượng ](https://moit.gov.vn/tin-tuc/su-dung-nang-luong-tiet-kiem-va-hieu-qua/hieu-qua-nang-luong "Hiệu quả năng lượng")
+    * [ Khoa học, công nghệ và đổi mới sáng tạo ](https://moit.gov.vn/khoa-hoc-va-cong-nghe "Khoa học, công nghệ và đổi mới sáng tạo")
+    * [ Thông báo ](https://moit.gov.vn/tin-tuc/thong-bao "Thông báo")
+    * [ Bảo vệ môi trường ](https://moit.gov.vn/bao-ve-moi-truong "Bảo vệ môi trường") [](javascript:;)
+      * [ Video bảo vệ môi trường ](https://moit.gov.vn/bao-ve-moi-truong/video-bao-ve-moi-truong "Video bảo vệ môi trường")
+      * [ Album ảnh bảo vệ môi trường ](https://moit.gov.vn/bao-ve-moi-truong/album-anh-bao-ve-moi-truong "Album ảnh bảo vệ môi trường")
+      * [ Văn bản về môi trường ](https://moit.gov.vn/bao-ve-moi-truong/van-ban-ve-moi-truong "Văn bản về môi trường")
+      * [ Đọc báo giúp bạn ](https://moit.gov.vn/bao-ve-moi-truong/doc-bao-giup-ban "Đọc báo giúp bạn")
+    * [ Bảo vệ nền tảng tư tưởng của Đảng ](https://moit.gov.vn/bao-ve-nen-tang-tu-tuong-cua-dang "Bảo vệ nền tảng tư tưởng của Đảng")
+    * [ Doanh nghiệp - Người dân ](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan "Doanh nghiệp - Người dân")
+    * [ Xúc tiến thương mại ](https://moit.gov.vn/tin-tuc/xuc-tien-thuong-mai "Xúc tiến thương mại") [](javascript:;)
+      * [ Khu vực miền Bắc ](https://moit.gov.vn/tin-tuc/dia-phuong/khu-vuc-mien-bac "Khu vực miền Bắc")
+      * [ Khu vực miền Trung ](https://moit.gov.vn/tin-tuc/dia-phuong/khu-vuc-mien-trung "Khu vực miền Trung")
+      * [ Khu vực miền Nam ](https://moit.gov.vn/tin-tuc/dia-phuong/khu-vuc-mien-nam "Khu vực miền Nam")
+    * [ Thị trường nước ngoài ](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai "Thị trường nước ngoài") [](javascript:;)
+      * [ Hiệp định EVFTA ](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/hiep-dinh-evfta "Hiệp định EVFTA")
+      * [ Thị trường châu Á – châu Phi ](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/thi-truong-chau-a-chau-phi "Thị trường châu Á – châu Phi")
+      * [ Thị trường châu Âu – châu Mỹ ](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/thi-truong-chau-au-chau-my "Thị trường châu Âu – châu Mỹ")
+    * [ Thị trường trong nước ](https://moit.gov.vn/tin-tuc/thi-truong-trong-nuoc "Thị trường trong nước")
+    * [ Ngành Công Thương đưa nghị quyết Đại hội XIV của Đảng vào cuộc sống ](https://moit.gov.vn/tin-tuc/huong-toi-dai-hoi-dang-bo-chinh-phu-va-dai-hoi-xiv-cua-dang "Ngành Công Thương đưa nghị quyết Đại hội XIV của Đảng vào cuộc sống")
+    * [ Phát triển công nghiệp ](https://moit.gov.vn/tin-tuc/phat-trien-cong-nghiep "Phát triển công nghiệp") [](javascript:;)
+      * [ Công nghiệp nền tảng ](https://moit.gov.vn/tin-tuc/phat-trien-cong-nghiep/cong-nghiep-nen-tang "Công nghiệp nền tảng")
+      * [ Chính sách ](https://moit.gov.vn/tin-tuc/phat-trien-cong-nghiep/chinh-sach "Chính sách")
+      * [ Sản xuất công nghiệp ](https://moit.gov.vn/tin-tuc/phat-trien-cong-nghiep/san-xuat-cong-nghiep "Sản xuất công nghiệp")
+    * [ Phát triển năng lượng ](https://moit.gov.vn/tin-tuc/phat-trien-nang-luong "Phát triển năng lượng")
+  * [ Văn bản pháp luật ](https://moit.gov.vn/van-ban-phap-luat "Văn bản pháp luật") [](javascript:;)
+    * [ Văn bản pháp quy ](https://moit.gov.vn/van-ban-phap-luat/van-ban-phap-quy "Văn bản pháp quy")
+    * [ Văn bản điều hành ](https://moit.gov.vn/van-ban-phap-luat/van-ban-dieu-hanh "Văn bản điều hành")
+    * [ Văn bản hợp nhất ](https://moit.gov.vn/van-ban-phap-luat/van-ban-hop-nhat "Văn bản hợp nhất")
+
+
+[](javascript:%20void\(0\))
+  * [ DVC trực tuyến ](https://dichvucong.moit.gov.vn/HomePage.aspx "DVC trực tuyến")
+  * [ Thống kê ](https://moit.gov.vn/thong-ke/bao-cao-tong-hop "Thống kê") [](javascript:;)
+    * [ Báo cáo tổng hợp ](https://moit.gov.vn/thong-ke/bao-cao-tong-hop "Báo cáo tổng hợp")
+    * [ Nhượng quyền thương mại ](https://moit.gov.vn/nhuong-quyen-thuong-mai "Nhượng quyền thương mại")
+    * [ Chế độ báo cáo thống kê ](http://cdbcthongke.moit.gov.vn "Chế độ báo cáo thống kê")
+    * [ Điều tra TKQG Năng lực sản xuất sản phẩm công nghiệp ](http://dieutrananglucsanxuat.moit.gov.vn/HomePage.aspx "Điều tra TKQG Năng lực sản xuất sản phẩm công nghiệp")
+    * [ Cơ sở dữ liệu thống kê ngành Công Thương ](http://thongke.idea.gov.vn/ "Cơ sở dữ liệu thống kê ngành Công Thương")
+    * [ Điều tra TKQG về Thương mại điện tử ](http://thongketmdt.dvctt.gov.vn/HomePage.aspx "Điều tra TKQG về Thương mại điện tử")
+  * [ Media ](javascript:; "Media") [](javascript:;)
+    * [ Video ](https://moit.gov.vn/media/video "Video")
+  * [ Công khai ngân sách nhà nước ](https://moit.gov.vn/cong-khai-ngan-sach-nha-nuoc "Công khai ngân sách nhà nước")
+  * [ Hỏi đáp trực tuyến ](https://moit.gov.vn/hoi-dap-truc-tuyen "Hỏi đáp trực tuyến") [](javascript:;)
+    * [ Thi tuyển công chức ](https://moit.gov.vn/hoi-dap-truc-tuyen/thi-tuyen-cong-chuc "Thi tuyển công chức")
+    * [ Thị trường trong nước ](https://moit.gov.vn/hoi-dap-truc-tuyen/thi-truong-trong-nuoc "Thị trường trong nước")
+    * [ Xuất nhập khẩu ](https://moit.gov.vn/hoi-dap-truc-tuyen/xuat-nhap-khau "Xuất nhập khẩu")
+    * [ Công nghiệp nặng ](https://moit.gov.vn/hoi-dap-truc-tuyen/cong-nghiep-nang "Công nghiệp nặng")
+    * [ Công nghiệp nhẹ ](https://moit.gov.vn/hoi-dap-truc-tuyen/cong-nghiep-nhe "Công nghiệp nhẹ")
+    * [ Thương mại điện tử ](https://moit.gov.vn/hoi-dap-truc-tuyen/thuong-mai-dien-tu "Thương mại điện tử")
+    * [ Năng lượng ](https://moit.gov.vn/hoi-dap-truc-tuyen/nang-luong "Năng lượng")
+    * [ Hóa chất ](https://moit.gov.vn/hoi-dap-truc-tuyen/hoa-chat "Hóa chất")
+    * [ Quản lý thị trường ](https://moit.gov.vn/hoi-dap-truc-tuyen/quan-ly-thi-truong "Quản lý thị trường")
+    * [ Điều tiết điện lực ](https://moit.gov.vn/hoi-dap-truc-tuyen/dieu-tiet-dien-luc "Điều tiết điện lực")
+    * [ Khoa học và Công nghệ ](https://moit.gov.vn/hoi-dap-truc-tuyen/khoa-hoc-va-cong-nghe "Khoa học và Công nghệ")
+    * [ Cạnh tranh ](https://moit.gov.vn/hoi-dap-truc-tuyen/canh-tranh "Cạnh tranh")
+    * [ Xúc tiến thương mại ](https://moit.gov.vn/hoi-dap-truc-tuyen/xuc-tien-thuong-mai "Xúc tiến thương mại")
+    * [ An toàn và Môi trường công nghiệp ](https://moit.gov.vn/hoi-dap-truc-tuyen/an-toan-va-moi-truong-cong-nghiep "An toàn và Môi trường công nghiệp")
+    * [ Hợp tác quốc tế ](https://moit.gov.vn/hoi-dap-truc-tuyen/hop-tac-quoc-te "Hợp tác quốc tế")
+    * [ Vụ thị trường Châu Âu ](https://moit.gov.vn/hoi-dap-truc-tuyen/vu-thi-truong-chau-au "Vụ thị trường Châu Âu")
+    * [ Công nghiệp địa phương ](https://moit.gov.vn/hoi-dap-truc-tuyen/cong-nghiep-dia-phuong "Công nghiệp địa phương")
+    * [ Thương nhân nước ngoài tại Việt Nam ](https://moit.gov.vn/hoi-dap-truc-tuyen/thuong-nhan-nuoc-ngoai-tai-viet-nam "Thương nhân nước ngoài tại Việt Nam")
+    * [ Pháp luật ](https://moit.gov.vn/hoi-dap-truc-tuyen/phap-luat "Pháp luật")
+    * [ Thông tư 21 ](https://moit.gov.vn/hoi-dap-truc-tuyen/thong-tu-21 "Thông tư 21")
+    * [ Lĩnh vực khác ](https://moit.gov.vn/hoi-dap-truc-tuyen/linh-vuc-khac "Lĩnh vực khác")
+  * [ Lịch công tác ](https://moit.gov.vn/lich-cong-tac "Lịch công tác")
+  * [ Dự thảo văn bản ](https://moit.gov.vn/du-thao-van-ban "Dự thảo văn bản")
+  * [ Bộ Công Thương hỗ trợ địa phương triển khai chính quyền hai cấp ](https://moit.gov.vn/bo-cong-thuong-ho-tro-dia-phuong-trien-khai-chinh-quyen-hai-cap "Bộ Công Thương hỗ trợ địa phương triển khai chính quyền hai cấp") [](javascript:;)
+    * [ Tin tức, chính sách ](https://moit.gov.vn/bo-cong-thuong-ho-tro-chinh-quyen-hai-cap/tin-tuc-chinh-sach "Tin tức, chính sách")
+    * [ Tài liệu tập huấn ](https://moit.gov.vn/bo-cong-thuong-ho-tro-dia-phuong-trien-khai-chinh-quyen-hai-cap/tai-lieu-tap-huan3 "Tài liệu tập huấn")
+    * [ Văn bản trả lời các địa phương ](https://moit.gov.vn/bo-cong-thuong-ho-tro-dia-phuong-trien-khai-chinh-quyen-hai-cap/van-ban-tra-loi-cac-dia-phuong "Văn bản trả lời các địa phương")
+    * [ Video ](https://moit.gov.vn/bo-cong-thuong-ho-tro-dia-phuong-trien-khai-chinh-quyen-hai-cap/video "Video")
+
+
+  * [ ![](https://moit.gov.vn/Project/MOIT/images/vn.png)Vietnamese ](https://moit.gov.vn/ "Vietnamese")
+  * [ ![](https://moit.gov.vn/Project/MOIT/images/en.png)English ](https://moit.gov.vn/en "English")
+
+
+[](javascript:; "Tài khoản")
+  * [Đăng nhập](https://moit.gov.vn/?page=login "Đăng nhập")
+  * [Đăng ký](https://moit.gov.vn/?page=register "Đăng ký")
+
+[ ![](https://moit.gov.vn/Project/MOIT/images/vn.png)Vietnamese ](https://moit.gov.vn/ "Vietnamese") [ ![](https://moit.gov.vn/Project/MOIT/images/en.png)English ](https://moit.gov.vn/en "English")
+[![mic](https://moit.gov.vn/App/images/ic_grey.png)![](https://moit.gov.vn/App/images/ic_white.png)](javascript:void\(0\))
+  1. [ Trang chủ](https://moit.gov.vn/ "Trang chủ")
+  2. [Tin tức](https://moit.gov.vn/tin-tuc "Tin tức")
+  3. [Doanh nghiệp - Người dân](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan "Doanh nghiệp - Người dân")
+
+
+Thứ 3, 20/08/2024 | 17:05
+[A-](javascript:void\(0\);) [A](javascript:void\(0\);) [A+](javascript:void\(0\);) |  [](javascript:void\(0\); "In") [](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-trach-nhiem-quan-trong-ve-bao-ve-quyen-loi-nguoi-tieu-dung-cua-cac-to-chuc-ca-nhan-phan-phoi-ban-le-hang-tieu-dun.html?utm_source=chatgpt.com#email-popup "Email") [![Tăng tương phản](https://moit.gov.vn/App/images/nhat.png)](javascript:void\(0\); "Tăng tương phản") [![Giảm tương phản](https://moit.gov.vn/App/images/dam.png)](javascript:void\(0\); "Giảm tương phản")
+# Một số trách nhiệm quan trọng về bảo vệ quyền lợi người tiêu dùng của các tổ chức, cá nhân phân phối bán lẻ hàng tiêu dùng
+**Từ ngày 01 tháng 7 năm 2023, Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 đã chính thức có hiệu lực. Trên cơ sở kế thừa các giá trị tích cực của Luật Bảo vệ quyền lợi người tiêu dùng năm 2010, để đảm bảo tính hiệu quả của công tác bảo vệ quyền lợi chính đáng của người tiêu dùng trong bối cảnh mới, Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 được bổ sung và sửa đổi nhiều quy định mới.**
+Việt Nam đang hội nhập ngày càng mạnh mẽ cả về chiều rộng và chiều sâu với kinh tế khu vực và thế giới. Các chủ thể kinh tế của Việt Nam đang trực tiếp tham gia vào chuỗi cung ứng toàn cầu của nhiều nhóm ngành hàng, từng bước khẳng định được vị thế của mình. Hoạt động bán lẻ ở Việt Nam - một khâu trong chuỗi cung ứng toàn cầu – những năm gần đây chứng kiến sự phát triển vượt bậc và đang từng bước giữ một vị trí quan trọng trong chuỗi cung ứng hàng hóa từ nhà sản xuất đến người tiêu dùng. Các doanh nghiệp bán lẻ được tổ chức dưới nhiều hình thức và quy mô khác nhau, từ các cửa hàng nhỏ lẻ đến những đại siêu thị quy mô lớn. Dưới góc độ pháp luật bảo vệ quyền lợi người tiêu dùng, bài viết dưới đây sẽ cung cấp những thông tin tổng quan nhất về nghĩa vụ bảo vệ quyền lợi người tiêu dùng trong các giao dịch tiêu dùng tại các chuỗi phân phối, bán lẻ.
+![](https://moit.gov.vn/upload/2005517/fck/files/yh_a52af.jpg)
+**1. Bán lẻ và vấn đề vi phạm quyền lợi người tiêu dùng tại Việt Nam**
+Các kênh phân phối, bán lẻ hàng tiêu dùng thường bao gồm: Người sản xuất (là người trực tiếp sản xuất ra sản phẩm, hàng hóa, đôi khi người sản xuất cũng là người bán sản phẩm, hàng hóa tới tay người tiêu dùng mà không qua bất kỳ kênh phân phối trung gian nào) và Người trung gian (là những người tham gia vào quá trình phân phối sản phẩm, hàng hóa tới người tiêu dùng. Người trung gian có thể gồm đại lý môi giới; người bán buôn; người bán lẻ như cửa hàng tự chọn, cửa hàng tiện lợi, bách hóa tổng hợp, cửa hàng tạp hóa, cửa hàng đại hạ giá, cửa hàng chuyên doanh, cửa hàng giới thiệu sản phẩm của công ty, hợp tác xã tiêu thụ; bán lẻ thông qua hệ thống chợ truyền thống, siêu thị, siêu thị mini, siêu thị chuyên doanh và siêu thị tổng hợp, đại siêu thị, trung tâm thương mại…
+![](https://moit.gov.vn/upload/2005517/fck/files/1333_169db.jpg)
+Cho đến nay tại Việt Nam chưa có tài liệu chính thức nào đưa ra khái niệm của hệ thống bán lẻ hiện đại. Tuy nhiên dựa vào tính chất của kênh phân phối bán lẻ có thể chia ra làm 2 loại hệ thống bán lẻ là hệ thống bán lẻ truyền thống và bán lẻ hiện đại. Hệ thống bán lẻ hiện đại có mô hình tiêu biểu là cửa hàng tiện dụng (convenience store), siêu thị nhỏ (mini-super), siêu thị (supermarket), đại siêu thị (hypermarket), cửa hàng bách hoá lớn (department store), cửa hàng bách hoá thông thường, cửa hàng đại hạ giá (hard discounter), trung tâm thương mại (commercial center, shopping mall), … Như vậy hệ thống bán lẻ hiện đại khác biệt với hệ thống bán lẻ truyền thống ở phương pháp quản lý kinh doanh, cách bài trí cửa hàng, phong cách phục vụ.
+Bên cạnh đó, một chủ thể quan trọng, trung tâm và quyết định sự vận hành, phát triển lành mạnh của thị trường bán lẻ là người tiêu dùng. Theo cách hiểu thông thường, người tiêu dùng là người cuối cùng nhận được hàng hóa đó với mục đích để tiêu dùng; theo quy định của Luật Bảo vệ quyền lợi người tiêu dùng 2023, người tiêu dùng là người mua, sử dụng sản phẩm, hàng hóa, dịch vụ cho mục đích tiêu dùng, sinh hoạt của cá nhân, gia đình, cơ quan, tổ chức và không vì mục đích thương mại. Chúng ta cần xác định rõ sự khác nhau và phạm vi của người tiêu dùng theo quy định pháp luật để đảm bảo việc áp dụng, vận dụng luật được đúng và hiệu quả.
+Bên cạnh việc đảm bảo cung cấp sản phẩm, hàng hóa, dịch vụ theo đúng tiêu chuẩn đã công bố, thời gian, địa điểm, giá cả niêm yết, theo đúng quảng cáo, cam kết, thì nhà bán lẻ cần đảm bảo các điều kiện vận chuyển, bảo hành, giao hàng, … theo đề nghị của người tiêu dùng.
+Theo số liệu từ Ủy ban Cạnh tranh Quốc gia, Bộ Công Thương, năm 2023, Ủy ban đã tiếp nhận tổng số 1.567 đơn, thư phản ánh, yêu cầu, kiến nghị, khiếu nại của người tiêu dùng, thông qua các phương thức chủ yếu như: thư điện tử (tại địa chỉ: khieunai@bvntd.gov.vn); hệ thống tiếp nhận yêu cầu, kiến nghị, khiếu nại trực tuyến (tại địa chỉ: [http://khieunai.bvntd.gov.vn](http://khieunai.bvntd.gov.vn/)); đường bưu điện, công văn; Cổng dịch vụ công quốc gia và do người tiêu dùng nộp trực tiếp tại Văn phòng Ủy ban.
+![](https://moit.gov.vn/upload/2005517/fck/files/780_512fe.jpg)
+_Biểu đồ: Thống kê số lượng đơn, thư phản ánh của người tiêu dùng phân theo nguồn trong năm 2023_
+Trong tổng số 1.567 đơn, thư được tiếp nhận, các lĩnh vực kinh doanh hàng hóa, dịch vụ chủ yếu bị phản ánh, khiếu nại bao gồm: Bất động sản nhà ở, chung cư, kinh doanh quyền sở hữu kỳ nghỉ (chiếm khoảng 49,9%); dịch vụ bảo hiểm nhân thọ (chiếm khoảng 12,9%); thương mại điện tử (chiếm khoảng 5,5%); dịch vụ vận chuyển bằng đường hàng không (chiếm khoảng 4,4%); giáo dục, giải trí (chiếm khoảng 4,3%); điện tử gia dụng (chiếm khoảng 3,9%); dịch vụ thông tin di động mặt đất (chiếm khoảng 3,6%). Bên cạnh đó, xuất hiện thêm một số lĩnh vực, kinh doanh hàng hóa bị phản ánh, khiếu nại như: Dịch vụ ngân hàng và dịch vụ tài chính khác (chiếm khoảng 3,06%); dịch vụ vận tải, phương tiện vận chuyển, phương tiện đi lại và dịch vụ bưu chính, vận tải hàng hóa (chiếm khoảng 3,12%). Một số lĩnh vực kinh doanh hàng hóa, dịch vụ khác bị phản ánh, khiếu nại với số lượng thấp hơn như: thiết bị văn phòng; văn hóa-nghệ thuật; điện sinh hoạt; nước sinh hoạt; dịch vụ truy nhập internet; nội thất, ngoại thất; thuốc, dược phẩm, thiết bị y tế; mỹ phẩm; thời trang, trang sức (chiếm khoảng 1,5%), ….
+![](https://moit.gov.vn/upload/2005517/fck/files/screenshot_1724147961_489d0.jpeg)
+_Biểu đồ: Thống kê số lượng đơn, thư phản ánh của người tiêu dùng phân theo nhóm ngành hàng hóa, dịch vụ trong năm 2023_
+**2. Một số trách nhiệm quan trọng về bảo vệ quyền lợi người tiêu dùng của tổ chức, cá nhân bán lẻ**
+Với những đặc điểm trên, khi thực hiện giao dịch tiêu dùng với người tiêu dùng tại các chuỗi phân phối, bán lẻ, tổ chức, cá nhân kinh doanh sản phẩm, hàng hóa, dịch vụ cần lưu ý thực hiện một số nghĩa vụ, trách nhiệm bảo vệ quyền lợi người tiêu dùng sau đây:
+**_Trách nhiệm bảo đảm an toàn, đo lường, số lượng, khối lượng, chất lượng, công dụng sản phẩm, hàng hóa, dịch vụ bán, cung cấp cho người tiêu dùng_**
+Theo Điều 14 Luật Bảo vệ quyền lợi người tiêu dùng năm 2023, tổ chức, cá nhân kinh doanh có trách nhiệm:
+_- Bảo đảm an toàn, đo lường, số lượng, khối lượng, chất lượng, công dụng sản phẩm, hàng hóa, dịch vụ bán, cung cấp cho người tiêu dùng theo đúng nội dung đã đăng ký, thông báo, công bố, niêm yết, quảng cáo, giới thiệu, giao kết, cam kết hoặc theo quy định của pháp luật._
+_- Phải cảnh báo sản phẩm, hàng hóa, dịch vụ có khả năng gây mất an toàn, ảnh hưởng xấu đến tính mạng, sức khỏe, tài sản của người tiêu dùng và thông báo về các biện pháp phòng ngừa theo quy định của pháp luật._
+**_Trách nhiệm bảo vệ thông tin người tiêu dùng_**
+![](https://moit.gov.vn/upload/2005517/fck/files/8888_a3f6a.jpg)
+Trong các giao dịch tiêu dùng tại các kênh khác nhau trong hệ thống bán lẻ hiện đại, trách nhiệm bảo vệ thông tin người tiêu dùng được coi là một trong những trách nhiệm quan trọng, đặc biệt trong bối cảnh giao dịch tiêu dùng trên không gian mạng phát triển mãnh mẽ như hiện nay.
+Điều 15 Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 quy định trách nhiệm bảo vệ thông tin của người tiêu dùng. Theo đó:
+_1. Tổ chức, cá nhân kinh doanh tự mình hoặc ủy quyền, thuê bên thứ ba thực hiện việc thu thập, lưu trữ, sử dụng, chỉnh sửa, cập nhật, hủy bỏ thông tin của người tiêu dùng phải bảo đảm an toàn, an ninh thông tin của người tiêu dùng theo quy định của Luật này và quy định khác của pháp luật có liên quan._
+_2. Trường hợp tổ chức, cá nhân kinh doanh ủy quyền hoặc thuê bên thứ ba thực hiện việc thu thập, lưu trữ, sử dụng, chỉnh sửa, cập nhật, hủy bỏ thông tin của người tiêu dùng thi phải được sự đồng ý của người tiêu dùng. Việc ủy quyền hoặc thuê bên thứ ba phải được thực hiện bằng văn bản, trong đó quy định rõ phạm vi, trách nhiệm của mỗi bên trong việc bảo vệ thông tin của người tiêu dùng theo quy định của Luật này và quy định khác của pháp luật có liên quan._
+_3. Trường hợp người tiêu dùng thực hiện giao dịch thông qua bên thứ ba thì bên thứ ba có trách nhiệm bảo vệ thông tin của người tiêu dùng theo quy định của Luật này và quy định khác của pháp luật có liên quan._
+Bên cạnh đó, tổ chức, cá nhân kinh doanh có trách nhiệm xây dựng quy tắc bảo vệ thông tin của người tiêu dùng. Cụ thể, trừ trường hợp pháp luật có quy định khác, tổ chức, cá nhân kinh doanh thu thập, lưu trữ, sử dụng thông tin của người tiêu dùng phải xây dựng quy tắc bảo vệ thông tin áp dụng chung cho người tiêu dùng với các nội dung sau đây:
+a) Mục đích thu thập thông tin;
+b) Phạm vi sử dụng thông tin;
+c) Thời hạn lưu trữ thông tin;
+d) Biện pháp bảo vệ thông tin, bảo đảm an toàn thông tin của người tiêu dùng.
+Các quy tắc này phải được công khai theo hình thức niêm yết ở vị trí dễ nhìn thấy tại trụ sở, địa điểm kinh doanh và đăng tải trên trang thông tin điện tử, phần mềm ứng dụng (nếu có), tạo điều kiện để người tiêu dùng tiếp cận trước hoặc tại thời điểm thu thập thông tin.
+Ngoài ra, điều 17, 18 và 19 Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 cũng quy định cụ thể các trách nhiệm thông báo khi thu thập, sử dụng thông tin của người tiêu dùng và trách nhiệm bảo đảm an toàn, an ninh thông tin của người tiêu dùng. Theo đó, tổ chức, cá nhân kinh doanh phải bảo đảm an toàn, an ninh thông tin của người tiêu dùng mà họ thu thập, lưu trữ, sử dụng và có biện pháp ngăn ngừa các hành vi sau đây:
+a) Đánh cắp hoặc tiếp cận thông tin trái phép;
+b) Sử dụng thông tin trái phép;
+c) Chỉnh sửa, cập nhật, hủy bỏ thông tin trái phép.
+Trong trường hợp phát sinh phản ánh, yêu cầu, khiếu nại của người tiêu dùng liên quan đến việc thông tin bị thu thập trái phép, sử dụng sai mục đích, phạm vi đã thông báo, tổ chức, cá nhân kinh doanh phải có trách nhiệm tiếp nhận và giải quyết.
+![](https://moit.gov.vn/upload/2005517/fck/files/he_39be4.jpg)
+**_Trách nhiệm giải quyết tranh chấp người tiêu dùng_**
+Do tính chất là các giao dịch thường nhật, tần suất lớn và liên quan đến mọi loại hàng hóa, sản phẩm, dịch vụ, giao dịch tiêu dùng trong hệ thống phân phối, bán lẻ là loại giao dịch tiềm ẩn nhiều nguy cơ phát sinh yêu cầu, phản ánh, khiếu nại của người tiêu dùng. Chính vì lẽ đó, tổ chức, cá nhân kinh doanh trong ngành bán lẻ cần đặc biệt lưu ý tới trách nhiệm giải quyết tranh chấp với người tiêu dùng.
+Theo quy định tại Luật Bảo vệ quyền lợi người tiêu dùng năm 2023, trong trường hợp người tiêu dùng gửi yêu cầu thương lượng và thông tin, tài liệu liên quan (nếu có), tổ chức, cá nhân tiếp nhận phải có trách nhiệm tiếp nhận, tiến hành thương lượng với người tiêu dùng trong thời hạn 07 ngày làm việc kể từ ngày nhận được yêu cầu và thông báo bằng văn bản kết quả thương lượng đến cơ quan quản lý nhà nước về bảo vệ quyền lợi người tiêu dùng, tổ chức xã hội tham gia bảo vệ quyền lợi người tiêu dùng trong thời hạn 05 ngày làm việc kể từ ngày kết thúc thương lượng. Trường hợp từ chối yêu cầu thương lượng của người tiêu dùng, trong thời hạn 07 ngày làm việc kể từ ngày nhận được yêu cầu thương lượng, tổ chức, cá nhân kinh doanh phải trả lời bằng văn bản và nêu rõ lý do.
+![](https://moit.gov.vn/upload/2005517/fck/files/iii_5de26.jpg)
+**_Trách nhiệm bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện_**
+Đối với các sản phẩm, hàng hóa, linh kiện, phụ kiện được mua trong các giao dịch tiêu dùng trên các kênh phân phối, bán lẻ, tổ chức, cá nhân kinh doanh cần thực hiện trách nhiệm bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện cho người tiêu dùng theo thỏa thuận giữa hai bên hoặc bắt buộc bảo hành theo quy định của pháp luật.
+Trường hợp được bảo hành, tổ chức, cá nhân kinh doanh có trách nhiệm:
+_a) Công bố công khai chính sách bảo hành. Chính sách bảo hành bao gồm các nội dung chủ yếu sau đây: thời điểm, thời hạn áp dụng, nội dung, phạm vi, phương thức thực hiện bảo hành và các trường hợp loại trừ trách nhiệm bảo hành của tổ chức, cá nhân kinh doanh;_
+_b) Thực hiện chính xác, đầy đủ trách nhiệm bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện do mình cung cấp;_
+_c) Cung cấp cho người tiêu dùng văn bản tiếp nhận bảo hành hoặc hình thức tiếp nhận bảo hành tương đương khác, trong đó ghi rõ thời gian thực hiện bảo hành. Thời gian thực hiện bảo hành không tính vào thời hạn bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện._
+_Trường hợp tổ chức, cá nhân kinh doanh thay thế linh kiện, phụ kiện thì thời hạn bảo hành linh kiện, phụ kiện đó được tính lại từ thời điểm thay thế linh kiện, phụ kiện._
+_Trường hợp tổ chức, cá nhân kinh doanh đổi sản phẩm, hàng hóa mới thì thời hạn bảo hành sản phẩm, hàng hóa đó được tính lại từ thời điểm đổi mới sản phẩm, hàng hóa;_
+_d) Cung cấp cho người tiêu dùng sản phẩm, hàng hóa, linh kiện, phụ kiện tương tự để sử dụng tạm thời hoặc có hình thức giải quyết phù hợp theo thỏa thuận giữa người tiêu dùng và tổ chức, cá nhân kinh doanh trong thời gian thực hiện bảo hành;_
+_đ) Đổi sản phẩm, hàng hóa, linh kiện, phụ kiện mới tương tự hoặc thu hồi sản phẩm, hàng hóa, linh kiện, phụ kiện và trả lại tiền cho người tiêu dùng trong trường hợp hết thời gian thực hiện bảo hành mà không sửa chữa được hoặc không khắc phục được lỗi hoặc trong trường hợp đã thực hiện bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện từ 03 lần trở lên trong thời hạn bảo hành mà vẫn không khắc phục được lỗi;_
+_e) Chịu chi phí sửa chữa, vận chuyển sản phẩm, hàng hóa, linh kiện, phụ kiện từ nơi ở của người tiêu dùng hoặc nơi sử dụng sản phẩm, hàng hóa, linh kiện, phụ kiện đến nơi bảo hành và từ nơi bảo hành đến nơi ở của người tiêu dùng hoặc nơi sử dụng sản phẩm, hàng hóa, linh kiện, phụ kiện;_
+_g) Chịu trách nhiệm về việc bảo hành sản phẩm, hàng hóa, linh kiện, phụ kiện cho người tiêu dùng cả trong trường hợp ủy quyền hoặc thuê tổ chức, cá nhân khác thực hiện việc bảo hành._
+**_Một số hành vi bị nghiêm cấm trong bảo vệ quyền lợi người tiêu dùng trong các giao dịch bán lẻ_**
+Theo Điều 10 Luật Bảo vệ quyền lợi người tiêu dùng, trong các giao dịch bán lẻ, tổ chức, cá nhân kinh doanh bị nghiêm cấm thực hiện một số hành vi, trong đó có:
+_a) Lừa dối hoặc gây nhầm lẫn cho người tiêu dùng thông qua việc cung cấp thông tin sai lệch, không đầy đủ, không chính xác về một trong các nội dung sau đây: sản phẩm, hàng hóa, dịch vụ mà tổ chức, cá nhân kinh doanh bán, cung cấp;_
+_b) Quấy rối người tiêu dùng thông qua hành vi tiếp xúc trực tiếp hoặc gián tiếp trái với ý muốn của người tiêu dùng để giới thiệu về sản phẩm, hàng hóa, dịch vụ, tổ chức, cá nhân kinh doanh, đề nghị giao kết hợp đồng hoặc có hành vi khác gây cản trở công việc, sinh hoạt bình thường của người tiêu dùng;_
+_c) Ép buộc người tiêu dùng mua sản phẩm, hàng hóa, dịch vụ trái với ý muốn của người tiêu dùng thông qua việc thực hiện hành vi dùng vũ lực, đe dọa dùng vũ lực hoặc hành vi khác có tính chất tương tự;_
+_d) Ép buộc người tiêu dùng thanh toán cho sản phẩm, hàng hóa, dịch vụ đã cung cấp mà không có thỏa thuận trước với người tiêu dùng;_
+_đ) Không đền bù, trả lại tiền hoặc đổi lại sản phẩm, hàng hóa, dịch vụ cho người tiêu dùng do nhầm lẫn của tổ chức, cá nhân kinh doanh;_
+_e) Không đền bù, trả lại tiền hoặc đổi lại sản phẩm, hàng hóa, dịch vụ cho người tiêu dùng do sản phẩm, hàng hóa, dịch vụ không đúng với đăng ký, thông báo, công bố, niêm yết, quảng cáo, giới thiệu, giao kết, cam kết của tổ chức, cá nhân kinh doanh;_
+_g) Đánh tráo, gian lận sản phẩm, hàng hóa, dịch vụ khi giao hàng, cung cấp dịch vụ cho người tiêu dùng;_
+_i) Ngăn cản người tiêu dùng kiểm tra về sản phẩm, hàng hóa, dịch vụ, trừ trường hợp pháp luật có quy định khác;_
+Bên cạnh các trách nhiệm, nghĩa vụ nêu trên, tổ chức, cá nhân kinh doanh trong hệ thống phân phối, bán lẻ phải tuân thủ các trách nhiệm, nghĩa vụ khác về bảo vệ quyền lợi người tiêu dùng như các tổ chức, cá nhân kinh doanh thông thường. Việc tuân thủ các trách nhiệm, nghĩa vụ này sẽ giúp quyền lợi người tiêu dùng được bảo vệ một cách tối đa, đặc biệt trong bối cảnh các hành vi xâm hại quyền lợi người tiêu dùng ở nước ta đang có những diễn biến ngày càng phức tạp, với phạm vi ngày càng rộng và hình thức ngày một đa dạng, tinh vi hơn.
+* * *
+**Nguồn:** Ủy ban Cạnh tranh quốc gia Copy link
+###  Tin liên quan 
+[ Bản tin Phòng vệ thương mại số 25](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/ban-tin-phong-ve-thuong-mai-so-25.html "Bản tin Phòng vệ thương mại số 25")
+[ Thương vụ Việt Nam tại Pakistan cảnh báo thủ đoạn lừa đảo mới trong buôn bán quốc tế](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/canh-bao-thu-doan-lua-dao-moi-trong-buon-ban-quoc-te.html "Thương vụ Việt Nam tại Pakistan cảnh báo thủ đoạn lừa đảo mới trong buôn bán quốc tế")
+[ Đài Loan (Trung Quốc) khởi xướng điều tra chống bán phá giá đối với mặt hàng xi măng và clanhke có xuất xứ hoặc nhập khẩu từ Việt Nam](https://moit.gov.vn/tin-tuc/thong-bao/dai-loan-trung-quoc-khoi-xuong-dieu-tra-chong-ban-pha-gia-doi-voi-mat-hang-xi-mang-va-clanhke-co-xuat-xu-hoac-nhap-khau-.html "Đài Loan \(Trung Quốc\) khởi xướng điều tra chống bán phá giá đối với mặt hàng xi măng và clanhke có xuất xứ hoặc nhập khẩu từ Việt Nam")
+[ Hoa Kỳ ban hành kết luận cuối cùng vụ việc rà soát hoàng hôn lần thứ hai lệnh áp thuế chống bán phá giá với tháp gió nhập khẩu từ Việt Nam](https://moit.gov.vn/tin-tuc/thong-bao/hoa-ky-ban-hanh-ket-luan-cuoi-cung-vu-viec-ra-soat-hoang-hon-lan-thu-hai-lenh-ap-thue-chong-ban-pha-gia-voi-thap-gio-nha.html "Hoa Kỳ ban hành kết luận cuối cùng vụ việc rà soát hoàng hôn lần thứ hai lệnh áp thuế chống bán phá giá với tháp gió nhập khẩu từ Việt Nam")
+[ Mời gửi thông tin Doanh nghiệp Việt Nam để quảng bá tại sự kiện “2024 Houston's International Partners” Texas- Hoa Kỳ](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/moi-gui-thong-tin-doanh-nghiep-viet-nam-de-quang-ba-tai-su-kien-2024-houston-s-international-partners-texas-hoa-ky.html "Mời gửi thông tin Doanh nghiệp Việt Nam để quảng bá tại sự kiện “2024 Houston's International Partners”  Texas- Hoa Kỳ")
+[ Bản câu hỏi điều tra cho nhà sản xuất trong nước và nhà nhập khẩu – Vụ việc điều tra rà soát cuối kỳ biện pháp chống bán phá giá đối với một số sản phẩm plastic và sản phẩm bằng plastic được làm từ các polyme từ propylene](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/ban-cau-hoi-dieu-tra-cho-nha-san-xuat-trong-nuoc-va-nha-nhap-khau-vu-viec-dieu-tra-ra-soat-cuoi-ky-bien-phap-chong-ban-p.html "Bản câu hỏi điều tra cho nhà sản xuất trong nước và nhà nhập khẩu  –  Vụ việc điều tra rà soát cuối kỳ biện pháp chống bán phá giá đối với một số sản phẩm plastic và sản phẩm bằng plastic được làm từ các polyme từ propylene")
+[ Bản câu hỏi điều tra cho nhà sản xuất trong nước và nhà nhập khẩu – Vụ việc điều tra rà soát cuối kỳ áp dụng biện pháp chống bán phá giá đối với sản phẩm bột ngọt xuất xứ từ Trung Quốc và Indonesia](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/ban-cau-hoi-dieu-tra-cho-nha-san-xuat-trong-nuoc-va-nha-nhap-khau-vu-viec-dieu-tra-ra-soat-cuoi-ky-ap-dung-bien-phap-cho.html "Bản câu hỏi điều tra cho nhà sản xuất trong nước và nhà nhập khẩu  –  Vụ việc điều tra rà soát cuối kỳ áp dụng biện pháp chống bán phá giá đối với sản phẩm bột ngọt xuất xứ từ Trung Quốc và Indonesia")
+[ Tìm kiếm giải pháp đột phá thúc đẩy Thương mại điện tử xuyên biên giới trong khu vực ASEAN](https://moit.gov.vn/tin-tuc/thi-truong-trong-nuoc/hoi-nghi-tim-kiem-giai-phap-dot-pha-thuc-day-thuong-mai-dien-tu-xuyen-bien-gioi-trong-khu-vuc-asean-.html "Tìm kiếm giải pháp đột phá thúc đẩy Thương mại điện tử xuyên biên giới trong khu vực ASEAN")
+[ Giải pháp xác minh danh tính điện tử: đảm bảo an toàn và hiệu quả trong ký kết Hợp đồng điện tử](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/giai-phap-xac-minh-danh-tinh-dien-tu-dam-bao-an-toan-va-hieu-qua-trong-ky-ket-hop-dong-dien-tu.html "Giải pháp xác minh danh tính điện tử: đảm bảo an toàn và hiệu quả trong ký kết Hợp đồng điện tử")
+[ Bản câu hỏi điều tra dành cho nhà sản xuất/xuất khẩu nước ngoài trong vụ việc rà soát cuối kỳ việc áp dụng biện pháp chống bán phá giá đối với một số sản phẩm bột ngọt xuất xứ từ Indonesia và Trung Hoa](https://moit.gov.vn/tin-tuc/thong-bao/ban-cau-hoi-dieu-tra-danh-cho-nha-san-xuat-xuat-khau-nuoc-ngoai-trong-vu-viec-ra-soat-cuoi-ky-viec-ap-dung-bien-phap-cho2.html "Bản câu hỏi điều tra dành cho nhà sản xuất/xuất khẩu nước ngoài trong vụ việc rà soát cuối kỳ việc áp dụng biện pháp chống bán phá giá đối với một số sản phẩm bột ngọt xuất xứ từ Indonesia và Trung Hoa")
+[ Hoa Kỳ khởi xướng rà soát hành chính lệnh áp thuế chống bán phá giá lần thứ hai với mật ong có xuất xứ từ Việt Nam](https://moit.gov.vn/tin-tuc/thong-bao/hoa-ky-khoi-xuong-ra-soat-hanh-chinh-lenh-ap-thue-chong-ban-pha-gia-lan-thu-hai-voi-mat-ong-co-xuat-xu-tu-viet-nam.html "Hoa Kỳ khởi xướng rà soát hành chính lệnh áp thuế chống bán phá giá lần thứ hai với mật ong có xuất xứ từ Việt Nam")
+[ Mô hình kinh doanh “sở hữu kỳ nghỉ” trên thế giới – Từ lịch sử hình thành đến những vấn đề người mua gặp phải](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mo-hinh-kinh-doanh-so-huu-ky-nghi-tren-the-gioi-tu-lich-su-hinh-thanh-den-nhung-van-de-nguoi-mua-gap-phai.html "Mô hình kinh doanh “sở hữu kỳ nghỉ” trên thế giới –  Từ lịch sử hình thành đến những vấn đề người mua gặp phải")
+«««1[2](javascript:void\(0\);)[3](javascript:void\(0\);)[4](javascript:void\(0\);)[5](javascript:void\(0\);)[»](javascript:void\(0\);)[»»](javascript:void\(0\);)
+### [Hoạt động](https://moit.gov.vn/tin-tuc/hoat-dong "/tin-tuc/hoat-dong")
+[ ![Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/fck/files/db1_44e54.jpg) ](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-khao-sat-nha-may-san-xuat-nacelle-va-lam-viec-voi-siemens-energy-tai-cuxhaven.html "Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven")
+[Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-khao-sat-nha-may-san-xuat-nacelle-va-lam-viec-voi-siemens-energy-tai-cuxhaven.html "Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven")
+[Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa](https://moit.gov.vn/tin-tuc/cong-bo-quyet-dinh-cua-bo-cong-thuong-bo-nhiem-vien-truong-vien-nghien-cuu-dien-tu-tin-hoc-tu-dong-hoa.html "Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa")
+[Đồng Tháp phát triển “Xã thương mại điện tử”: Cú hích cho nông sản địa phương](https://moit.gov.vn/tin-tuc/dong-thap-phat-trien-xa-thuong-mai-dien-tu-cu-hich-cho-nong-san-dia-phuong.html "Đồng Tháp phát triển “Xã thương mại điện tử”: Cú hích cho nông sản địa phương")
+### [Thị trường nước ngoài](https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai "/tin-tuc/thi-truong-nuoc-ngoai")
+[ ![Sản phẩm Việt Nam được doanh nghiệp Nhật Bản quan tâm tại Hội chợ Osaka International Gift Show 2026](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/20260924/Thuong_vu_Viet_Nam_tai_Osaka_e15d5.png) ](https://moit.gov.vn/tin-tuc/san-pham-viet-nam-duoc-doanh-nghiep-nhat-babr-quan-tam-tai-hoi-cho-osaka-international-gift-show-2026.html "Sản phẩm Việt Nam được doanh nghiệp Nhật Bản quan tâm tại Hội chợ Osaka International Gift Show 2026")
+[Sản phẩm Việt Nam được doanh nghiệp Nhật Bản quan tâm tại Hội chợ Osaka International Gift Show 2026](https://moit.gov.vn/tin-tuc/san-pham-viet-nam-duoc-doanh-nghiep-nhat-babr-quan-tam-tai-hoi-cho-osaka-international-gift-show-2026.html "Sản phẩm Việt Nam được doanh nghiệp Nhật Bản quan tâm tại Hội chợ Osaka International Gift Show 2026")
+[Tăng cường thuận lợi hóa thương mại trong bối cảnh số hóa](https://moit.gov.vn/tin-tuc/tang-cuong-thuan-loi-hoa-thuong-mai-trong-boi-canh-so-hoa.html "Tăng cường thuận lợi hóa thương mại trong bối cảnh số hóa")
+[Brazil ban hành quyết định cuối cùng trong vụ việc điều tra chống bán phá giá đối với sản phẩm nhựa PET nhập khẩu từ Việt Nam và Malaysia](https://moit.gov.vn/tin-tuc/brazil-ban-hanh-quyet-dinh-cuoi-cung-trong-vu-viec-dieu-tra-chong-ban-pha-gia-doi-voi-san-pham-nhua-pet-nhap-khau-tu-vie.html "Brazil ban hành quyết định cuối cùng trong vụ việc điều tra chống bán phá giá đối với sản phẩm nhựa PET nhập khẩu từ Việt Nam và Malaysia")
+### [Địa phương](https://moit.gov.vn/tin-tuc/dia-phuong "/tin-tuc/dia-phuong")
+[ ![Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/20260923/2_0df3a.jpg) ](https://moit.gov.vn/tin-tuc/bo-cong-thuong-to-chuc-hoi-nghi-giao-ban-xuc-tien-thuong-mai-voi-he-thong-thuong-vu-viet-nam-o-nuoc-ngoai-thang-9-2026.html "Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026")
+[Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026](https://moit.gov.vn/tin-tuc/bo-cong-thuong-to-chuc-hoi-nghi-giao-ban-xuc-tien-thuong-mai-voi-he-thong-thuong-vu-viet-nam-o-nuoc-ngoai-thang-9-2026.html "Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026")
+[Định hình chuỗi cung ứng xuất giày dép mới tại Việt Nam](https://moit.gov.vn/tin-tuc/xuc-tien-thuong-mai/dinh-hinh-chuoi-cung-ung-xuat-giay-dep-moi-tai-viet-nam.html "Định hình chuỗi cung ứng xuất giày dép mới tại Việt Nam")
+[Đoàn xúc tiến đầu tư tại Trung Quốc nhân dịp Hội chợ Thương mại Trung Quốc - ASEAN (CAEXPO)](https://moit.gov.vn/tin-tuc/xuc-tien-thuong-mai/doan-xuc-tien-dau-tu-tai-trung-quoc-nhan-dip-hoi-cho-thuong-mai-trung-quoc-asean-caexpo-.html "Đoàn xúc tiến đầu tư tại Trung Quốc nhân dịp Hội chợ Thương mại Trung Quốc - ASEAN \(CAEXPO\)")
+### [Doanh nghiệp - Người dân](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan "/tin-tuc/bao-chi-voi-nguoi-dan")
+[ ![Bộ Công Thương họp về Dự thảo Chiến lược xuất nhập khẩu hàng hóa đến năm 2030, tầm nhìn 2045](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/20260818/a10-20532068_4df25.jpg) ](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-hop-ve-du-thao-chien-luoc-xuat-nhap-khau-hang-hoa-den-nam-2030-tam-nhin-2045.html "Bộ Công Thương họp về Dự thảo Chiến lược xuất nhập khẩu hàng hóa đến năm 2030, tầm nhìn 2045")
+[Bộ Công Thương họp về Dự thảo Chiến lược xuất nhập khẩu hàng hóa đến năm 2030, tầm nhìn 2045](https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-hop-ve-du-thao-chien-luoc-xuat-nhap-khau-hang-hoa-den-nam-2030-tam-nhin-2045.html "Bộ Công Thương họp về Dự thảo Chiến lược xuất nhập khẩu hàng hóa đến năm 2030, tầm nhìn 2045")
+[Ủy ban Cạnh tranh Quốc gia phổ biến Luật Bảo vệ quyền lợi người tiêu dùng](https://moit.gov.vn/tin-tuc/hoat-dong/hoat-dong-cua-cac-don-vi/uy-ban-canh-tranh-quoc-gia-pho-bien-luat-bao-ve-quyen-loi-nguoi-tieu-dung.html "Ủy ban Cạnh tranh Quốc gia phổ biến Luật Bảo vệ quyền lợi người tiêu dùng")
+[Ủy ban Cạnh tranh Quốc gia yêu cầu Shopee không áp dụng các loại phí mới đối với người bán hàng](https://moit.gov.vn/tin-tuc/uy-ban-canh-tranh-quoc-gia-yeu-cau-shopee-khong-ap-dung-cac-loai-phi-moi-doi-voi-nguoi-ban-hang.html "Ủy ban Cạnh tranh Quốc gia yêu cầu Shopee không áp dụng các loại phí mới đối với người bán hàng")
+### [Phát triển bền vững](https://moit.gov.vn/phat-trien-ben-vung "/phat-trien-ben-vung")
+[ ![GREENTECH HANOI 2026: Đổi mới công nghệ thúc đẩy sản xuất và tiêu dùng bền vững](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/20260917/cobot2_71499.png) ](https://moit.gov.vn/phat-trien-ben-vung/greentech-hanoi-2026-doi-moi-cong-nghe-thuc-day-san-xuat-va-tieu-dung-ben-vung.html "GREENTECH HANOI 2026: Đổi mới công nghệ thúc đẩy sản xuất và tiêu dùng bền vững")
+[GREENTECH HANOI 2026: Đổi mới công nghệ thúc đẩy sản xuất và tiêu dùng bền vững](https://moit.gov.vn/phat-trien-ben-vung/greentech-hanoi-2026-doi-moi-cong-nghe-thuc-day-san-xuat-va-tieu-dung-ben-vung.html "GREENTECH HANOI 2026: Đổi mới công nghệ thúc đẩy sản xuất và tiêu dùng bền vững")
+[Sản xuất bền vững mở rộng cơ hội xuất khẩu cho doanh nghiệp Việt](https://moit.gov.vn/tin-tuc/san-xuat-vung-mo-rong-co-hoi-xuat-khau-cho-doanh-nghiep.html "Sản xuất bền vững mở rộng cơ hội xuất khẩu cho doanh nghiệp Việt")
+[Ngành dệt may thúc đẩy sản xuất và tiêu dùng bền vững](https://moit.gov.vn/tin-tuc/nganh-det-may-thuc-day-san-xuat-va-tieu-dung-ben-vung.html "Ngành dệt may thúc đẩy sản xuất và tiêu dùng bền vững")
+### [Quản lý thị trường](https://moit.gov.vn/quan-ly-thi-truong "/quan-ly-thi-truong")
+[ ![Bộ Công Thương yêu cầu tăng cường kiểm tra kinh doanh bán lẻ xăng dầu, đảm bảo nguồn cung](https://moit.gov.vn/publish/thumbnail/2005517/700x394xdefault/upload/2005517/fck/files/Screen_Shot_2026-07-24_at_15_32_31_63a10.png) ](https://moit.gov.vn/tin-tuc/bo-cong-thuong-yeu-cau-tang-cuong-kiem-tra-kinh-doanh-ban-le-xang-dau-dam-bao-nguon-cung.html "Bộ Công Thương yêu cầu tăng cường kiểm tra kinh doanh bán lẻ xăng dầu, đảm bảo nguồn cung")
+[Bộ Công Thương yêu cầu tăng cường kiểm tra kinh doanh bán lẻ xăng dầu, đảm bảo nguồn cung](https://moit.gov.vn/tin-tuc/bo-cong-thuong-yeu-cau-tang-cuong-kiem-tra-kinh-doanh-ban-le-xang-dau-dam-bao-nguon-cung.html "Bộ Công Thương yêu cầu tăng cường kiểm tra kinh doanh bán lẻ xăng dầu, đảm bảo nguồn cung")
+[Thông tin mới về tình hình triển khai xăng sinh học E10](https://moit.gov.vn/tin-tuc/thong-tin-moi-ve-tinh-hinh-trien-khai-xang-sinh-hoc-e10.html "Thông tin mới về tình hình triển khai xăng sinh học E10")
+[Lạng Sơn: Tiêu hủy nhiều hàng hóa xâm phạm quyền sở hữu trí tuệ](https://moit.gov.vn/tin-tuc/lang-son-xu-ly-42-vu-vi-pham-so-huu-tri-tue-trong-dot-cao-diem.html "Lạng Sơn: Tiêu hủy nhiều hàng hóa xâm phạm quyền sở hữu trí tuệ")
+###  Tin nổi bật 
+[ ![Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven](https://moit.gov.vn/publish/thumbnail/2005517/480x320xdefault/upload/2005517/fck/files/db1_44e54.jpg) ](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-khao-sat-nha-may-san-xuat-nacelle-va-lam-viec-voi-siemens-energy-tai-cuxhaven.html "Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven")
+[Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-khao-sat-nha-may-san-xuat-nacelle-va-lam-viec-voi-siemens-energy-tai-cuxhaven.html "Thứ trưởng Trương Thanh Hoài khảo sát nhà máy sản xuất Nacelle và làm việc với Siemens Energy tại Cuxhaven")
+[ ![Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa](https://moit.gov.vn/publish/thumbnail/2005517/480x320xdefault/upload/2005517/20260923/1790156152798_6863615416158050089_6863615416158050089_32863e863ff5aef55c5d1a27924adcf7_bcbd4.jpg) ](https://moit.gov.vn/tin-tuc/cong-bo-quyet-dinh-cua-bo-cong-thuong-bo-nhiem-vien-truong-vien-nghien-cuu-dien-tu-tin-hoc-tu-dong-hoa.html "Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa")
+[Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa](https://moit.gov.vn/tin-tuc/cong-bo-quyet-dinh-cua-bo-cong-thuong-bo-nhiem-vien-truong-vien-nghien-cuu-dien-tu-tin-hoc-tu-dong-hoa.html "Công bố Quyết định của Bộ Công Thương bổ nhiệm Viện trưởng Viện Nghiên cứu Điện tử, Tin học, Tự động hóa")
+[ ![Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026](https://moit.gov.vn/publish/thumbnail/2005517/480x320xdefault/upload/2005517/20260923/2_0df3a.jpg) ](https://moit.gov.vn/tin-tuc/bo-cong-thuong-to-chuc-hoi-nghi-giao-ban-xuc-tien-thuong-mai-voi-he-thong-thuong-vu-viet-nam-o-nuoc-ngoai-thang-9-2026.html "Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026")
+[Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026](https://moit.gov.vn/tin-tuc/bo-cong-thuong-to-chuc-hoi-nghi-giao-ban-xuc-tien-thuong-mai-voi-he-thong-thuong-vu-viet-nam-o-nuoc-ngoai-thang-9-2026.html "Bộ Công Thương tổ chức Hội nghị giao ban Xúc tiến thương mại với hệ thống Thương vụ Việt Nam ở nước ngoài tháng 9/2026")
+[ ![Các hội nghị tham vấn giữa Bộ trưởng Kinh tế ASEAN với đối tác trong khuôn khổ AEM 58](https://moit.gov.vn/App/images/bg_trans.png) ](https://moit.gov.vn/tin-tuc/cac-hoi-nghi-tham-van-giua-bo-truong-kinh-te-asean-voi-cac-doi-tac-trong-khuon-kho-hoi-nghi-bo-truong-kinh-te-asean-lan-.html "Các hội nghị tham vấn giữa Bộ trưởng Kinh tế ASEAN với đối tác trong khuôn khổ AEM 58")
+[Các hội nghị tham vấn giữa Bộ trưởng Kinh tế ASEAN với đối tác trong khuôn khổ AEM 58](https://moit.gov.vn/tin-tuc/cac-hoi-nghi-tham-van-giua-bo-truong-kinh-te-asean-voi-cac-doi-tac-trong-khuon-kho-hoi-nghi-bo-truong-kinh-te-asean-lan-.html "Các hội nghị tham vấn giữa Bộ trưởng Kinh tế ASEAN với đối tác trong khuôn khổ AEM 58")
+[ ![Thứ trưởng Trương Thanh Hoài làm việc với Tập đoàn Vestas tại Aahus, Đan Mạch](https://moit.gov.vn/App/images/bg_trans.png) ](https://moit.gov.vn/tin-tuc/hoat-dong/thu-truong-truong-thanh-hoai-lam-viec-voi-tap-doan-vestas-tai-aahus-dan-mach.html "Thứ trưởng Trương Thanh Hoài làm việc với Tập đoàn Vestas tại Aahus, Đan Mạch")
+[Thứ trưởng Trương Thanh Hoài làm việc với Tập đoàn Vestas tại Aahus, Đan Mạch](https://moit.gov.vn/tin-tuc/hoat-dong/thu-truong-truong-thanh-hoai-lam-viec-voi-tap-doan-vestas-tai-aahus-dan-mach.html "Thứ trưởng Trương Thanh Hoài làm việc với Tập đoàn Vestas tại Aahus, Đan Mạch")
+[ ![Thứ trưởng Trương Thanh Hoài làm việc với lãnh đạo Tập đoàn Copenhagen Infrastructure Partners](https://moit.gov.vn/App/images/bg_trans.png) ](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-lam-viec-voi-lanh-dao-tap-doan-copenhagen-infrastructure-partners.html "Thứ trưởng Trương Thanh Hoài làm việc với lãnh đạo Tập đoàn Copenhagen Infrastructure Partners")
+[Thứ trưởng Trương Thanh Hoài làm việc với lãnh đạo Tập đoàn Copenhagen Infrastructure Partners](https://moit.gov.vn/tin-tuc/thu-truong-truong-thanh-hoai-lam-viec-voi-lanh-dao-tap-doan-copenhagen-infrastructure-partners.html "Thứ trưởng Trương Thanh Hoài làm việc với lãnh đạo Tập đoàn Copenhagen Infrastructure Partners")
+### Liên kết website
+--- Chọn liên kết --- Cục Công nghiệp địa phương Cục Đổi mới sáng tạo, Chuyển đổi xanh và Khuyến công (Cục ĐCK) Cục Hóa chất Thương vụ Việt Nam tại Canada Cục Quản lý cạnh tranh Tổng Cục quản lý thị trường Cục Kỹ thuật an toàn và môi trường công nghiệp Cục Xúc tiến thương mại Thương vụ Việt Nam tại Singapore Đăng ký website TMĐT Cục Điều tiết điện lực Viện Nghiên Cứu Cơ Khí Cục Thương mại điện tử và công nghệ thông tin Cục Điện lưc Thương vụ Việt Nam tại Thụy Điển - Thị trường Bắc Âu và Latvia
+CỔNG THÔNG TIN ĐIỆN TỬ BỘ CÔNG THƯƠNG
+Đơn vị chủ quản: Bộ Công Thương
+Đơn vị quản lý, vận hành: Báo Công Thương
+Địa chỉ: 23 Ngô Quyền, thành phố Hà Nội.
+Số điện thoại liên hệ: 0243.936.6400/ Email: BaoCT@moit.gov.vn
+Hotline: [0866.59.4498](tel:0866.59.4498)
+Chịu trách nhiệm nội dung: Ông Nguyễn Văn Minh, Tổng Biên tập Báo Công Thương
+Ghi rõ nguồn “Cổng thông tin điện tử Bộ Công Thương” khi trích dẫn lại tin từ địa chỉ này và phải được sự đồng ý bằng văn bản khi khai thác, dẫn nguồn.
+[![Chung nhan Tin Nhiem](https://tinnhiemmang.vn/handle_cert?id=moit.gov.vn)](https://tinnhiemmang.vn/danh-ba-tin-nhiem/moitgovvn-1642153929 "Chung nhan Tin Nhiem Mang")
+Ngôn ngữ ![](https://moit.gov.vn/App/images/BNG/icon-nn.png)
+[Tiếng Việt](https://moit.gov.vn/ "Vietnamese") [Tiếng Anh](https://moit.gov.vn/en "English")
+[ Site map  ](https://moit.gov.vn/so-do-trang "Sơ đồ trang")
+Back to top
+![loading...](https://moit.gov.vn/App/images/loading.gif)

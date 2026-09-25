@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging / build artifacts
+build/
+dist/
+.eggs/
+*.egg
+*.egg-info/
+pip-wheel-metadata/
+
+# Test / type-check / coverage caches
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+.tox/
+.nox/
+
+# Env (keys)
+.env
+.env.*
+!.env.example
+
+# Temp PDF conversion cache
+data/_tmp_pdf/
+
+# Temp / cache
+.pytest_cache/
+*.tmp
+*.log
+pageindex_doc_ids.json
+pageindex_pdfs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
