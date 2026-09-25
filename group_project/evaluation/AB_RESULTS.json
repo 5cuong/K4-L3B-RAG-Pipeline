@@ -1,11 +1,12 @@
 {
-  "run_at": "2026-09-25T07:40:19.224146+00:00",
+  "run_at": "2026-09-25T08:34:58.265708+00:00",
   "dataset_size": 16,
-  "chunk_count": 915,
+  "source_document_count": 9,
+  "chunk_count": 570,
   "top_k": 5,
-  "score_threshold": 0.5731,
+  "score_threshold": 0.5474,
   "threshold_calibration": {
-    "recommended_SCORE_THRESHOLD": 0.5731,
+    "recommended_SCORE_THRESHOLD": 0.5474,
     "balanced_accuracy": 1.0,
     "in_domain_count": 16,
     "out_of_domain_count": 8,
@@ -14,62 +15,68 @@
       0.8219
     ],
     "out_of_domain_score_range": [
-      0.253,
-      0.5462
+      0.1901,
+      0.4947
     ],
     "false_negative_in_domain_queries": [],
     "false_positive_out_of_domain_queries": []
   },
   "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
   "generator": "deterministic extractive baseline, identical for A/B",
-  "evaluator": "offline token-overlap proxy, no external API",
-  "corpus_commit": "5f6049f",
+  "evaluator": "offline lexical/source proxies, no external API",
+  "metric_definitions": {
+    "faithfulness": "share of answer content tokens present in retrieved text",
+    "answer_relevance": "share of question content tokens present in answer",
+    "context_recall": "share of expected-answer content tokens present in retrieved text",
+    "context_precision": "share of top-k chunks from expected source files"
+  },
+  "corpus_commit": "5e3bb1d",
   "latency_seconds": {
-    "dense-only": 0.7957220840035006,
-    "hybrid-rrf": 2.673534750007093
+    "dense-only": 1.0434333680314012,
+    "hybrid-rrf": 2.6553703639656305
   },
   "metrics": {
     "dense-only": {
       "faithfulness": 1.0,
-      "answer_relevance": 0.745553058053058,
-      "context_recall": 0.8118381775766077,
-      "context_precision": 1.0
+      "answer_relevance": 0.7323579198579199,
+      "context_recall": 0.809529064276115,
+      "context_precision": 0.5125
     },
     "hybrid-rrf": {
       "faithfulness": 1.0,
-      "answer_relevance": 0.7754065379065379,
-      "context_recall": 0.8621404224682355,
-      "context_precision": 1.0
+      "answer_relevance": 0.7525960150960151,
+      "context_recall": 0.8538018677481019,
+      "context_precision": 0.4875
     }
   },
   "deltas": {
     "faithfulness": 0.0,
-    "answer_relevance": 0.02985347985347986,
-    "context_recall": 0.05030224489162782,
-    "context_precision": 0.0
+    "answer_relevance": 0.020238095238095277,
+    "context_recall": 0.04427280347198681,
+    "context_precision": -0.024999999999999967
   },
   "cases": {
     "dense-only": [
       {
         "question": "Luật Thương mại điện tử 122/2025/QH15 điều chỉnh những nội dung chính nào?",
-        "answer": "**Ngày 03 tháng 7 năm 2026, tại trụ sở Bộ Công Thương, Cục Thương mại điện tử và Kinh tế số tổ chức Hội nghị phổ biến Luật Thương mại điện tử và Nghị định số 248/2026/NĐ-CP ngày 30 tháng 6 năm 2026 của Chính phủ quy định chi tiết một số điều của Luật Thương mại điện tử. Nền tảng thương mại điện tử có chức năng đặt hàng trực tuyến phải thực hiện quy định tại khoản 1 và khoản 2 Điều này, công khai trên nền tảng thương mại điện tử các nội dung điều kiện giao dịch sau đây:",
+        "answer": "Nền tảng thương mại điện tử có chức năng đặt hàng trực tuyến phải thực hiện quy định tại khoản 1 và khoản 2 Điều này, công khai trên nền tảng thương mại điện tử các nội dung điều kiện giao dịch sau đây: ủa Chính phủ về thương mại điện tử hết hiệu lực thi hành kể từ ngày Nghị định này có hiệu lực, trừ trường hợp quy định tại Điều 53 của Nghị định này.",
         "source_ids": [
-          "news/article_05.md::chunk-29",
-          "news/article_05.md::chunk-27",
+          "news/article_05.md::chunk-1",
           "legal/248_2026_ND-CP_m_713280.md::chunk-106",
           "legal/122_2025_QH15_m_662035.md::chunk-65",
-          "legal/122_2025_QH15_m_662035.md::chunk-16"
+          "legal/122_2025_QH15_m_662035.md::chunk-16",
+          "news/article_05.md::chunk-5"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.6923076923076923,
+        "answer_relevance": 0.6153846153846154,
         "context_recall": 0.8888888888888888,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Luật Thương mại điện tử áp dụng đối với những ai?",
         "answer": "tổ soạn thảo trình bày những điểm đáng lưu ý của Luật Thương mại điện tử 2025._ Luật và Nghị định cũng làm rõ hơn trách nhiệm của nền tảng thương mại điện tử.",
         "source_ids": [
-          "news/article_05.md::chunk-33",
+          "news/article_05.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-6",
           "legal/122_2025_QH15_m_662035.md::chunk-65",
           "legal/122_2025_QH15_m_662035.md::chunk-63",
@@ -78,7 +85,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.625,
         "context_recall": 0.8421052631578947,
-        "context_precision": 1.0
+        "context_precision": 0.8
       },
       {
         "question": "Hoạt động thương mại điện tử được định nghĩa như thế nào?",
@@ -93,7 +100,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.875,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Nền tảng thương mại điện tử trung gian là gì?",
@@ -108,7 +115,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.8888888888888888,
         "context_recall": 0.8275862068965517,
-        "context_precision": 1.0
+        "context_precision": 0.2
       },
       {
         "question": "Chức năng đặt hàng trực tuyến được hiểu là gì?",
@@ -123,7 +130,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Theo Luật Thương mại điện tử, những hành vi nào bị cấm trên nền tảng thương mại điện tử?",
@@ -138,7 +145,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.9166666666666666,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Ngày Thương mại điện tử quốc gia là ngày nào và có những hoạt động hưởng ứng nào?",
@@ -147,50 +154,50 @@
           "legal/248_2026_ND-CP_m_713280.md::chunk-6",
           "legal/248_2026_ND-CP_m_713280.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-13",
-          "news/article_05.md::chunk-29",
+          "news/article_05.md::chunk-1",
           "legal/248_2026_ND-CP_m_713280.md::chunk-40"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 1.0,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Nghị định 248/2026/NĐ-CP áp dụng cho những nhóm chủ thể nào?",
-        "answer": "**Ngày 03 tháng 7 năm 2026, tại trụ sở Bộ Công Thương, Cục Thương mại điện tử và Kinh tế số tổ chức Hội nghị phổ biến Luật Thương mại điện tử và Nghị định số 248/2026/NĐ-CP ngày 30 tháng 6 năm 2026 của Chính phủ quy định chi tiết một số điều của Luật Thương mại điện tử. # Bộ Công Thương phổ biến Luật Thương mại điện tử và Nghị định số 248/2026/NĐ-CP",
+        "answer": "Nghị định số 99/2011/NĐ-CP ngày 27 tháng 10 năm 2011 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật Bảo vệ quyền lợi người tiêu dùng hết hiệu lực thi hành kể từ ngày Nghị định này có hiệu lực. *(Kèm theo Nghị định số 55/2024/NĐ-CP ngày 16 tháng 5 năm 2024 của Chính phủ)*",
         "source_ids": [
           "legal/55_2024_ND-CP_m_610488.md::chunk-46",
           "legal/19_2023_QH15_m_500102.md::chunk-123",
           "legal/55_2024_ND-CP_m_610488.md::chunk-22",
           "legal/19_2023_QH15_m_500102.md::chunk-98",
-          "news/article_05.md::chunk-27"
+          "legal/55_2024_ND-CP_m_610488.md::chunk-48"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.5454545454545454,
-        "context_recall": 0.6428571428571429,
-        "context_precision": 1.0
+        "answer_relevance": 0.36363636363636365,
+        "context_recall": 0.5714285714285714,
+        "context_precision": 0.0
       },
       {
         "question": "Theo Nghị định 55/2024/NĐ-CP, nền tảng số lớn được xác định theo tiêu chí nào?",
         "answer": "*(Kèm theo Nghị định số 55/2024/NĐ-CP ngày 16 tháng 5 năm 2024 của Chính phủ)* Nghị định số 99/2011/NĐ-CP ngày 27 tháng 10 năm 2011 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật Bảo vệ quyền lợi người tiêu dùng hết hiệu lực thi hành kể từ ngày Nghị định này có hiệu lực.",
         "source_ids": [
           "legal/55_2024_ND-CP_m_610488.md::chunk-46",
+          "news/article_05.md::chunk-0",
           "legal/248_2026_ND-CP_m_713280.md::chunk-107",
-          "news/article_05.md::chunk-27",
           "legal/55_2024_ND-CP_m_610488.md::chunk-48",
           "legal/248_2026_ND-CP_m_713280.md::chunk-125"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.6153846153846154,
-        "context_recall": 0.6206896551724138,
-        "context_precision": 1.0
+        "context_recall": 0.6551724137931034,
+        "context_precision": 0.4
       },
       {
         "question": "Giao dịch từ xa được định nghĩa như thế nào trong Luật Bảo vệ quyền lợi người tiêu dùng?",
         "answer": "Căn cứ vào quy định của Luật này, quy định của Chính phủ và điều kiện cụ thể của địa phương, Ủy ban nhân dân cấp xã, ban quản lý chợ, khu thương mại triển khai thực hiện các biện pháp cụ thể để bảo đảm an toàn, đo lường, số lượng, khối lượng, chất lượng của sản phẩm, hàng hóa, dịch vụ và bảo vệ quyền, lợi ích hợp pháp khác cho người tiêu dùng khi mua, sử dụng sản phẩm, hàng hóa, dịch vụ của cá nhân hoạt động thương mại độc lập, thường xuyên, không phải đăng ký kinh doanh. chi tiết việc bảo vệ quyền lợi người tiêu dùng trong giao dịch với cá nhân hoạt động thương mại độc lập, thường xuyên, không phải đăng ký kinh doanh.",
         "source_ids": [
           "legal/19_2023_QH15_m_500102.md::chunk-20",
-          "news/article_04.md::chunk-43",
+          "news/article_04.md::chunk-16",
           "legal/19_2023_QH15_m_500102.md::chunk-10",
           "legal/19_2023_QH15_m_500102.md::chunk-72",
           "legal/19_2023_QH15_m_500102.md::chunk-18"
@@ -198,14 +205,14 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.8333333333333334,
         "context_recall": 0.6896551724137931,
-        "context_precision": 1.0
+        "context_precision": 0.8
       },
       {
         "question": "Người tiêu dùng được hiểu là ai?",
         "answer": "a người tiêu dùng theo quy định của pháp luật về an ninh mạng, an toàn thông tin mạng, giao dịch điện tử và quy định khác của pháp luật có liên quan. Tổ chức, cá nhân kinh doanh phải hủy bỏ thông tin của người tiêu dùng khi hết thời hạn lưu trữ theo quy định tại điểm c khoản 1 Điều 16 của Luật này hoặc quy định khác của pháp luật có liên quan.",
         "source_ids": [
           "legal/19_2023_QH15_m_500102.md::chunk-38",
-          "news/article_04.md::chunk-56",
+          "news/article_04.md::chunk-29",
           "legal/19_2023_QH15_m_500102.md::chunk-100",
           "legal/19_2023_QH15_m_500102.md::chunk-125",
           "legal/55_2024_ND-CP_m_610488.md::chunk-57"
@@ -213,32 +220,32 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.5,
         "context_recall": 0.95,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Trong giao dịch từ xa, tổ chức kinh doanh phải cung cấp những nhóm thông tin nào cho người tiêu dùng?",
         "answer": "a) Chia sẻ, tiết lộ, chuyển giao thông tin cho bên thứ ba, trừ trường hợp tổ chức, cá nhân kinh doanh, chuyển giao thông tin đã được thu thập phù hợp quy định của Luật này và quy định khác của pháp luật có liên quan cho bên thứ ba lưu trữ hoặc phân tích phục vụ hoạt động kinh doanh của bên chuyển giao và hai bên đã có thỏa thuận bằng văn bản về việc bên thứ ba có trách nhiệm bảo vệ thông tin người tiêu dùng theo quy định tại Luật này; g) Trường hợp hợp đồng cung cấp sản phẩm, hàng hóa, dịch vụ quy định tại Điều này được lập thành văn bản thì tổ chức, cá nhân kinh doanh phải chuyển hợp đồng cho người tiêu dùng.",
         "source_ids": [
-          "news/article_04.md::chunk-29",
+          "news/article_04.md::chunk-2",
           "legal/19_2023_QH15_m_500102.md::chunk-35",
           "legal/19_2023_QH15_m_500102.md::chunk-103",
-          "news/article_04.md::chunk-31",
+          "news/article_04.md::chunk-4",
           "legal/19_2023_QH15_m_500102.md::chunk-91"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.8571428571428571,
         "context_recall": 0.6410256410256411,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Người tiêu dùng nên làm gì để giảm rủi ro khi mua sắm trực tuyến?",
         "answer": "Để đánh giá về mua sắm trực tuyến, người tiêu dùng nên bắt đầu từ bản chất của phương thức mua sắm này. Để mua sắm trực tuyến thực sự là hình thức mua sắm mang lại nhiều tiện ích, bên cạnh nỗ lực từ các cơ quan quản lý nhà nước, người tiêu dùng cần chủ động tiêu dùng thông thái và tìm hiểu kỹ về hình thức mua sắm này.",
         "source_ids": [
-          "news/article_01.md::chunk-32",
-          "news/article_01.md::chunk-35",
-          "news/article_01.md::chunk-33",
-          "news/article_01.md::chunk-42",
-          "news/article_01.md::chunk-34"
+          "news/article_01.md::chunk-5",
+          "news/article_01.md::chunk-8",
+          "news/article_01.md::chunk-6",
+          "news/article_01.md::chunk-15",
+          "news/article_01.md::chunk-7"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.6153846153846154,
@@ -247,18 +254,18 @@
       },
       {
         "question": "Vì sao mua hàng trên nền tảng thương mại điện tử xuyên biên giới chưa đăng ký có thể gây rủi ro?",
-        "answer": "Khi mua hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký, người tiêu dùng thường phải cung cấp các thông tin thanh toán phạm vi quốc tế như thẻ tín dụng hoặc thông tin ví điện tử. Ngoài ra, người tiêu dùng cũng đứng trước rủi ro cao khi mua phải hàng giả, hàng nhái hoặc hàng hóa không rõ nguồn gốc xuất xứ khi đặt hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký.",
+        "answer": "Khi mua hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký, người tiêu dùng thường phải cung cấp các thông tin thanh toán phạm vi quốc tế như thẻ tín dụng hoặc thông tin ví điện tử. Tuy nhiên, việc mua sắm trên các nền tảng chưa đăng ký và chưa được cơ quan nhà nước quản lý có thể dẫn đến những rủi ro, cụ thể:**",
         "source_ids": [
-          "news/article_01.md::chunk-35",
-          "news/article_01.md::chunk-34",
-          "news/article_03.md::chunk-32",
-          "news/article_03.md::chunk-28",
-          "news/article_03.md::chunk-30"
+          "news/article_01.md::chunk-8",
+          "news/article_03.md::chunk-0",
+          "news/article_01.md::chunk-7",
+          "news/article_03.md::chunk-5",
+          "news/article_03.md::chunk-1"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.7142857142857143,
+        "answer_relevance": 0.7619047619047619,
         "context_recall": 0.868421052631579,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Tổ chức, cá nhân bán lẻ phải thực hiện những trách nhiệm gì về an toàn và chất lượng hàng hóa?",
@@ -267,13 +274,13 @@
           "legal/19_2023_QH15_m_500102.md::chunk-66",
           "legal/19_2023_QH15_m_500102.md::chunk-58",
           "legal/19_2023_QH15_m_500102.md::chunk-55",
-          "news/article_04.md::chunk-39",
-          "news/article_04.md::chunk-50"
+          "news/article_04.md::chunk-12",
+          "news/article_04.md::chunk-23"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
         "context_recall": 0.6857142857142857,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Luật và Nghị định mới đặt ra yêu cầu gì đối với việc xác thực người bán trên nền tảng thương mại điện tử?",
@@ -281,61 +288,61 @@
         "source_ids": [
           "legal/122_2025_QH15_m_662035.md::chunk-38",
           "legal/122_2025_QH15_m_662035.md::chunk-16",
-          "news/article_02.md::chunk-35",
-          "news/article_05.md::chunk-33",
+          "news/article_02.md::chunk-8",
+          "news/article_05.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-65"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
         "context_recall": 0.8181818181818182,
-        "context_precision": 1.0
+        "context_precision": 0.2
       }
     ],
     "hybrid-rrf": [
       {
         "question": "Luật Thương mại điện tử 122/2025/QH15 điều chỉnh những nội dung chính nào?",
-        "answer": "_Toàn cảnh Hội nghị phổ biến Luật Thương mại điện tử số 122/2025/QH15 và Nghị định số 248/2026/NĐ-CP quy định chi tiết một số điều của Luật._ Nghị định này quy định chi tiết Luật Thương mại điện tử số 122/2025/QH15 (sau đây gọi là Luật Thương mại điện tử) về:",
+        "answer": "Nghị định này quy định chi tiết Luật Thương mại điện tử số 122/2025/QH15 (sau đây gọi là Luật Thương mại điện tử) về: *Căn cứ* *Luật Thương mại điện tử số 122/2025/QH15;*",
         "source_ids": [
-          "legal/122_2025_QH15_m_662035.md::chunk-16",
-          "news/article_05.md::chunk-29",
+          "news/article_05.md::chunk-1",
           "legal/248_2026_ND-CP_m_713280.md::chunk-0",
-          "news/article_05.md::chunk-27",
-          "news/article_05.md::chunk-36"
+          "legal/248_2026_ND-CP_m_713280.md::chunk-106",
+          "legal/122_2025_QH15_m_662035.md::chunk-0",
+          "legal/122_2025_QH15_m_662035.md::chunk-65"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.6923076923076923,
-        "context_recall": 0.6944444444444444,
-        "context_precision": 1.0
+        "answer_relevance": 0.6153846153846154,
+        "context_recall": 1.0,
+        "context_precision": 0.4
       },
       {
         "question": "Luật Thương mại điện tử áp dụng đối với những ai?",
         "answer": "Luật này áp dụng đối với tổ chức, cá nhân trong nước và nước ngoài tham gia hoạt động thương mại điện tử tại Việt Nam.",
         "source_ids": [
-          "news/article_05.md::chunk-33",
+          "news/article_05.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-1",
-          "legal/248_2026_ND-CP_m_713280.md::chunk-12",
           "legal/122_2025_QH15_m_662035.md::chunk-6",
-          "legal/122_2025_QH15_m_662035.md::chunk-0"
+          "legal/122_2025_QH15_m_662035.md::chunk-0",
+          "legal/122_2025_QH15_m_662035.md::chunk-65"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.875,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.8
       },
       {
         "question": "Hoạt động thương mại điện tử được định nghĩa như thế nào?",
         "answer": "Luật này áp dụng đối với tổ chức, cá nhân trong nước và nước ngoài tham gia hoạt động thương mại điện tử tại Việt Nam. *Nền tảng thương mại điện tử* là nền tảng số được thiết lập để thực hiện hoạt động thương mại điện tử, bao gồm: nền tảng thương mại điện tử kinh doanh trực tiếp, nền tảng thương mại điện tử trung gian, mạng xã hội hoạt động thương mại điện tử và nền tảng thương mại điện tử tích hợp.",
         "source_ids": [
           "legal/122_2025_QH15_m_662035.md::chunk-1",
-          "news/article_02.md::chunk-29",
+          "legal/248_2026_ND-CP_m_713280.md::chunk-155",
           "legal/122_2025_QH15_m_662035.md::chunk-4",
-          "legal/248_2026_ND-CP_m_713280.md::chunk-167",
+          "legal/122_2025_QH15_m_662035.md::chunk-36",
           "legal/248_2026_ND-CP_m_713280.md::chunk-31"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Nền tảng thương mại điện tử trung gian là gì?",
@@ -350,7 +357,7 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.8888888888888888,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.2
       },
       {
         "question": "Chức năng đặt hàng trực tuyến được hiểu là gì?",
@@ -359,28 +366,28 @@
           "legal/122_2025_QH15_m_662035.md::chunk-3",
           "legal/248_2026_ND-CP_m_713280.md::chunk-35",
           "legal/248_2026_ND-CP_m_713280.md::chunk-41",
-          "legal/122_2025_QH15_m_662035.md::chunk-2",
-          "legal/248_2026_ND-CP_m_713280.md::chunk-23"
+          "legal/122_2025_QH15_m_662035.md::chunk-21",
+          "legal/248_2026_ND-CP_m_713280.md::chunk-127"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Theo Luật Thương mại điện tử, những hành vi nào bị cấm trên nền tảng thương mại điện tử?",
         "answer": "Kinh doanh hoặc tạo điều kiện cho người khác kinh doanh trên nền tảng thương mại điện tử các dịch vụ trái phép, hàng cấm, hàng giả, hàng xâm phạm quyền sở hữu trí tuệ, hàng hóa nhập lậu, hàng hóa không rõ nguồn gốc, xuất xứ, hàng hóa quá hạn sử dụng, hàng hóa vi phạm quy định của pháp luật về chất lượng sản phẩm, hàng hóa và quy định khác của pháp luật có liên quan. Thực hiện các hành vi lừa đảo, lừa dối trên nền tảng thương mại điện tử.",
         "source_ids": [
           "legal/122_2025_QH15_m_662035.md::chunk-8",
-          "legal/122_2025_QH15_m_662035.md::chunk-68",
           "legal/248_2026_ND-CP_m_713280.md::chunk-51",
-          "news/article_01.md::chunk-51",
+          "legal/122_2025_QH15_m_662035.md::chunk-68",
+          "legal/122_2025_QH15_m_662035.md::chunk-6",
           "legal/248_2026_ND-CP_m_713280.md::chunk-63"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.9166666666666666,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Ngày Thương mại điện tử quốc gia là ngày nào và có những hoạt động hưởng ứng nào?",
@@ -389,79 +396,79 @@
           "legal/248_2026_ND-CP_m_713280.md::chunk-6",
           "legal/248_2026_ND-CP_m_713280.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-13",
-          "news/article_05.md::chunk-29",
+          "news/article_05.md::chunk-1",
           "legal/122_2025_QH15_m_662035.md::chunk-12"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 1.0,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Nghị định 248/2026/NĐ-CP áp dụng cho những nhóm chủ thể nào?",
-        "answer": "**Ngày 03 tháng 7 năm 2026, tại trụ sở Bộ Công Thương, Cục Thương mại điện tử và Kinh tế số tổ chức Hội nghị phổ biến Luật Thương mại điện tử và Nghị định số 248/2026/NĐ-CP ngày 30 tháng 6 năm 2026 của Chính phủ quy định chi tiết một số điều của Luật Thương mại điện tử. # Bộ Công Thương phổ biến Luật Thương mại điện tử và Nghị định số 248/2026/NĐ-CP",
+        "answer": "Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 và Nghị định số 55/2024/NĐ-CP đã bổ sung nhiều quy định nhằm bảo vệ quyền lợi người tiêu dùng trong thương mại điện tử. Nghị định số 99/2011/NĐ-CP ngày 27 tháng 10 năm 2011 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật Bảo vệ quyền lợi người tiêu dùng hết hiệu lực thi hành kể từ ngày Nghị định này có hiệu lực.",
         "source_ids": [
-          "news/article_05.md::chunk-27",
+          "news/article_02.md::chunk-3",
           "legal/55_2024_ND-CP_m_610488.md::chunk-46",
-          "legal/19_2023_QH15_m_500102.md::chunk-62",
+          "legal/55_2024_ND-CP_m_610488.md::chunk-30",
           "legal/19_2023_QH15_m_500102.md::chunk-123",
-          "news/article_04.md::chunk-28"
+          "news/article_04.md::chunk-1"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.5454545454545454,
-        "context_recall": 0.6428571428571429,
-        "context_precision": 1.0
+        "answer_relevance": 0.36363636363636365,
+        "context_recall": 0.5952380952380952,
+        "context_precision": 0.0
       },
       {
         "question": "Theo Nghị định 55/2024/NĐ-CP, nền tảng số lớn được xác định theo tiêu chí nào?",
-        "answer": "Nền tảng số lớn quy định tại khoản 4 Điều 39 Luật Bảo vệ quyền lợi người tiêu dùng là nền tảng số phục vụ giao dịch điện tử được thiết lập, vận hành để phục vụ hoạt động kinh doanh trên không gian mạng và đáp ứng một trong các tiêu chí sau: Nghị định số 99/2011/NĐ-CP ngày 27 tháng 10 năm 2011 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật Bảo vệ quyền lợi người tiêu dùng hết hiệu lực thi hành kể từ ngày Nghị định này có hiệu lực.",
+        "answer": "Nền tảng số lớn quy định tại khoản 4 Điều 39 Luật Bảo vệ quyền lợi người tiêu dùng là nền tảng số phục vụ giao dịch điện tử được thiết lập, vận hành để phục vụ hoạt động kinh doanh trên không gian mạng và đáp ứng một trong các tiêu chí sau: Chủ quản nền tảng thương mại điện tử trung gian có chức năng đặt hàng trực tuyến là nền tảng số lớn và mạng xã hội hoạt động thương mại điện tử có chức năng đặt hàng trực tuyến là nền tảng số lớn theo quy định của pháp luật về bảo vệ quyền lợi người tiêu dùng thực hiện trách nhiệm báo cáo trực tuyến về kết quả gỡ bỏ thông qua hệ thống quản lý hoạt động thương mại điện tử trong thời hạn 48 giờ kể từ khi nhận được yêu cầu của cơ quan nhà nước có thẩm quyền theo Mẫu số 13 tại Phụ lục II của Nghị định này.",
         "source_ids": [
           "legal/55_2024_ND-CP_m_610488.md::chunk-46",
           "legal/55_2024_ND-CP_m_610488.md::chunk-2",
-          "legal/248_2026_ND-CP_m_713280.md::chunk-107",
-          "legal/122_2025_QH15_m_662035.md::chunk-21",
-          "news/article_05.md::chunk-27"
+          "news/article_05.md::chunk-0",
+          "legal/248_2026_ND-CP_m_713280.md::chunk-41",
+          "legal/248_2026_ND-CP_m_713280.md::chunk-107"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.7692307692307693,
+        "answer_relevance": 0.6153846153846154,
         "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_precision": 0.4
       },
       {
         "question": "Giao dịch từ xa được định nghĩa như thế nào trong Luật Bảo vệ quyền lợi người tiêu dùng?",
-        "answer": "Căn cứ vào quy định của Luật này, quy định của Chính phủ và điều kiện cụ thể của địa phương, Ủy ban nhân dân cấp xã, ban quản lý chợ, khu thương mại triển khai thực hiện các biện pháp cụ thể để bảo đảm an toàn, đo lường, số lượng, khối lượng, chất lượng của sản phẩm, hàng hóa, dịch vụ và bảo vệ quyền, lợi ích hợp pháp khác cho người tiêu dùng khi mua, sử dụng sản phẩm, hàng hóa, dịch vụ của cá nhân hoạt động thương mại độc lập, thường xuyên, không phải đăng ký kinh doanh. chi tiết việc bảo vệ quyền lợi người tiêu dùng trong giao dịch với cá nhân hoạt động thương mại độc lập, thường xuyên, không phải đăng ký kinh doanh.",
+        "answer": "a) Giao dịch giữa tổ chức, cá nhân kinh doanh và người tiêu dùng chưa được thực hiện mà có nội dung, hình thức khác với quy định của Luật này thì các bên tiếp tục thực hiện theo quy định của Luật Bảo vệ quyền lợi người tiêu dùng số 59/2010/QH12 đã được sửa đổi, bổ sung một số điều theo Luật số 35/2018/QH14. Giao dịch giữa tổ chức, cá nhân kinh doanh và người tiêu dùng đang được thực hiện mà có nội dung, hình thức khác với quy định của Luật này thì áp dụng quy định của Luật Bảo vệ quyền lợi người tiêu dùng số 59/2010/QH12 đã được sửa đổi, bổ sung một số điều theo Luật số 35/2018/QH14;",
         "source_ids": [
           "legal/19_2023_QH15_m_500102.md::chunk-72",
-          "news/article_04.md::chunk-59",
+          "legal/19_2023_QH15_m_500102.md::chunk-129",
           "legal/19_2023_QH15_m_500102.md::chunk-20",
-          "news/article_04.md::chunk-43",
-          "news/article_04.md::chunk-58"
+          "news/article_04.md::chunk-16",
+          "legal/55_2024_ND-CP_m_610488.md::chunk-20"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.8333333333333334,
         "context_recall": 0.7586206896551724,
-        "context_precision": 1.0
+        "context_precision": 0.6
       },
       {
         "question": "Người tiêu dùng được hiểu là ai?",
-        "answer": "c) Tìm hiểu kỹ về sản phẩm/dịch vụ trước khi mua: người tiêu dùng có thể tìm kiếm thông tin về sản phẩm/dịch vụ trên internet như: nguồn gốc xuất xứ, tính năng, đánh giá (review) về sản phẩm/dịch vụ nhằm tránh trường hợp mua phải sản phẩm/dịch vụ kém chất lượng; Theo cách hiểu thông thường, người tiêu dùng là người cuối cùng nhận được hàng hóa đó với mục đích để tiêu dùng;",
+        "answer": "c) Tìm hiểu kỹ về sản phẩm/dịch vụ trước khi mua: người tiêu dùng có thể tìm kiếm thông tin về sản phẩm/dịch vụ trên internet như: nguồn gốc xuất xứ, tính năng, đánh giá (review) về sản phẩm/dịch vụ nhằm tránh trường hợp mua phải sản phẩm/dịch vụ kém chất lượng; Để mua sắm trực tuyến thực sự là hình thức mua sắm mang lại nhiều tiện ích, bên cạnh nỗ lực từ các cơ quan quản lý nhà nước, người tiêu dùng cần chủ động tiêu dùng thông thái và tìm hiểu kỹ về hình thức mua sắm này.",
         "source_ids": [
+          "news/article_01.md::chunk-14",
           "legal/19_2023_QH15_m_500102.md::chunk-38",
-          "news/article_01.md::chunk-43",
-          "news/article_04.md::chunk-56",
-          "news/article_04.md::chunk-33",
-          "legal/19_2023_QH15_m_500102.md::chunk-100"
+          "news/article_01.md::chunk-16",
+          "news/article_04.md::chunk-29",
+          "news/article_01.md::chunk-15"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.75,
-        "context_recall": 1.0,
-        "context_precision": 1.0
+        "context_recall": 0.85,
+        "context_precision": 0.2
       },
       {
         "question": "Trong giao dịch từ xa, tổ chức kinh doanh phải cung cấp những nhóm thông tin nào cho người tiêu dùng?",
         "answer": "Khi thực hiện giao dịch từ xa, tổ chức, cá nhân kinh doanh phải cung cấp chính xác và đầy đủ cho người tiêu dùng các thông tin sau đây: *Giao dịch đặc thù* bao gồm giao dịch từ xa, cung cấp dịch vụ liên tục và bán hàng trực tiếp giữa tổ chức, cá nhân kinh doanh và người tiêu dùng.",
         "source_ids": [
-          "news/article_04.md::chunk-29",
+          "news/article_04.md::chunk-2",
           "legal/19_2023_QH15_m_500102.md::chunk-70",
           "legal/19_2023_QH15_m_500102.md::chunk-35",
           "legal/19_2023_QH15_m_500102.md::chunk-5",
@@ -470,67 +477,67 @@
         "faithfulness": 1.0,
         "answer_relevance": 0.9285714285714286,
         "context_recall": 0.8974358974358975,
-        "context_precision": 1.0
+        "context_precision": 0.8
       },
       {
         "question": "Người tiêu dùng nên làm gì để giảm rủi ro khi mua sắm trực tuyến?",
         "answer": "Để đánh giá về mua sắm trực tuyến, người tiêu dùng nên bắt đầu từ bản chất của phương thức mua sắm này. Để mua sắm trực tuyến thực sự là hình thức mua sắm mang lại nhiều tiện ích, bên cạnh nỗ lực từ các cơ quan quản lý nhà nước, người tiêu dùng cần chủ động tiêu dùng thông thái và tìm hiểu kỹ về hình thức mua sắm này.",
         "source_ids": [
-          "news/article_01.md::chunk-32",
-          "news/article_01.md::chunk-33",
-          "news/article_01.md::chunk-35",
-          "news/article_01.md::chunk-42",
-          "news/article_01.md::chunk-43"
+          "news/article_01.md::chunk-5",
+          "news/article_01.md::chunk-6",
+          "news/article_01.md::chunk-8",
+          "news/article_01.md::chunk-15",
+          "news/article_01.md::chunk-14"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.6153846153846154,
-        "context_recall": 0.6,
+        "context_recall": 0.5428571428571428,
         "context_precision": 1.0
       },
       {
         "question": "Vì sao mua hàng trên nền tảng thương mại điện tử xuyên biên giới chưa đăng ký có thể gây rủi ro?",
-        "answer": "Ngoài ra, người tiêu dùng cũng đứng trước rủi ro cao khi mua phải hàng giả, hàng nhái hoặc hàng hóa không rõ nguồn gốc xuất xứ khi đặt hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký. # Bộ Công Thương cảnh báo người tiêu dùng về rủi ro khi mua sắm trên các nền tảng TMĐT xuyên biên giới chưa đăng ký",
+        "answer": "Ngoài ra, người tiêu dùng cũng đứng trước rủi ro cao khi mua phải hàng giả, hàng nhái hoặc hàng hóa không rõ nguồn gốc xuất xứ khi đặt hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký. Khi mua hàng trên các nền tảng TMĐT xuyên biên giới chưa đăng ký, người tiêu dùng thường phải cung cấp các thông tin thanh toán phạm vi quốc tế như thẻ tín dụng hoặc thông tin ví điện tử.",
         "source_ids": [
-          "news/article_03.md::chunk-30",
-          "news/article_03.md::chunk-27",
-          "news/article_03.md::chunk-32",
-          "news/article_03.md::chunk-28",
-          "news/article_03.md::chunk-35"
+          "news/article_03.md::chunk-0",
+          "news/article_03.md::chunk-3",
+          "news/article_03.md::chunk-5",
+          "news/article_01.md::chunk-8",
+          "news/article_03.md::chunk-8"
         ],
         "faithfulness": 1.0,
-        "answer_relevance": 0.6666666666666666,
-        "context_recall": 0.868421052631579,
-        "context_precision": 1.0
+        "answer_relevance": 0.7142857142857143,
+        "context_recall": 0.6842105263157895,
+        "context_precision": 0.8
       },
       {
         "question": "Tổ chức, cá nhân bán lẻ phải thực hiện những trách nhiệm gì về an toàn và chất lượng hàng hóa?",
         "answer": "e) Tổ chức, cá nhân khác chịu trách nhiệm về sản phẩm, hàng hóa theo quy định khác của pháp luật có liên quan. ành sản phẩm, hàng hóa, linh kiện, phụ kiện cho người tiêu dùng cả trong trường hợp ủy quyền hoặc thuê tổ chức, cá nhân khác thực hiện việc bảo hành.",
         "source_ids": [
           "legal/19_2023_QH15_m_500102.md::chunk-66",
-          "news/article_03.md::chunk-30",
+          "news/article_03.md::chunk-3",
           "legal/19_2023_QH15_m_500102.md::chunk-58",
-          "news/article_04.md::chunk-47",
+          "news/article_04.md::chunk-2",
           "legal/19_2023_QH15_m_500102.md::chunk-55"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.625,
         "context_recall": 0.5142857142857142,
-        "context_precision": 1.0
+        "context_precision": 0.2
       },
       {
         "question": "Luật và Nghị định mới đặt ra yêu cầu gì đối với việc xác thực người bán trên nền tảng thương mại điện tử?",
         "answer": "Đối với mạng xã hội có tích hợp chức năng thương mại điện tử, quy định mới đặt ra yêu cầu nhận diện tài khoản người bán, phân biệt hoạt động giao tiếp thông thường với hoạt động kinh doanh. Một trong những điểm nhấn là quy định về xác thực danh tính người bán trên nền tảng thương mại điện tử.",
         "source_ids": [
-          "news/article_05.md::chunk-33",
+          "news/article_05.md::chunk-5",
           "legal/122_2025_QH15_m_662035.md::chunk-38",
           "legal/122_2025_QH15_m_662035.md::chunk-16",
-          "news/article_05.md::chunk-31",
-          "news/article_02.md::chunk-35"
+          "news/article_05.md::chunk-3",
+          "news/article_02.md::chunk-8"
         ],
         "faithfulness": 1.0,
         "answer_relevance": 0.8,
         "context_recall": 0.8181818181818182,
-        "context_precision": 1.0
+        "context_precision": 0.4
       }
     ]
   }
