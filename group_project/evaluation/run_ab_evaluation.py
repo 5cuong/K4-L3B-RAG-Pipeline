@@ -21,7 +21,13 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).parents[2]
 sys.path.insert(0, str(ROOT))
 
-from src.task4_chunking_indexing import chunk_documents, load_documents
+from src.task4_chunking_indexing import (
+    EMBEDDING_MODEL,
+    chunk_documents,
+    chunk_documents_by_type,
+    load_documents,
+)
+from src.calibrate_fallback_threshold import calibrate_threshold
 from src.task5_semantic_search import semantic_search
 from src.task6_lexical_search import lexical_search
 from src.task7_reranking import rerank_rrf
@@ -153,7 +159,14 @@ def main() -> None:
     load_dotenv(ROOT / ".env")
     dataset = json.loads(DATASET_PATH.read_text(encoding="utf-8"))
     documents = load_documents()
-    chunk_count = len(chunk_documents(documents))
+    chunk_count = len(chunk_documents_by_type(documents))
+    recursive_chunk_count = len(chunk_documents(documents))
+
+    # Calibrate on the same current dense index used by retrieval. This keeps
+    # RESULT.md aligned with the committed corpus, chunker and embedding model.
+    calibration = calibrate_threshold(
+        [case["question"] for case in dataset]
+    )
 
     # Warm up the shared embedding model so Config A does not pay a one-time
     # model-load cost that would make the latency comparison unfair.
@@ -177,7 +190,8 @@ def main() -> None:
         "chunk_count": chunk_count,
         "top_k": TOP_K,
         "score_threshold": SCORE_THRESHOLD,
-        "embedding_model": "BAAI/bge-m3",
+        "threshold_calibration": calibration,
+        "embedding_model": os.getenv("EMBEDDING_MODEL", EMBEDDING_MODEL),
         "generator": "deterministic extractive baseline, identical for A/B",
         "evaluator": "offline token-overlap proxy, no external API",
         "corpus_commit": subprocess.check_output(
@@ -241,14 +255,21 @@ def main() -> None:
         f"| Golden dataset size | {results['dataset_size']} |",
         f"| Indexed chunk count | {results['chunk_count']} |",
         f"| `top_k` | {results['top_k']} |",
-        f"| Fallback threshold and calibration | {results['score_threshold']}; calibrated earlier with in-domain ≈0.73 and out-of-domain ≈0.41 |",
+        f"| Fallback threshold and calibration | configured={results['score_threshold']}; recommended={calibration['recommended_SCORE_THRESHOLD']}; balanced accuracy={calibration['balanced_accuracy']:.3f} on {calibration['in_domain_count']} in-domain and {calibration['out_of_domain_count']} out-of-domain queries |",
         "",
         "## Configurations",
         "",
         "- **Config A — dense-only:** semantic search over ChromaDB.",
         "- **Config B — hybrid + RRF:** dense search + BM25, fused once with RRF.",
         "",
-        "Both configurations use the same 16 cases, top_k, embedding model, extractive generator and evaluator. The metrics are offline proxies because `ragas` and a configured evaluator LLM are not installed in the current environment.",
+        "Both configurations use the same golden cases, top_k, document-type-aware chunks, embedding model, extractive generator and evaluator. Metrics are deterministic offline proxies, not Ragas or LLM-graded scores.",
+        "",
+        f"Task 4 uses legal chunks ({1200} characters, {150} overlap) and news chunks ({700} characters, {80} overlap). The active index contains {chunk_count} chunks; the prior recursive 500/50 strategy would produce {recursive_chunk_count} chunks for the same Markdown corpus.",
+        "",
+        f"Fallback calibration used dense top-1 cosine similarity. In-domain score range: {calibration['in_domain_score_range']}; out-of-domain score range: {calibration['out_of_domain_score_range']}. Review false positives/negatives below before changing `.env`.",
+        "",
+        f"- False-negative in-domain queries: {len(calibration['false_negative_in_domain_queries'])}.",
+        f"- False-positive out-of-domain queries: {len(calibration['false_positive_out_of_domain_queries'])}.",
         "",
         "## Overall scores",
         "",
@@ -306,15 +327,15 @@ def main() -> None:
             "",
             "| Priority | Action | Evidence from failure analysis | Expected impact | How to verify |",
             "| ---: | --- | --- | --- | --- |",
-            "| 1 | Giữ lọc boilerplate của news trước khi chunking | News content đã giảm đáng kể và corpus hiện còn 1.206 chunks | Ít nhiễu, giảm chi phí embedding/retrieval | Chạy lại Task 3 và so sánh chunk count |",
-            "| 2 | Bổ sung các câu hỏi paraphrase và câu hỏi cần phân biệt nguồn | Worst cases thường có evidence nằm rải rác hoặc nhiều nguồn gần nghĩa | Đo được khả năng dense/BM25 rõ hơn | Thêm case vào golden dataset rồi chạy lại A/B |",
+            f"| 1 | Thử lọc boilerplate của news trước khi chunking | Hiện có {chunk_count} document-type chunks; soát worst performers ở trên để xác định phần nav gây nhiễu | Tăng mật độ evidence trong top-k và giảm chi phí embedding | Đo lại 4 metric trên cùng golden dataset |",
+            "| 2 | Bổ sung câu hỏi paraphrase và câu hỏi cần phân biệt nguồn | Bộ hiện tại có 16 câu; xem bảng worst performers để chọn khoảng trống | Đo được khả năng dense/BM25 rõ hơn | Thêm case vào golden dataset rồi chạy lại A/B |",
             "| 3 | Chạy Ragas với cùng generator/evaluator khi môi trường đủ dependency | Proxy hiện tại không thay thế đánh giá LLM | Có faithfulness/relevance chuẩn hơn | Cài `ragas`, cấu hình evaluator và ghi lại model/version |",
             "",
             "## Bonus experiments",
             "",
             "| Experiment | Baseline | Metric delta | Latency/cost delta | Conclusion |",
             "| --- | --- | ---: | --- | --- |",
-            "| News boilerplate filtering | Markdown raw từ crawler | Chunk count giảm từ khoảng 1.654 xuống 1.206 | Giảm số chunk news và chi phí xử lý | Nên giữ bước lọc trước Task 4 |",
+            f"| Document-type-aware chunking | Recursive 500/50: {recursive_chunk_count} chunks | Retrieval delta chưa đo riêng trong lần chạy này | {chunk_count - recursive_chunk_count:+d} chunks trước khi embed | Giữ chiến lược theo loại tài liệu; A/B ở trên so sánh retriever trên cùng index |",
         ]
     )
     REPORT_PATH.write_text("\n".join(report_lines) + "\n", encoding="utf-8")

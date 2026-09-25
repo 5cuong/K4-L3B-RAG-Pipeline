@@ -15,10 +15,46 @@ Cài đặt:
 
 import json
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 LANDING_DIR = Path(__file__).parent.parent / "data" / "landing"
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "standardized"
+
+# Official Government legal-document records used as the source of the local
+# DOCX corpus. Keeping title and URL beside the conversion code makes a fresh
+# conversion retain source provenance in the standardized Markdown.
+LEGAL_DOCUMENT_SOURCES = {
+    "19_2023_QH15_m_500102": (
+        "Luật số 19/2023/QH15 — Luật Bảo vệ quyền lợi người tiêu dùng",
+        "https://vanban.chinhphu.vn/?docid=208363&pageid=27160",
+    ),
+    "55_2024_ND-CP_m_610488": (
+        "Nghị định số 55/2024/NĐ-CP — Quy định chi tiết một số điều của Luật Bảo vệ quyền lợi người tiêu dùng",
+        "https://vanban.chinhphu.vn/?docid=210254&pageid=27160",
+    ),
+    "122_2025_QH15_m_662035": (
+        "Luật số 122/2025/QH15 — Luật Thương mại điện tử",
+        "https://vanban.chinhphu.vn/?classid=1&docid=216503&pageid=27160&typegroupid=3",
+    ),
+    "248_2026_ND-CP_m_713280": (
+        "Nghị định số 248/2026/NĐ-CP — Quy định chi tiết một số điều của Luật Thương mại điện tử",
+        "https://vanban.chinhphu.vn/?docid=218747&pageid=27160&typegroupid=4",
+    ),
+}
+
+
+def canonical_source_url(url: str) -> str:
+    """Drop analytics parameters while preserving meaningful query values."""
+    parts = urlsplit(url.strip())
+    query = urlencode(
+        [
+            (key, value)
+            for key, value in parse_qsl(parts.query)
+            if not key.lower().startswith("utm_")
+        ]
+    )
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, query, parts.fragment))
 
 
 def convert_legal_docs() -> None:
@@ -45,8 +81,16 @@ def convert_legal_docs() -> None:
         if not text_content:
             continue
 
+        title, source_url = LEGAL_DOCUMENT_SOURCES.get(
+            path.stem,
+            (path.stem.replace("_", " "), ""),
+        )
+        header = f"# {title}\n\n"
+        if source_url:
+            header += f"**Source:** {source_url}\n\n---\n\n"
+
         output_path = output_dir / f"{path.stem}.md"
-        output_path.write_text(text_content + "\n", encoding="utf-8")
+        output_path.write_text(header + text_content + "\n", encoding="utf-8")
 
 
 def convert_news_articles() -> None:
@@ -64,6 +108,7 @@ def convert_news_articles() -> None:
         values = {field: data.get(field) for field in required_fields}
         if not all(isinstance(value, str) and value.strip() for value in values.values()):
             continue
+        values["url"] = canonical_source_url(values["url"])
 
         header = (
             f"# {values['title'].strip()}\n\n"

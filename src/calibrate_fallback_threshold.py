@@ -17,11 +17,24 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parents[1]
 EVALUATION_DIR = ROOT / "group_project" / "evaluation"
 GOLDEN_DATASET = EVALUATION_DIR / "golden_dataset.json"
-OUT_OF_DOMAIN_DATASET = EVALUATION_DIR / "out_of_domain_queries.json"
 load_dotenv(ROOT / ".env")
 sys.path.insert(0, str(ROOT))
 
 from src.task5_semantic_search import semantic_search  # noqa: E402
+
+
+# Keep the small OOD calibration set with the calibration code instead of
+# requiring a separate submission data artifact.
+OUT_OF_DOMAIN_QUESTIONS = [
+    "Dự báo thời tiết ở Hà Nội ngày mai như thế nào?",
+    "Cách nấu phở bò tại nhà gồm những bước nào?",
+    "Viết chương trình Python sắp xếp một danh sách số nguyên.",
+    "Lịch thi đấu bóng đá Việt Nam cuối tuần này ra sao?",
+    "Thuế thu nhập cá nhân được tính như thế nào?",
+    "Thủ tục đăng ký xe máy mới cần những giấy tờ gì?",
+    "Quy định xin visa du lịch Nhật Bản gồm những điều kiện nào?",
+    "Cách chăm sóc cây lan khi lá bị vàng?",
+]
 
 
 def _best_dense_score(question: str) -> float:
@@ -74,19 +87,20 @@ def recommend_threshold(
     )
 
 
-def main() -> None:
+def calibrate_threshold(
+    in_domain_questions: list[str] | None = None,
+    out_of_domain_questions: list[str] | None = None,
+) -> dict:
+    """Score both query sets and return threshold metrics and error examples."""
     golden = json.loads(GOLDEN_DATASET.read_text(encoding="utf-8"))
-    out_of_domain = json.loads(OUT_OF_DOMAIN_DATASET.read_text(encoding="utf-8"))
-    in_domain_questions = [
-        item["question"]
-        for item in golden
-        if isinstance(item, dict) and isinstance(item.get("question"), str)
-    ]
-    out_of_domain_questions = [
-        item
-        for item in out_of_domain
-        if isinstance(item, str) and item.strip()
-    ]
+    if in_domain_questions is None:
+        in_domain_questions = [
+            item["question"]
+            for item in golden
+            if isinstance(item, dict) and isinstance(item.get("question"), str)
+        ]
+    if out_of_domain_questions is None:
+        out_of_domain_questions = OUT_OF_DOMAIN_QUESTIONS
     if not in_domain_questions or not out_of_domain_questions:
         raise ValueError("Calibration query sets must both be non-empty")
 
@@ -100,39 +114,34 @@ def main() -> None:
         in_domain_scores, out_of_domain_scores
     )
 
-    print(
-        json.dumps(
-            {
-                "recommended_SCORE_THRESHOLD": round(threshold, 4),
-                "balanced_accuracy": round(balanced_accuracy, 4),
-                "in_domain_count": len(in_domain_scores),
-                "out_of_domain_count": len(out_of_domain_scores),
-                "in_domain_score_range": [
-                    round(min(in_domain_scores), 4),
-                    round(max(in_domain_scores), 4),
-                ],
-                "out_of_domain_score_range": [
-                    round(min(out_of_domain_scores), 4),
-                    round(max(out_of_domain_scores), 4),
-                ],
-                "false_negative_in_domain_queries": [
-                    question
-                    for question, score in zip(in_domain_questions, in_domain_scores)
-                    if score < threshold
-                ],
-                "false_positive_out_of_domain_queries": [
-                    question
-                    for question, score in zip(
-                        out_of_domain_questions, out_of_domain_scores
-                    )
-                    if score >= threshold
-                ],
-                "instruction": "Copy recommended_SCORE_THRESHOLD to .env and review false positives/negatives.",
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
+    return {
+        "recommended_SCORE_THRESHOLD": round(threshold, 4),
+        "balanced_accuracy": round(balanced_accuracy, 4),
+        "in_domain_count": len(in_domain_scores),
+        "out_of_domain_count": len(out_of_domain_scores),
+        "in_domain_score_range": [
+            round(min(in_domain_scores), 4),
+            round(max(in_domain_scores), 4),
+        ],
+        "out_of_domain_score_range": [
+            round(min(out_of_domain_scores), 4),
+            round(max(out_of_domain_scores), 4),
+        ],
+        "false_negative_in_domain_queries": [
+            question
+            for question, score in zip(in_domain_questions, in_domain_scores)
+            if score < threshold
+        ],
+        "false_positive_out_of_domain_queries": [
+            question
+            for question, score in zip(out_of_domain_questions, out_of_domain_scores)
+            if score >= threshold
+        ],
+    }
+
+
+def main() -> None:
+    print(json.dumps(calibrate_threshold(), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

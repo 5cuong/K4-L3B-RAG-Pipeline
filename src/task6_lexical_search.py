@@ -23,9 +23,9 @@ def _get_corpus() -> list[dict]:
     if CORPUS:
         return CORPUS
 
-    from .task4_chunking_indexing import chunk_documents, load_documents
+    from .task4_chunking_indexing import chunk_documents_by_type, load_documents
 
-    return chunk_documents(load_documents())
+    return chunk_documents_by_type(load_documents())
 
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:

@@ -1,4 +1,10 @@
-# RAG evaluation results
+# Historical RAG evaluation results
+
+> This A/B snapshot was generated at commit `7390cc8`, before Task 4 switched to
+> document-type-aware chunking. The current corpus produces 915 chunks with the
+> selected strategy, so the metrics below are not valid for the current index.
+> Rebuild ChromaDB and run `python -m group_project.evaluation.run_ab_evaluation`
+> before submitting this report as final.
 
 ## Run information
 
@@ -13,7 +19,7 @@
 | Golden dataset size | 16 |
 | Indexed chunk count | 1206 |
 | `top_k` | 5 |
-| Fallback threshold and calibration | 0.5; calibrated earlier with in-domain ≈0.73 and out-of-domain ≈0.41 |
+| Fallback threshold and calibration | 0.5 configured; current-index calibration is pending |
 
 ## Configurations
 

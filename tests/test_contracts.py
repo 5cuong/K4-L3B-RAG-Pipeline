@@ -153,6 +153,29 @@ def test_lexical_search_returns_bm25_contract(monkeypatch):
     assert output[0]["id"] == "chunk-0"
 
 
+def test_lexical_corpus_uses_task4_document_type_chunking(monkeypatch):
+    import src.task4_chunking_indexing as task4
+    import src.task6_lexical_search as lexical
+
+    document = {
+        "id": "legal/policy.md",
+        "content": "Policy text",
+        "metadata": metadata(),
+    }
+    chunks = [
+        {
+            "id": "legal/policy.md::chunk-0",
+            "content": "Policy text",
+            "metadata": metadata(chunk_index=0),
+        }
+    ]
+    monkeypatch.setattr(lexical, "CORPUS", [])
+    monkeypatch.setattr(task4, "load_documents", lambda: [document])
+    monkeypatch.setattr(task4, "chunk_documents_by_type", lambda documents: chunks)
+
+    assert lexical._get_corpus() == chunks
+
+
 def test_rrf_uses_rank_deduplicates_and_marks_hybrid():
     from src.task7_reranking import rerank_rrf
 

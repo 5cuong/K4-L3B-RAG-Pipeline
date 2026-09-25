@@ -37,8 +37,8 @@ DOCUMENT_TYPE_CHUNKING = {
     "news": {"chunk_size": 700, "chunk_overlap": 80},
 }
 
-EMBEDDING_MODEL = "BAAI/bge-m3"
-EMBEDDING_DIM = 1024
+EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_DIM = 384
 
 COLLECTION_NAME = "rag_documents"
 
@@ -134,15 +134,33 @@ def load_documents() -> list[dict]:
 
         relative_path = path.relative_to(STANDARDIZED_DIR)
         doc_type = "legal" if "legal" in relative_path.parts else "news"
+        title_match = re.search(r"(?m)^#\s+(.+?)\s*$", content)
+        source_match = re.search(r"(?mi)^\*\*Source:\*\*\s*(\S+)\s*$", content)
+        url = source_match.group(1) if source_match else None
+        if url:
+            from .task3_convert_markdown import canonical_source_url
+
+            url = canonical_source_url(url)
+
+        # The title and provenance are represented in metadata, not repeated
+        # as retrieval text in every first chunk.
+        content = re.sub(
+            r"(?mi)^\*\*(?:Source|Crawled|Source document):\*\*.*(?:\n|$)",
+            "",
+            content,
+        )
+        content = re.sub(r"(?m)^---\s*\n", "", content, count=1).strip()
+        if title_match and title_match.start() == 0:
+            content = content.replace(title_match.group(0), "", 1).strip()
         documents.append(
             {
                 "id": relative_path.as_posix(),
                 "content": content,
                 "metadata": {
                     "source": path.name,
-                    "title": path.stem,
+                    "title": title_match.group(1).strip() if title_match else path.stem,
                     "doc_type": doc_type,
-                    "url": None,
+                    "url": url,
                 },
             }
         )
@@ -324,13 +342,28 @@ def index_to_vectorstore(chunks: list[dict]) -> None:
     )
 
 
+def prune_stale_chunks(active_chunk_ids: set[str]) -> int:
+    """Remove IDs left behind when a full rebuild produces fewer chunks."""
+    collection = get_collection()
+    existing_ids = collection.get(include=["metadatas"]).get("ids", [])
+    stale_ids = [item_id for item_id in existing_ids if item_id not in active_chunk_ids]
+    if stale_ids:
+        collection.delete(ids=stale_ids)
+    return len(stale_ids)
+
+
 def run_pipeline() -> None:
     """Chạy load, chunk, embed và index."""
     documents = load_documents()
+    if not documents:
+        raise RuntimeError(f"No standardized Markdown documents found in {STANDARDIZED_DIR}")
     chunks = chunk_documents_by_type(documents)
+    if not chunks:
+        raise RuntimeError("The current corpus produced no chunks; existing index was kept")
     embedded_chunks = embed_chunks(chunks)
     index_to_vectorstore(embedded_chunks)
-    print(f"Indexed {len(embedded_chunks)} chunks")
+    removed = prune_stale_chunks({chunk["id"] for chunk in embedded_chunks})
+    print(f"Indexed {len(embedded_chunks)} chunks; removed {removed} stale chunks")
 
 
 if __name__ == "__main__":

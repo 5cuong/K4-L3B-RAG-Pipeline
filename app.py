@@ -40,6 +40,9 @@ def render_sources(result: dict) -> None:
         score_text = f"{float(score):.4f}" if isinstance(score, (int, float)) else "n/a"
         with st.expander(f"[{index}] {title} — score {score_text}"):
             st.write(f"Source: {origin}")
+            source_url = metadata.get("url")
+            if source_url:
+                st.link_button("Mở nguồn gốc", source_url)
             st.write(f"Chunk ID: {source.get('id', '')}")
             st.write(source.get("content", ""))
 

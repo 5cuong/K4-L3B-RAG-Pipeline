@@ -75,6 +75,8 @@ python -m src.calibrate_fallback_threshold
 
 Lệnh này dùng dense cosine score của top-1, in ra balanced accuracy và không tự
 ghi đè `.env`; hãy xem lại false positive/negative trước khi chép ngưỡng đề xuất.
+Tập OOD nhỏ được khai báo trong `src/calibrate_fallback_threshold.py` để tránh
+thêm một file dữ liệu phụ vào sản phẩm nộp.
 
 ## 8. Generation có citation
 
@@ -95,6 +97,7 @@ python -m src.task10_generation
 
 ```bash
 streamlit run app.py
+python -m group_project.evaluation.run_ab_evaluation
 ```
 
 - UI hiển thị answer, source, retrieval method và score.

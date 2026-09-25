@@ -40,9 +40,19 @@ python -m src.task3_convert_markdown
 python -m src.task4_chunking_indexing
 pytest -q
 
-# 3. Chạy sản phẩm
+# 3. Sinh calibration và báo cáo A/B từ index hiện tại
+python -m src.calibrate_fallback_threshold
+python -m group_project.evaluation.run_ab_evaluation
+
+# 4. Chạy sản phẩm
 streamlit run app.py
 ```
+
+Task 4 tạo lại ChromaDB từ Markdown chuẩn hóa mỗi lần chạy và dọn các chunk cũ
+không còn trong corpus. `chroma_db/` là cache sinh ra tại máy, được bỏ khỏi Git;
+chạy Task 4 trước khi mở chatbot trên một checkout mới.
+Mặc định pipeline dùng embedding local đa ngôn ngữ MiniLM 384 chiều; lần chạy
+đầu tải model về máy. Có thể đổi provider/model trong `.env` nếu cần.
 
 ## Lộ trình 3 giờ
 

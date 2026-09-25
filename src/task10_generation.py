@@ -52,7 +52,8 @@ def format_context(chunks: list[dict]) -> str:
         metadata = chunk["metadata"]
         parts.append(
             f"[Document {index} | ID: {chunk['id']} | "
-            f"Title: {metadata['title']} | Source: {metadata['source']}]\n"
+            f"Title: {metadata['title']} | Source: {metadata['source']} | "
+            f"URL: {metadata.get('url') or 'not provided'}]\n"
             f"{chunk['content']}"
         )
     return "\n\n---\n\n".join(parts)
