@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Luật Thương mại điện tử 122/2025/QH15 điều chỉnh những nội dung chính nào?",
+    "expected_answer": "Luật quy định về chính sách phát triển thương mại điện tử; nền tảng thương mại điện tử và trách nhiệm của các tổ chức, cá nhân; thương mại điện tử có yếu tố nước ngoài; dịch vụ hỗ trợ thương mại điện tử; và ứng dụng công nghệ trong quản lý, xử lý vi phạm.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 1. Phạm vi điều chỉnh"]
+  },
+  {
+    "question": "Luật Thương mại điện tử áp dụng đối với những ai?",
+    "expected_answer": "Luật áp dụng đối với tổ chức, cá nhân trong nước và nước ngoài tham gia hoạt động thương mại điện tử tại Việt Nam.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 2. Đối tượng áp dụng"]
+  },
+  {
+    "question": "Hoạt động thương mại điện tử được định nghĩa như thế nào?",
+    "expected_answer": "Hoạt động thương mại điện tử là hoạt động thương mại được tiến hành một phần hoặc toàn bộ trên môi trường điện tử.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 3 khoản 1"]
+  },
+  {
+    "question": "Nền tảng thương mại điện tử trung gian là gì?",
+    "expected_answer": "Đó là nền tảng thương mại điện tử cho phép tổ chức, cá nhân khác đăng ký tài khoản để giới thiệu, bán hàng hóa hoặc cung ứng dịch vụ trên chính nền tảng đó.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 3 khoản 4"]
+  },
+  {
+    "question": "Chức năng đặt hàng trực tuyến được hiểu là gì?",
+    "expected_answer": "Đó là chức năng của nền tảng thương mại điện tử cho phép thực hiện giao kết hợp đồng điện tử trên nền tảng đó.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 3 khoản 8"]
+  },
+  {
+    "question": "Theo Luật Thương mại điện tử, những hành vi nào bị cấm trên nền tảng thương mại điện tử?",
+    "expected_answer": "Bị cấm là hành vi lừa đảo, lừa dối; kinh doanh hoặc tạo điều kiện kinh doanh hàng cấm, hàng giả, hàng xâm phạm sở hữu trí tuệ, hàng nhập lậu, hàng không rõ nguồn gốc hoặc hàng vi phạm quy định về chất lượng.",
+    "expected_context": ["legal/122_2025_QH15_m_662035.md — Điều 6. Các hành vi bị cấm"]
+  },
+  {
+    "question": "Ngày Thương mại điện tử quốc gia là ngày nào và có những hoạt động hưởng ứng nào?",
+    "expected_answer": "Ngày Thương mại điện tử quốc gia là ngày 12 tháng 12 hằng năm. Hoạt động hưởng ứng gồm tuyên truyền, phổ biến, đào tạo, tập huấn pháp luật và kỹ năng mua sắm trực tuyến cùng các hoạt động công cộng liên quan.",
+    "expected_context": ["legal/248_2026_ND-CP_m_713280.md — Điều 3. Ngày Thương mại điện tử quốc gia"]
+  },
+  {
+    "question": "Nghị định 248/2026/NĐ-CP áp dụng cho những nhóm chủ thể nào?",
+    "expected_answer": "Nghị định áp dụng cho chủ quản nền tảng thương mại điện tử, tổ chức cung cấp hạ tầng kỹ thuật và logistics, tổ chức cung ứng dịch vụ thanh toán hỗ trợ thương mại điện tử, nhà đầu tư nước ngoài, pháp nhân được ủy quyền tại Việt Nam và các tổ chức, cá nhân liên quan.",
+    "expected_context": ["legal/248_2026_ND-CP_m_713280.md — Điều 2. Đối tượng áp dụng"]
+  },
+  {
+    "question": "Theo Nghị định 55/2024/NĐ-CP, nền tảng số lớn được xác định theo tiêu chí nào?",
+    "expected_answer": "Nền tảng số lớn là nền tảng phục vụ giao dịch điện tử có từ 3.000.000 tài khoản người sử dụng hoạt động hằng năm tại Việt Nam trở lên hoặc là nền tảng số trung gian quy mô lớn, rất lớn phục vụ giao dịch điện tử.",
+    "expected_context": ["legal/55_2024_ND-CP_m_610488.md — Điều 2 khoản 2"]
+  },
+  {
+    "question": "Giao dịch từ xa được định nghĩa như thế nào trong Luật Bảo vệ quyền lợi người tiêu dùng?",
+    "expected_answer": "Giao dịch từ xa là giao dịch thực hiện trên không gian mạng, phương tiện điện tử hoặc phương tiện khác mà người tiêu dùng không được kiểm tra, tiếp xúc trực tiếp với sản phẩm, hàng hóa hoặc dịch vụ trước khi giao dịch.",
+    "expected_context": ["legal/19_2023_QH15_m_500102.md — Điều 3 khoản 5"]
+  },
+  {
+    "question": "Người tiêu dùng được hiểu là ai?",
+    "expected_answer": "Người tiêu dùng là người mua hoặc sử dụng sản phẩm, hàng hóa, dịch vụ cho mục đích tiêu dùng, sinh hoạt và không vì mục đích thương mại.",
+    "expected_context": ["legal/19_2023_QH15_m_500102.md — Điều 3 khoản 1"]
+  },
+  {
+    "question": "Trong giao dịch từ xa, tổ chức kinh doanh phải cung cấp những nhóm thông tin nào cho người tiêu dùng?",
+    "expected_answer": "Tổ chức kinh doanh phải cung cấp thông tin về chủ thể kinh doanh, đăng ký hoặc mã số thuế, đặc điểm và giá sản phẩm, chi phí giao hàng, thanh toán, giao nhận, đổi trả, bảo hành, phí phát sinh và quy trình tiếp nhận khiếu nại.",
+    "expected_context": ["legal/19_2023_QH15_m_500102.md — Điều 37 khoản 1"]
+  },
+  {
+    "question": "Người tiêu dùng nên làm gì để giảm rủi ro khi mua sắm trực tuyến?",
+    "expected_answer": "Nên mua tại website uy tín, đọc kỹ điều khoản bảo hành và đổi trả, kiểm tra nguồn gốc sản phẩm, thận trọng với website lạ hoặc giá quá thấp và không tùy tiện cung cấp thông tin cá nhân.",
+    "expected_context": ["news/article_01.md — Khuyến cáo đối với người tiêu dùng khi mua sắm trực tuyến"]
+  },
+  {
+    "question": "Vì sao mua hàng trên nền tảng thương mại điện tử xuyên biên giới chưa đăng ký có thể gây rủi ro?",
+    "expected_answer": "Vì nền tảng chưa đăng ký có thể không chịu sự giám sát và trách nhiệm pháp lý trong nước, khiến việc hoàn trả, bảo hành, khiếu nại, kiểm soát hàng giả và bảo vệ dữ liệu cá nhân trở nên khó khăn.",
+    "expected_context": ["news/article_03.md — Cảnh báo rủi ro khi mua sắm trên nền tảng TMĐT xuyên biên giới chưa đăng ký"]
+  },
+  {
+    "question": "Tổ chức, cá nhân bán lẻ phải thực hiện những trách nhiệm gì về an toàn và chất lượng hàng hóa?",
+    "expected_answer": "Họ phải bảo đảm an toàn, số lượng, chất lượng và công dụng đúng với nội dung đã công bố, quảng cáo hoặc cam kết; đồng thời phải cảnh báo sản phẩm có khả năng gây mất an toàn và hướng dẫn biện pháp phòng ngừa.",
+    "expected_context": ["news/article_04.md — Trách nhiệm bảo đảm an toàn, chất lượng sản phẩm"]
+  },
+  {
+    "question": "Luật và Nghị định mới đặt ra yêu cầu gì đối với việc xác thực người bán trên nền tảng thương mại điện tử?",
+    "expected_answer": "Chủ quản nền tảng thương mại điện tử trung gian phải xác thực người bán trước khi cho phép họ hoạt động trên nền tảng, nhằm hạn chế tài khoản ảo, hỗ trợ truy vết và bảo vệ người tiêu dùng.",
+    "expected_context": ["news/article_05.md — Hội nghị phổ biến Luật Thương mại điện tử và Nghị định 248/2026/NĐ-CP"]
+  }
+]
