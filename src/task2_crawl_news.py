@@ -15,6 +15,7 @@ Cài browser trước khi chạy:
 
 import asyncio
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -22,24 +23,33 @@ DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "news"
 
 ARTICLE_URLS = [
     # TODO: Thêm ít nhất 5 public URL.
+    "https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/luu-y-khi-tien-hanh-cac-giao-dich-thuong-mai-dien-tu2.html?utm_source=chatgpt.com",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-day-manh-cong-tac-bao-ve-quyen-loi-nguoi-tieu-dung-trong-thuong-mai-dien-tu.html?utm_source=chatgpt.com",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-canh-bao-nguoi-tieu-dung-ve-rui-ro-khi-mua-sam-tren-cac-nen-tang-tmdt-xuyen-bien-gioi-chua-dang-ky.html?utm_source=chatgpt.com",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-trach-nhiem-quan-trong-ve-bao-ve-quyen-loi-nguoi-tieu-dung-cua-cac-to-chuc-ca-nhan-phan-phoi-ban-le-hang-tieu-dun.html?utm_source=chatgpt.com",
+    "https://moit.gov.vn/tin-tuc/bo-cong-thuong-pho-bien-luat-thuong-mai-dien-tu-va-nghi-dinh-so-248-2026-nd-cp.html?utm_source=chatgpt.com"
 ]
 
 
 async def crawl_article(url: str) -> dict:
-    # TODO: Implement crawling logic.
-    #
-    # from datetime import datetime
-    # from crawl4ai import AsyncWebCrawler
-    #
-    # async with AsyncWebCrawler() as crawler:
-    #     result = await crawler.arun(url=url)
-    #     return {
-    #         "url": url,
-    #         "title": result.metadata.get("title", "Unknown"),
-    #         "date_crawled": datetime.now().isoformat(),
-    #         "content_markdown": result.markdown,
-    #     }
-    raise NotImplementedError("Implement crawl_article")
+    """Crawl one public article and return the landing-page record."""
+    # Import lazily so that the rest of the project (and its tests) can still
+    # import this module before Crawl4AI/Playwright has been installed.
+    from crawl4ai import AsyncWebCrawler
+
+    async with AsyncWebCrawler() as crawler:
+        result = await crawler.arun(url=url)
+
+    metadata = getattr(result, "metadata", None) or {}
+    title = metadata.get("title") or "Unknown"
+    content_markdown = getattr(result, "markdown", "") or ""
+
+    return {
+        "url": url,
+        "title": str(title).strip(),
+        "date_crawled": datetime.now(timezone.utc).isoformat(),
+        "content_markdown": str(content_markdown).strip(),
+    }
 
 
 async def crawl_all() -> None:

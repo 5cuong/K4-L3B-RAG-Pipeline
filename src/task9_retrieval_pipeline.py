@@ -17,7 +17,9 @@ from .task7_reranking import rerank_rrf
 from .task8_pageindex_vectorless import pageindex_search
 
 
-SCORE_THRESHOLD = 0.3
+# Calibrated on the current vaccination corpus: an in-domain query scored
+# about 0.73 while an out-of-domain query scored about 0.41.
+SCORE_THRESHOLD = 0.5
 DEFAULT_TOP_K = 5
 
 
@@ -28,25 +30,30 @@ def retrieve(
     use_reranking: bool = True,
 ) -> list[dict]:
     """Trả về hybrid hoặc pageindex SearchResult."""
-    # TODO: Implement full retrieval pipeline.
-    #
-    # dense = semantic_search(query, top_k=top_k * 2)
-    # sparse = lexical_search(query, top_k=top_k * 2)
-    # hybrid = (
-    #     rerank_rrf([dense, sparse], top_k=top_k)
-    #     if use_reranking else dense[:top_k]
-    # )
-    #
-    # best_dense_score = dense[0]["score"] if dense else 0.0
-    # if best_dense_score < score_threshold:
-    #     try:
-    #         fallback = pageindex_search(query, top_k=top_k)
-    #         if fallback:
-    #             return fallback
-    #     except Exception:
-    #         pass
-    # return hybrid[:top_k]
-    raise NotImplementedError("Implement retrieve")
+    if top_k <= 0 or not query.strip():
+        return []
+
+    dense = semantic_search(query, top_k=top_k * 2)
+    sparse = lexical_search(query, top_k=top_k * 2)
+    hybrid = (
+        rerank_rrf([dense, sparse], top_k=top_k)
+        if use_reranking
+        else dense[:top_k]
+    )
+
+    # Fallback must use the original dense cosine similarity, never the RRF
+    # score because those scores are on different scales.
+    best_dense_score = float(dense[0]["score"]) if dense else 0.0
+    if best_dense_score < score_threshold:
+        try:
+            fallback = pageindex_search(query, top_k=top_k)
+            if fallback:
+                return fallback[:top_k]
+        except Exception:
+            # An unavailable optional provider must not break retrieval.
+            pass
+
+    return hybrid[:top_k]
 
 
 if __name__ == "__main__":

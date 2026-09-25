@@ -13,6 +13,7 @@ Cài đặt:
 -> Hoặc dùng công cụ nào bạn quen khác Markitdown
 """
 
+import json
 from pathlib import Path
 
 
@@ -21,40 +22,61 @@ OUTPUT_DIR = Path(__file__).parent.parent / "data" / "standardized"
 
 
 def convert_legal_docs() -> None:
-    # TODO:Convert PDF/DOCX vào standardized/legal. 
-    #
-    # from markitdown import MarkItDown
-    # legal_dir = LANDING_DIR / "legal"
-    # output_dir = OUTPUT_DIR / "legal"
-    # output_dir.mkdir(parents=True, exist_ok=True)
-    # converter = MarkItDown()
-    # for path in legal_dir.iterdir():
-    #     if path.suffix.lower() in {".pdf", ".doc", ".docx"}:
-    #         result = converter.convert(str(path))
-    #         (output_dir / f"{path.stem}.md").write_text(
-    #             result.text_content, encoding="utf-8"
-    #         )
-    raise NotImplementedError("Implement convert_legal_docs")
+    """Convert legal PDF/DOC/DOCX files into standardized Markdown."""
+    from markitdown import MarkItDown
+
+    legal_dir = LANDING_DIR / "legal"
+    output_dir = OUTPUT_DIR / "legal"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    converter = MarkItDown()
+    supported_extensions = {".pdf", ".doc", ".docx"}
+
+    for path in sorted(legal_dir.iterdir(), key=lambda item: item.name.lower()):
+        if (
+            not path.is_file()
+            or path.name.startswith(".")
+            or path.suffix.lower() not in supported_extensions
+        ):
+            continue
+
+        result = converter.convert(str(path))
+        text_content = str(getattr(result, "text_content", "") or "").strip()
+        if not text_content:
+            continue
+
+        output_path = output_dir / f"{path.stem}.md"
+        output_path.write_text(text_content + "\n", encoding="utf-8")
 
 
 def convert_news_articles() -> None:
-    # TODO: Convert JSON vào standardized/news.
-    #
-    # import json
-    # news_dir = LANDING_DIR / "news"
-    # output_dir = OUTPUT_DIR / "news"
-    # output_dir.mkdir(parents=True, exist_ok=True)
-    # for path in news_dir.glob("*.json"):
-    #     data = json.loads(path.read_text(encoding="utf-8"))
-    #     header = (
-    #         f"# {data['title']}\n\n"
-    #         f"**Source:** {data['url']}\n\n"
-    #         f"**Crawled:** {data['date_crawled']}\n\n---\n\n"
-    #     )
-    #     (output_dir / f"{path.stem}.md").write_text(
-    #         header + data["content_markdown"], encoding="utf-8"
-    #     )
-    raise NotImplementedError("Implement convert_news_articles")
+    """Convert crawled news JSON records into standardized Markdown."""
+    news_dir = LANDING_DIR / "news"
+    output_dir = OUTPUT_DIR / "news"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    required_fields = ("title", "url", "date_crawled", "content_markdown")
+    for path in sorted(news_dir.glob("*.json"), key=lambda item: item.name.lower()):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            continue
+
+        values = {field: data.get(field) for field in required_fields}
+        if not all(isinstance(value, str) and value.strip() for value in values.values()):
+            continue
+
+        header = (
+            f"# {values['title'].strip()}\n\n"
+            f"**Source:** {values['url'].strip()}\n\n"
+            f"**Crawled:** {values['date_crawled'].strip()}\n\n"
+            "---\n\n"
+        )
+        content = values["content_markdown"].strip()
+        if not content:
+            continue
+
+        output_path = output_dir / f"{path.stem}.md"
+        output_path.write_text(header + content + "\n", encoding="utf-8")
 
 
 def convert_all() -> None:
