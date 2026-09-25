@@ -1,6 +1,8 @@
 import streamlit as st
 from dotenv import load_dotenv
 
+from src.task10_generation import generate_with_citation
+
 
 load_dotenv()
 
@@ -19,12 +21,33 @@ with st.sidebar:
     top_k = st.slider("Số chunks", 3, 10, 5)
 
 st.title("RAG Chatbot")
-st.caption("Thay tiêu đề và hướng dẫn sử dụng")
+st.caption("Hỏi đáp dựa trên các tài liệu đã được lập chỉ mục")
+
+
+def render_sources(result: dict) -> None:
+    """Hiển thị nguồn và điểm retrieval của một câu trả lời."""
+    st.caption(f"Retrieval: `{result['retrieval_source']}`")
+    sources = result.get("sources", [])
+    if not sources:
+        return
+
+    st.subheader("Nguồn")
+    for index, source in enumerate(sources, 1):
+        metadata = source.get("metadata", {})
+        title = metadata.get("title") or metadata.get("source") or "Tài liệu"
+        origin = metadata.get("source", "")
+        score = source.get("score")
+        score_text = f"{float(score):.4f}" if isinstance(score, (int, float)) else "n/a"
+        with st.expander(f"[{index}] {title} — score {score_text}"):
+            st.write(f"Source: {origin}")
+            st.write(f"Chunk ID: {source.get('id', '')}")
+            st.write(source.get("content", ""))
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        # TODO: Hiển thị sources và retrieval score.
+        if message["role"] == "assistant" and message.get("result"):
+            render_sources(message["result"])
 
 query = st.chat_input("Nhập câu hỏi...")
 
@@ -35,11 +58,10 @@ if query:
         st.markdown(query)
 
     with st.chat_message("assistant"):
-        # TODO: Gọi generate_with_citation(query, top_k).
-        answer = "TODO: Itegration RAG Pipeline hêre"
-        sources = []
-        st.markdown(answer)
+        result = generate_with_citation(query, top_k)
+        st.markdown(result["answer"])
+        render_sources(result)
 
-        # TODO: Hiển thị sources và citation.
-
-    # TODO: Lưu answer và sources vào session state.
+    st.session_state.messages.append(
+        {"role": "assistant", "content": result["answer"], "result": result}
+    )
