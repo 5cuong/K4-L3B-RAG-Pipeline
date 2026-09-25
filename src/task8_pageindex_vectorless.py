@@ -24,6 +24,7 @@ load_dotenv()
 PAGEINDEX_API_KEY = os.getenv("PAGEINDEX_API_KEY", "")
 STANDARDIZED_DIR = Path(__file__).parent.parent / "data" / "standardized"
 PROJECT_ROOT = Path(__file__).parent.parent
+PAGEINDEX_PDF_DIR = PROJECT_ROOT / "pageindex_pdfs"
 PAGEINDEX_BASE_URL = os.getenv("PAGEINDEX_BASE_URL", "https://api.pageindex.ai")
 PAGEINDEX_CACHE = PROJECT_ROOT / "pageindex_doc_ids.json"
 PAGEINDEX_TIMEOUT = float(os.getenv("PAGEINDEX_TIMEOUT", "30"))
@@ -70,18 +71,103 @@ def _save_cache(cache: dict[str, dict]) -> None:
 
 def _pdf_sources() -> list[Path]:
     landing_dir = PROJECT_ROOT / "data" / "landing"
+    source_pdfs = [
+        path
+        for path in landing_dir.rglob("*")
+        if path.is_file() and path.suffix.lower() == ".pdf"
+    ]
+    source_stems = {path.stem.casefold() for path in source_pdfs}
+    generated_pdfs = [
+        _markdown_to_pdf(path)
+        for path in sorted(
+            (STANDARDIZED_DIR / "legal").glob("*.md"),
+            key=lambda item: item.name.lower(),
+        )
+        if path.is_file() and path.stem.casefold() not in source_stems
+    ]
     return sorted(
-        (
-            path
-            for path in landing_dir.rglob("*")
-            if path.is_file() and path.suffix.lower() == ".pdf"
-        ),
+        {*source_pdfs, *generated_pdfs},
         key=lambda path: path.relative_to(PROJECT_ROOT).as_posix().lower(),
     )
 
 
+def _unicode_font_path() -> Path:
+    """Find a system font that can render Vietnamese text in generated PDFs."""
+    configured = os.getenv("PAGEINDEX_FONT_PATH", "").strip()
+    if configured:
+        configured_path = Path(configured).expanduser()
+        if configured_path.is_file():
+            return configured_path
+        raise RuntimeError(
+            f"PAGEINDEX_FONT_PATH does not point to a file: {configured_path}"
+        )
+
+    candidates = (
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        Path("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"),
+        Path("/System/Library/Fonts/Supplemental/Arial.ttf"),
+        Path("/Library/Fonts/Arial.ttf"),
+        Path("C:/Windows/Fonts/arial.ttf"),
+    )
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    raise RuntimeError(
+        "A Unicode TrueType font is required to prepare DOCX/Markdown files "
+        "for PageIndex. Install DejaVu Sans or set PAGEINDEX_FONT_PATH."
+    )
+
+
+def _markdown_to_pdf(markdown_path: Path) -> Path:
+    """Create a cached PDF copy so PageIndex can index the DOCX corpus."""
+    PAGEINDEX_PDF_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = PAGEINDEX_PDF_DIR / f"{markdown_path.stem}.pdf"
+    if (
+        output_path.is_file()
+        and output_path.stat().st_mtime_ns >= markdown_path.stat().st_mtime_ns
+    ):
+        return output_path
+
+    try:
+        from fpdf import FPDF
+    except ImportError as error:
+        raise RuntimeError(
+            "fpdf2 is required to prepare the legal corpus for PageIndex; "
+            "install project dependencies first."
+        ) from error
+
+    text = markdown_path.read_text(encoding="utf-8")
+    text = "".join(
+        character
+        for character in text
+        if character in "\n\r\t" or ord(character) >= 32
+    )
+    pdf = FPDF(format="A4")
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+    pdf.add_font("CorpusUnicode", fname=str(_unicode_font_path()))
+    pdf.set_font("CorpusUnicode", size=9)
+    pdf.multi_cell(w=0, h=5, text=text)
+    pdf.output(str(output_path))
+    return output_path
+
+
 def _source_key(path: Path) -> str:
     return path.relative_to(PROJECT_ROOT).as_posix()
+
+
+def _display_source(path: Path) -> str:
+    """Map generated PageIndex PDFs back to the checked-in source document."""
+    if path.parent.resolve() == PAGEINDEX_PDF_DIR.resolve():
+        legal_dir = PROJECT_ROOT / "data" / "landing" / "legal"
+        for extension in (".pdf", ".docx", ".doc"):
+            original = legal_dir / f"{path.stem}{extension}"
+            if original.is_file():
+                return _source_key(original)
+        markdown = STANDARDIZED_DIR / "legal" / f"{path.stem}.md"
+        if markdown.is_file():
+            return _source_key(markdown)
+    return _source_key(path)
 
 
 def _cache_entry(path: Path, doc_id: str) -> dict:
@@ -90,6 +176,7 @@ def _cache_entry(path: Path, doc_id: str) -> dict:
         "doc_id": doc_id,
         "size": stat.st_size,
         "mtime_ns": stat.st_mtime_ns,
+        "source": _display_source(path),
     }
 
 
@@ -135,10 +222,8 @@ def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
     if top_k <= 0 or not query.strip():
         return []
 
+    upload_documents()
     cache = _load_cache()
-    if not cache:
-        upload_documents()
-        cache = _load_cache()
     if not cache:
         return []
 
@@ -158,7 +243,8 @@ def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
             continue
 
         result = _wait_for_retrieval(retrieval_id)
-        retrieved.extend(_parse_retrieval_result(result, source, doc_id))
+        display_source = entry.get("source") or source
+        retrieved.extend(_parse_retrieval_result(result, display_source, doc_id))
 
     retrieved.sort(key=lambda item: item["score"], reverse=True)
     return retrieved[:top_k]
@@ -195,6 +281,7 @@ def _parse_retrieval_result(payload: dict, source: str, doc_id: str) -> list[dic
         return []
 
     title = Path(source).stem
+    doc_type = "news" if "news" in Path(source).parts else "legal"
     parsed = []
     for rank, item in enumerate(candidates, 1):
         if not isinstance(item, dict):
@@ -224,7 +311,7 @@ def _parse_retrieval_result(payload: dict, source: str, doc_id: str) -> list[dic
                 "metadata": {
                     "source": Path(source).name,
                     "title": title,
-                    "doc_type": "legal",
+                    "doc_type": doc_type,
                     "url": None,
                     "chunk_index": page_index - 1,
                     "page_index": page_index,

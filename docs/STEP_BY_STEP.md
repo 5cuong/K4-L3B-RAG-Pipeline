@@ -16,7 +16,8 @@ cp .env.example .env
 
 ## 3. Thu thập dữ liệu
 
-- Tải tối thiểu 3 PDF/DOCX vào `data/landing/legal/`.
+- Repo đã có 4 tài liệu pháp lý; Task 1 kiểm tra và dùng lại các file này.
+- Khi đổi corpus, thu thập tối thiểu 3 PDF/DOCX công khai vào `data/landing/legal/`.
 - Crawl tối thiểu 5 bài vào `data/landing/news/`.
 - Mỗi JSON có `url`, `title`, `date_crawled`, `content_markdown`.
 
@@ -63,6 +64,17 @@ Về rerank là không bắt buộc, các bận có thể sử dụng Jina, ho�
 - Task 9 chỉ chạy RRF một lần.
 - Calibrate threshold bằng query đúng domain và query ngoài domain.
 - Dùng dense cosine score gốc để quyết định fallback.
+- Có thể chỉnh ngưỡng qua `SCORE_THRESHOLD` trong `.env`; giá trị mẫu `0.50`
+  chỉ là điểm bắt đầu, cần thay bằng kết quả hiệu chỉnh trên corpus của nhóm.
+
+Chạy lệnh sau để đề xuất ngưỡng từ golden queries và bộ query ngoài domain:
+
+```bash
+python -m src.calibrate_fallback_threshold
+```
+
+Lệnh này dùng dense cosine score của top-1, in ra balanced accuracy và không tự
+ghi đè `.env`; hãy xem lại false positive/negative trước khi chép ngưỡng đề xuất.
 
 ## 8. Generation có citation
 

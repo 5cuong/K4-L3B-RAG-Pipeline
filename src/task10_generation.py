@@ -12,6 +12,7 @@ Nếu context không đủ hoặc provider lỗi, trả safe refusal; không b�
 """
 
 import os
+import re
 
 from dotenv import load_dotenv
 
@@ -32,6 +33,7 @@ Mỗi khẳng định phải có citation theo dạng [chunk_id], dùng đúng I
 trong context. Nếu thiếu evidence, hãy từ chối xác minh."""
 
 SAFE_REFUSAL = "Tôi không thể xác minh thông tin này từ nguồn hiện có."
+_CITATION_PATTERN = re.compile(r"\[([^\[\]\s]+)\]")
 
 
 def reorder_for_llm(chunks: list[dict]) -> list[dict]:
@@ -54,6 +56,15 @@ def format_context(chunks: list[dict]) -> str:
             f"{chunk['content']}"
         )
     return "\n\n---\n\n".join(parts)
+
+
+def citations_map_to_sources(answer: str, sources: list[dict]) -> bool:
+    """Require every bracket citation in the answer to name a retrieved ID."""
+    citations = _CITATION_PATTERN.findall(answer)
+    if not citations:
+        return False
+    source_ids = {source.get("id") for source in sources}
+    return all(citation in source_ids for citation in citations)
 
 
 def call_llm(system_prompt: str, user_message: str) -> str:
@@ -168,6 +179,15 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             "answer": SAFE_REFUSAL,
             "sources": [],
             "retrieval_source": "none",
+        }
+
+    if not citations_map_to_sources(answer, chunks):
+        methods = {item.get("retrieval_method") for item in chunks}
+        retrieval_source = "pageindex" if "pageindex" in methods else "hybrid"
+        return {
+            "answer": SAFE_REFUSAL,
+            "sources": list(chunks),
+            "retrieval_source": retrieval_source,
         }
 
     methods = {item.get("retrieval_method") for item in chunks}

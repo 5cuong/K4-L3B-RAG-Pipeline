@@ -31,6 +31,7 @@ cp .env.example .env
 
 ```bash
 # 1. Thu thập và chuẩn hoá
+# Task 1 kiểm tra và dùng lại legal corpus đã commit trong repository.
 python -m src.task1_collect_legal_docs
 python -m src.task2_crawl_news
 python -m src.task3_convert_markdown

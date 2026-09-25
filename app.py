@@ -17,11 +17,11 @@ if "messages" not in st.session_state:
 
 with st.sidebar:
     st.title("RAG Chatbot")
-    st.caption("Thay mô tả theo đề tài của nhóm")
+    st.caption("Hỏi đáp về bảo vệ người tiêu dùng và thương mại điện tử")
     top_k = st.slider("Số chunks", 3, 10, 5)
 
 st.title("RAG Chatbot")
-st.caption("Hỏi đáp dựa trên các tài liệu đã được lập chỉ mục")
+st.caption("Câu trả lời dựa trên luật và bài viết đã được lập chỉ mục")
 
 
 def render_sources(result: dict) -> None:

@@ -22,7 +22,6 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "news"
 
 ARTICLE_URLS = [
-    # TODO: Thêm ít nhất 5 public URL.
     "https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/luu-y-khi-tien-hanh-cac-giao-dich-thuong-mai-dien-tu2.html?utm_source=chatgpt.com",
     "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-day-manh-cong-tac-bao-ve-quyen-loi-nguoi-tieu-dung-trong-thuong-mai-dien-tu.html?utm_source=chatgpt.com",
     "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-canh-bao-nguoi-tieu-dung-ve-rui-ro-khi-mua-sam-tren-cac-nen-tang-tmdt-xuyen-bien-gioi-chua-dang-ky.html?utm_source=chatgpt.com",

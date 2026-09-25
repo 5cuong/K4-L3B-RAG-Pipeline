@@ -11,15 +11,25 @@ Luồng xử lý:
 Không so sánh threshold với RRF score vì hai thang đo khác nhau.
 """
 
+import os
+
+from dotenv import load_dotenv
+
 from .task5_semantic_search import semantic_search
 from .task6_lexical_search import lexical_search
 from .task7_reranking import rerank_rrf
 from .task8_pageindex_vectorless import pageindex_search
 
 
-# Calibrated on the current vaccination corpus: an in-domain query scored
-# about 0.73 while an out-of-domain query scored about 0.41.
-SCORE_THRESHOLD = 0.5
+load_dotenv()
+
+DEFAULT_SCORE_THRESHOLD = 0.5
+_threshold_setting = os.getenv("SCORE_THRESHOLD", "").strip()
+SCORE_THRESHOLD = (
+    float(_threshold_setting) if _threshold_setting else DEFAULT_SCORE_THRESHOLD
+)
+if not 0.0 <= SCORE_THRESHOLD <= 1.0:
+    raise ValueError("SCORE_THRESHOLD must be between 0 and 1")
 DEFAULT_TOP_K = 5
 
 
@@ -32,6 +42,8 @@ def retrieve(
     """Trả về hybrid hoặc pageindex SearchResult."""
     if top_k <= 0 or not query.strip():
         return []
+    if not 0.0 <= score_threshold <= 1.0:
+        raise ValueError("score_threshold must be between 0 and 1")
 
     dense = semantic_search(query, top_k=top_k * 2)
     sparse = lexical_search(query, top_k=top_k * 2)
