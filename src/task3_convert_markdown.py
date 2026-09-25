@@ -15,6 +15,7 @@ Cài đặt:
 
 import json
 from pathlib import Path
+import re
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
@@ -55,6 +56,30 @@ def canonical_source_url(url: str) -> str:
         ]
     )
     return urlunsplit((parts.scheme, parts.netloc, parts.path, query, parts.fragment))
+
+
+def extract_main_article(content_markdown: str) -> tuple[str, str]:
+    """Return the page's actual title and body without site chrome.
+
+    Crawl4AI's Markdown for the MOIT pages contains a full site menu before
+    the article's H1 and related stories after its end. The first H1 marks the
+    article. The footer separator marks the end of its text.
+    """
+    heading = re.search(r"(?m)^#\s+(.+)$", content_markdown)
+    if not heading:
+        raise ValueError("Crawled article has no H1 heading; cannot isolate article body")
+
+    title = heading.group(1).strip()
+    article = content_markdown[heading.end():].strip()
+    footer = re.search(
+        r"(?m)^\* \* \*\s*\n\*\*(?:Nguồn|Tags):",
+        article,
+    )
+    related = re.search(r"(?im)^#{2,6}\s*Tin liên quan\s*$", article)
+    end_positions = [match.start() for match in (footer, related) if match]
+    if end_positions:
+        article = article[:min(end_positions)].rstrip()
+    return title, article
 
 
 def convert_legal_docs() -> None:
@@ -110,16 +135,16 @@ def convert_news_articles() -> None:
             continue
         values["url"] = canonical_source_url(values["url"])
 
+        article_title, content = extract_main_article(values["content_markdown"])
+        if not content:
+            continue
+
         header = (
-            f"# {values['title'].strip()}\n\n"
+            f"# {article_title}\n\n"
             f"**Source:** {values['url'].strip()}\n\n"
             f"**Crawled:** {values['date_crawled'].strip()}\n\n"
             "---\n\n"
         )
-        content = values["content_markdown"].strip()
-        if not content:
-            continue
-
         output_path = output_dir / f"{path.stem}.md"
         output_path.write_text(header + content + "\n", encoding="utf-8")
 

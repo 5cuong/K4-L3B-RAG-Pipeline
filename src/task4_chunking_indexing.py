@@ -27,7 +27,6 @@ CHROMA_DIR = Path(__file__).parent.parent / "chroma_db"
 # Giải thích lựa chọn tham số trong báo cáo nhóm.
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
-CHUNKING_METHOD = "recursive"
 
 # Dữ liệu có hai dạng chính: văn bản pháp lý nhiều tầng mục/điều và bài báo
 # có heading, đoạn văn cùng phần HTML navigation. Giữ cấu hình riêng giúp

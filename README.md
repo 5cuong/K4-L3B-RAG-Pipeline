@@ -1,105 +1,64 @@
-# Day 8 — RAG Pipeline
+# Day 8 — RAG Pipeline: Bảo vệ người tiêu dùng và thương mại điện tử
 
-## Mục tiêu
+## Mục tiêu và phạm vi
 
-Mỗi nhóm xây dựng một chatbot RAG trả lời câu hỏi từ bộ tài liệu do nhóm thu thập. Sản phẩm phải có hybrid retrieval, citation, giao diện chat và báo cáo đánh giá.
+Repository triển khai chatbot RAG tiếng Việt để tra cứu quy định về bảo vệ người tiêu dùng và thương mại điện tử. Bộ dữ liệu hiện có gồm 4 văn bản pháp lý và 5 bài viết từ Bộ Công Thương; dữ liệu nguồn, URL, nội dung đã chuẩn hóa và bộ câu hỏi nằm trong repository.
 
-Nhóm tự chọn bài toán và thu thập dữ liệu phù hợp; repo không cung cấp dữ liệu mẫu.
+## Dữ liệu
 
-## Sản phẩm phải nộp
+Văn bản pháp lý trong `data/landing/legal/`:
 
-- Repository nhóm chạy được.
-- Tối thiểu 3 tài liệu chính sách và 5 bài viết/page do nhóm tự thu thập.
-- Pipeline: convert → chunk → index → dense + BM25 → RRF → fallback → generation có citation.
-- Chatbot Streamlit hiển thị câu trả lời và nguồn đã dùng.
-- Golden dataset tối thiểu 15 câu; đánh giá 4 metric và so sánh A/B.
-- `group_project/evaluation/RESULT.md`.
-- Mỗi thành viên nộp báo cáo cá nhân theo template trong `group_project/ịndividual/INDIVIDUAL_REPORT.md`.
+- Luật số 19/2023/QH15 về Bảo vệ quyền lợi người tiêu dùng.
+- Nghị định số 55/2024/NĐ-CP quy định chi tiết một số điều của Luật Bảo vệ quyền lợi người tiêu dùng.
+- Luật số 122/2025/QH15 về Thương mại điện tử.
+- Nghị định số 248/2026/NĐ-CP quy định chi tiết một số điều của Luật Thương mại điện tử.
 
-## Quick start
+Năm bài viết crawl được lưu thành JSON tại `data/landing/news/`. URL nguồn được giữ trong dữ liệu và Markdown chuẩn hóa tại `data/standardized/news/`. Bốn văn bản pháp lý chuẩn hóa nằm tại `data/standardized/legal/`.
+
+## Kiến trúc
+
+`task3` chuẩn hóa tài liệu và loại bỏ phần điều hướng, chân trang khỏi nội dung bài báo. `task4` chia chunk theo loại tài liệu (legal: 1200 ký tự, overlap 150; news: 700 ký tự, overlap 80), tạo embedding đa ngôn ngữ bằng `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 chiều), rồi index trong ChromaDB với cosine distance. ChromaDB là dữ liệu sinh tại máy, không được commit.
+
+Retrieval kết hợp dense search và BM25, sau đó hợp nhất một lần bằng Reciprocal Rank Fusion (RRF). Nếu cosine similarity dense top-1 thấp hơn `SCORE_THRESHOLD`, pipeline thử PageIndex fallback. Generation gọi provider được cấu hình qua `.env` (Groq dùng OpenAI-compatible API), gắn citation theo ID nguồn đã truy xuất và từ chối trả lời khi citation không ánh xạ được về nguồn. Giao diện Streamlit hiển thị câu trả lời và nguồn.
+
+## Cài đặt và chạy lại
+
+Yêu cầu Python 3.10–3.13. Các tài liệu nguồn đã có sẵn; Task 1 kiểm tra corpus hiện có. Chỉ chạy Task 2 khi cần crawl lại các bài viết.
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
-python -m pip install --upgrade pip setuptools wheel
 python -m pip install -e ".[dev]"
-python -m playwright install chromium
 cp .env.example .env
 ```
 
-Điền API key cần dùng trong `.env`; không commit file này.
-Để dùng Groq qua OpenAI SDK, đặt các giá trị sau trong `.env`:
-
-```dotenv
-LLM_PROVIDER=groq
-LLM_MODEL=openai/gpt-oss-20b
-GROQ_BASE_URL=https://api.groq.com/openai/v1
-GROQ_API_KEY=<Groq API key>
-```
-
-Embedding vẫn chạy local theo mặc định, không cần OpenAI API key.
+Điền `GROQ_API_KEY` trong `.env` để dùng Groq; đặt `LLM_PROVIDER=groq` và `LLM_MODEL=openai/gpt-oss-20b`. Embedding mặc định chạy local và cần tải model ở lần chạy đầu. Không commit `.env` hoặc API key.
 
 ```bash
-# 1. Thu thập và chuẩn hoá
-# Task 1 kiểm tra và dùng lại legal corpus đã commit trong repository.
 python -m src.task1_collect_legal_docs
-python -m src.task2_crawl_news
 python -m src.task3_convert_markdown
-
-# 2. Index và kiểm tra contract
 python -m src.task4_chunking_indexing
-pytest -q
-
-# 3. Sinh calibration và báo cáo A/B từ index hiện tại
 python -m src.calibrate_fallback_threshold
-python -m group_project.evaluation.run_ab_evaluation
-
-# 4. Chạy sản phẩm
-streamlit run app.py
 ```
 
-Task 4 tạo lại ChromaDB từ Markdown chuẩn hóa mỗi lần chạy và dọn các chunk cũ
-không còn trong corpus. `chroma_db/` là cache sinh ra tại máy, được bỏ khỏi Git;
-chạy Task 4 trước khi mở chatbot trên một checkout mới.
-Mặc định pipeline dùng embedding local đa ngôn ngữ MiniLM 384 chiều; lần chạy
-đầu tải model về máy. Có thể đổi provider/model trong `.env` nếu cần.
-
-## Lộ trình 3 giờ
-
-| Mốc                  | Thời gian | Kết quả cần có                           |
-| -------------------- | --------: | ---------------------------------------- |
-| 0. Setup             |   10 phút | Môi trường và `.env` sẵn sàng            |
-| 1. Data              |   25 phút | ≥3 legal, ≥5 news, Markdown đã chuẩn hoá |
-| 2. Index & search    |   30 phút | ChromaDB, dense search và BM25 chạy được |
-| 3. Fusion & fallback |   25 phút | RRF và fallback tuân thủ contract        |
-| 4. Generation & UI   |   30 phút | Chatbot trả lời có citation              |
-| 5. Evaluation        |   30 phút | 15+ Q&A, 4 metric, A/B comparison        |
-| 6. Demo & handoff    |   30 phút | Test, report, demo và push repository    |
-
-## Lưu ý quy tắc để có code quality tốt:
-
-- Dense và BM25 nên cùng trả về `SearchResult` theo một schema.
-- RRF chỉ nên dùng để gộp thứ hạng và chỉ chạy một lần.
-- Fallback dùng cosine score gốc của dense retrieval.
-- Threshold phải được hiệu chỉnh trên query in domain và out of domain, không có một con số đúng cho mọi corpus.
-
-## Tài liệu
-
-- [Module contracts](docs/MODULE_CONTRACTS.md): schema, interface và invariant mà code/test nên tuân theo.
-- [Step-by-step guide](docs/STEP_BY_STEP.md): thứ tự triển khai và tiêu chí hoàn thành từng bước.
-- [Grading rubric](docs/GRADING_RUBRIC.md): Rubric thang điểm.
-- [Individual report](group_project/ịndividual/INDIVIDUAL_REPORT.md): template báo cáo cá nhân.
-- [Suggested topics](docs/SUGGESTED_TOPICS.md): danh sách chủ đề tham khảo, không bắt buộc.
-
-## Kiểm tra
+Lệnh calibration in ngưỡng đề xuất từ 16 câu hỏi in-domain và 8 câu hỏi out-of-domain; nó không tự ghi đè `.env`. Đặt `SCORE_THRESHOLD` theo kết quả calibration trước khi chạy chatbot hoặc evaluation. Nếu cần thu thập lại bài báo, cài Chromium bằng `python -m playwright install chromium`, đặt cấu hình crawler trong `.env`, rồi chạy `python -m src.task2_crawl_news` trước Task 3.
 
 ```bash
-# Contract tests
-pytest tests/test_contracts.py -q
-
-# Acceptance tests
-pytest tests/test_acceptance.py -q
-
-# Toàn bộ
+python -m group_project.evaluation.run_ab_evaluation
+streamlit run app.py
 pytest -q
 ```
+
+## Đánh giá
+
+`group_project/evaluation/golden_dataset.json` chứa 16 câu hỏi. Báo cáo `group_project/evaluation/RESULT.md` so sánh dense-only với hybrid + RRF trên cùng corpus, embedding, `top_k` và bộ câu hỏi.
+
+Bốn chỉ số trong báo cáo là proxy offline dựa trên token overlap và tên file nguồn: faithfulness, answer relevance, context recall và context precision. Bộ sinh dùng chung cho A/B là extractive baseline xác định, không gọi LLM; do đó faithfulness proxy không chứng minh tính đúng ngữ nghĩa. Context precision đo tỷ lệ chunk đến từ file nguồn kỳ vọng, không phải đánh giá relevance thủ công. Báo cáo nêu rõ các giới hạn này và cách diễn giải kết quả.
+
+## Tài liệu và deliverables
+
+- [Hướng dẫn từng bước](docs/STEP_BY_STEP.md)
+- [Module contracts](docs/MODULE_CONTRACTS.md)
+- [Grading rubric](docs/GRADING_RUBRIC.md)
+- [Báo cáo A/B](group_project/evaluation/RESULT.md)
+- [Template báo cáo cá nhân](group_project/ịndividual/INDIVIDUAL_REPORT.md)

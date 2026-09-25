@@ -24,7 +24,6 @@ sys.path.insert(0, str(ROOT))
 
 from src.task4_chunking_indexing import (
     EMBEDDING_MODEL,
-    chunk_documents,
     chunk_documents_by_type,
     load_documents,
 )
@@ -106,11 +105,7 @@ def evaluate_case(case: dict, results: list[dict]) -> dict:
     recall = len(expected_answer_tokens & context_tokens) / max(
         len(expected_answer_tokens), 1
     )
-    relevant_chunks = sum(
-        source_matches(result, sources)
-        or len(tokens(result["content"]) & expected_answer_tokens) >= 3
-        for result in results
-    )
+    relevant_chunks = sum(source_matches(result, sources) for result in results)
     precision = relevant_chunks / max(len(results), 1)
 
     return {
@@ -161,7 +156,6 @@ def main() -> None:
     dataset = json.loads(DATASET_PATH.read_text(encoding="utf-8"))
     documents = load_documents()
     chunk_count = len(chunk_documents_by_type(documents))
-    recursive_chunk_count = len(chunk_documents(documents))
 
     # Calibrate on the same current dense index used by retrieval. This keeps
     # RESULT.md aligned with the committed corpus, chunker and embedding model.
@@ -188,13 +182,20 @@ def main() -> None:
     results = {
         "run_at": datetime.now(timezone.utc).isoformat(),
         "dataset_size": len(dataset),
+        "source_document_count": len(documents),
         "chunk_count": chunk_count,
         "top_k": TOP_K,
         "score_threshold": SCORE_THRESHOLD,
         "threshold_calibration": calibration,
         "embedding_model": os.getenv("EMBEDDING_MODEL", EMBEDDING_MODEL),
         "generator": "deterministic extractive baseline, identical for A/B",
-        "evaluator": "offline token-overlap proxy, no external API",
+        "evaluator": "offline lexical/source proxies, no external API",
+        "metric_definitions": {
+            "faithfulness": "share of answer content tokens present in retrieved text",
+            "answer_relevance": "share of question content tokens present in answer",
+            "context_recall": "share of expected-answer content tokens present in retrieved text",
+            "context_precision": "share of top-k chunks from expected source files",
+        },
         "corpus_commit": subprocess.check_output(
             ["git", "rev-parse", "--short", "HEAD"],
             cwd=ROOT,
@@ -216,61 +217,46 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    combined = []
-    for index, case in enumerate(dataset):
-        dense = dense_rows[index]
-        hybrid = hybrid_rows[index]
-        combined.append(
-            (
-                (
-                    dense["faithfulness"]
-                    + dense["answer_relevance"]
-                    + dense["context_recall"]
-                    + dense["context_precision"]
-                    + hybrid["faithfulness"]
-                    + hybrid["answer_relevance"]
-                    + hybrid["context_recall"]
-                    + hybrid["context_precision"]
-                )
-                / 8,
-                case["question"],
-                dense,
-                hybrid,
-            )
-        )
-    combined.sort(key=lambda item: item[0])
-
     report_lines = [
-        "# RAG evaluation results",
+        "# Báo cáo đánh giá RAG",
         "",
-        "## Run information",
+        "## Run information / Thông tin lần chạy",
         "",
         "| Field | Value |",
         "| --- | --- |",
         f"| Evaluation date | {results['run_at']} |",
-        "| Framework and version | Offline evaluator in `run_ab_evaluation.py` |",
-        "| Evaluator model | None; deterministic token-overlap proxy |",
-        "| Generator model | Deterministic extractive baseline |",
+        "| Evaluator | Offline lexical/source proxies in `run_ab_evaluation.py` |",
+        "| Generator | Deterministic extractive baseline (same for A/B) |",
         f"| Embedding model | {results['embedding_model']} |",
-        f"| Corpus version/commit | {results['corpus_commit']} |",
+        f"| Code commit at evaluation time | {results['corpus_commit']} |",
+        f"| Source documents | {results['source_document_count']} |",
         f"| Golden dataset size | {results['dataset_size']} |",
         f"| Indexed chunk count | {results['chunk_count']} |",
         f"| `top_k` | {results['top_k']} |",
-        f"| Fallback threshold and calibration | configured={results['score_threshold']}; recommended={calibration['recommended_SCORE_THRESHOLD']}; balanced accuracy={calibration['balanced_accuracy']:.3f} on {calibration['in_domain_count']} in-domain and {calibration['out_of_domain_count']} out-of-domain queries |",
+        "| Chunk sizes (legal/news) | 1200/150 and 700/80 characters/overlap |",
         "",
-        "## Configurations",
+        "## Evaluation method / Phương pháp",
         "",
         "- **Config A — dense-only:** semantic search over ChromaDB.",
-        "- **Config B — hybrid + RRF:** dense search + BM25, fused once with RRF.",
+        "- **Config B — hybrid + RRF:** semantic search and BM25, fused once with RRF.",
         "",
-        "Both configurations use the same golden cases, top_k, document-type-aware chunks, embedding model, extractive generator and evaluator. Metrics are deterministic offline proxies, not Ragas or LLM-graded scores.",
+        f"Both configurations use the same corpus, chunks, {len(dataset)} golden questions, embedding model, `top_k`, extractive generator and evaluator.",
         "",
-        f"Task 4 uses legal chunks ({1200} characters, {150} overlap) and news chunks ({700} characters, {80} overlap). The active index contains {chunk_count} chunks; the prior recursive 500/50 strategy would produce {recursive_chunk_count} chunks for the same Markdown corpus.",
+        "The four measures are deterministic proxies calculated from non-stopword token overlap and expected source filenames:",
         "",
-        f"Fallback calibration used dense top-1 cosine similarity. In-domain score range: {calibration['in_domain_score_range']}; out-of-domain score range: {calibration['out_of_domain_score_range']}. Review false positives/negatives below before changing `.env`.",
+        "- **Faithfulness proxy:** answer tokens also present in retrieved text / answer tokens.",
+        "- **Answer relevance proxy:** question tokens present in answer / question tokens.",
+        "- **Context recall proxy:** expected-answer tokens present in retrieved text / expected-answer tokens.",
+        "- **Context precision proxy:** top-k chunks from a source file named in `expected_context` / top-k chunks.",
         "",
-        f"- False-negative in-domain queries: {len(calibration['false_negative_in_domain_queries'])}.",
-        f"- False-positive out-of-domain queries: {len(calibration['false_positive_out_of_domain_queries'])}.",
+        "## Fallback threshold calibration",
+        "",
+        "Threshold selection uses dense top-1 cosine similarity. The calibration set contains "
+        f"{calibration['in_domain_count']} in-domain and {calibration['out_of_domain_count']} fixed out-of-domain queries.",
+        "",
+        "| Configured threshold | Recommended threshold | Balanced accuracy | In-domain score range | Out-of-domain score range | False negatives | False positives |",
+        "| ---: | ---: | ---: | --- | --- | ---: | ---: |",
+        f"| {results['score_threshold']:.4f} | {calibration['recommended_SCORE_THRESHOLD']:.4f} | {calibration['balanced_accuracy']:.3f} | {calibration['in_domain_score_range']} | {calibration['out_of_domain_score_range']} | {len(calibration['false_negative_in_domain_queries'])} | {len(calibration['false_positive_out_of_domain_queries'])} |",
         "",
         "## Overall scores",
         "",
@@ -278,65 +264,55 @@ def main() -> None:
         "| --- | ---: | ---: | ---: |",
     ]
     labels = {
-        "faithfulness": "Faithfulness",
-        "answer_relevance": "Answer relevance",
-        "context_recall": "Context recall",
-        "context_precision": "Context precision",
+        "faithfulness": "Faithfulness proxy",
+        "answer_relevance": "Answer relevance proxy",
+        "context_recall": "Context recall proxy",
+        "context_precision": "Context precision proxy",
     }
     for key, label in labels.items():
         report_lines.append(
             f"| {label} | {fmt(dense_metrics[key])} | {fmt(hybrid_metrics[key])} | {fmt(deltas[key])} |"
         )
-    dense_avg = sum(dense_metrics.values()) / 4
-    hybrid_avg = sum(hybrid_metrics.values()) / 4
     report_lines.extend(
         [
-            f"| **Average** | **{fmt(dense_avg)}** | **{fmt(hybrid_avg)}** | **{fmt(hybrid_avg - dense_avg)}** |",
-            "",
             "## A/B comparison",
             "",
-            f"- **Cấu hình tốt hơn theo proxy trung bình:** {'Config B — hybrid + RRF' if hybrid_avg >= dense_avg else 'Config A — dense-only'}.",
-            f"- **Evidence:** hybrid recall={fmt(hybrid_metrics['context_recall'])}, precision={fmt(hybrid_metrics['context_precision'])}; dense recall={fmt(dense_metrics['context_recall'])}, precision={fmt(dense_metrics['context_precision'])}.",
-            f"- **Latency:** dense-only {dense_seconds:.2f}s; hybrid+RRF {hybrid_seconds:.2f}s trên {len(dataset)} query. Hybrid có thêm chi phí BM25 và fusion nhưng không gọi LLM/API ngoài.",
-            "- **Caveat:** proxy này dùng để kiểm tra retrieval và regression; kết quả Ragas cần chạy lại khi cài evaluator model.",
+            f"| Configuration | Total time for {len(dataset)} queries | Time per query |",
+            "| --- | ---: | ---: |",
+            f"| Dense-only | {dense_seconds:.2f}s | {dense_seconds / len(dataset):.3f}s |",
+            f"| Hybrid + RRF | {hybrid_seconds:.2f}s | {hybrid_seconds / len(dataset):.3f}s |",
+            "",
+            "Metric deltas are interpreted separately. No aggregate score is used to claim that one retriever is universally better.",
             "",
             "## Worst performers",
             "",
-            "| # | Question | Config | Faithfulness | Relevance | Recall | Precision | Failure stage | Root cause |",
-            "| ---: | --- | --- | ---: | ---: | ---: | ---: | --- | --- |",
+            "The table lists the three cases with the lowest context-recall proxy; it reports measured values without assigning an unverified cause.",
+            "",
+            "| Rank | Question | Configuration | Answer relevance proxy | Context recall proxy | Context precision proxy |",
+            "| ---: | --- | --- | ---: | ---: | ---: |",
         ]
     )
-    for rank, (_, question, dense, hybrid) in enumerate(combined[:3], 1):
-        worst = min((dense, "dense-only"), (hybrid, "hybrid-rrf"), key=lambda item: sum(item[0][key] for key in labels))
-        row, config = worst
-        if row["context_recall"] < 0.5 or row["context_precision"] < 0.4:
-            stage = "retrieval"
-            cause = "Expected evidence was not concentrated in the top-k retrieved chunks."
-        elif row["faithfulness"] < 0.7:
-            stage = "generation"
-            cause = "The extracted answer had weak overlap with retrieved context."
-        else:
-            stage = "data"
-            cause = "Question evidence is distributed across long legal/news documents."
+    evaluated = []
+    for config, rows in (("Dense-only", dense_rows), ("Hybrid + RRF", hybrid_rows)):
+        for row in rows:
+            evaluated.append(
+                (row["context_recall"], row["answer_relevance"], config, row)
+            )
+    evaluated.sort(key=lambda item: (item[0], item[1]))
+    for rank, (recall, _, config, row) in enumerate(evaluated[:3], 1):
         report_lines.append(
-            f"| {rank} | {question} | {config} | {fmt(row['faithfulness'])} | {fmt(row['answer_relevance'])} | {fmt(row['context_recall'])} | {fmt(row['context_precision'])} | {stage} | {cause} |"
+            f"| {rank} | {row['question']} | {config} | {fmt(row['answer_relevance'])} | {fmt(recall)} | {fmt(row['context_precision'])} |"
         )
     report_lines.extend(
         [
             "",
-            "## Recommendations",
+            "## Limitations and interpretation",
             "",
-            "| Priority | Action | Evidence from failure analysis | Expected impact | How to verify |",
-            "| ---: | --- | --- | --- | --- |",
-            f"| 1 | Thử lọc boilerplate của news trước khi chunking | Hiện có {chunk_count} document-type chunks; soát worst performers ở trên để xác định phần nav gây nhiễu | Tăng mật độ evidence trong top-k và giảm chi phí embedding | Đo lại 4 metric trên cùng golden dataset |",
-            "| 2 | Bổ sung câu hỏi paraphrase và câu hỏi cần phân biệt nguồn | Bộ hiện tại có 16 câu; xem bảng worst performers để chọn khoảng trống | Đo được khả năng dense/BM25 rõ hơn | Thêm case vào golden dataset rồi chạy lại A/B |",
-            "| 3 | Chạy Ragas với cùng generator/evaluator khi môi trường đủ dependency | Proxy hiện tại không thay thế đánh giá LLM | Có faithfulness/relevance chuẩn hơn | Cài `ragas`, cấu hình evaluator và ghi lại model/version |",
-            "",
-            "## Bonus experiments",
-            "",
-            "| Experiment | Baseline | Metric delta | Latency/cost delta | Conclusion |",
-            "| --- | --- | ---: | --- | --- |",
-            f"| Document-type-aware chunking | Recursive 500/50: {recursive_chunk_count} chunks | Retrieval delta chưa đo riêng trong lần chạy này | {chunk_count - recursive_chunk_count:+d} chunks trước khi embed | Giữ chiến lược theo loại tài liệu; A/B ở trên so sánh retriever trên cùng index |",
+            "- The four measures are deterministic lexical/source proxies, not semantic judgments from Ragas or a human evaluator.",
+            "- Answers are extracted directly from retrieved chunks; the faithfulness proxy is therefore expected to be high and does not independently establish semantic correctness.",
+            "- Context precision is measured by expected source filename, not by expert relevance labels for each chunk.",
+            "- Threshold separation is measured on 16 in-domain and 8 fixed out-of-domain queries; this sample does not establish performance on unseen queries.",
+            "- Latency is one warmed local run over the golden set, not a repeated benchmark or production estimate.",
         ]
     )
     REPORT_PATH.write_text("\n".join(report_lines) + "\n", encoding="utf-8")

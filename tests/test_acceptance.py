@@ -53,5 +53,21 @@ def test_evaluation_report_is_completed():
     report = (EVALUATION / "RESULT.md").read_text(encoding="utf-8")
     assert "TODO" not in report, "Complete every TODO in the evaluation report"
     lowered = report.lower()
-    for heading in ("overall scores", "a/b comparison", "worst performers", "recommendations"):
+    for heading in (
+        "overall scores",
+        "a/b comparison",
+        "worst performers",
+        "limitations and interpretation",
+    ):
         assert heading in lowered
+
+
+def test_news_standardization_removes_site_navigation_and_related_stories():
+    from src.task3_convert_markdown import extract_main_article
+
+    crawled = """Site navigation\n# Article title\nArticle body with sourced information.\n* * *\n**Tags:** example\n### Tin liên quan\nOther story\n"""
+
+    assert extract_main_article(crawled) == (
+        "Article title",
+        "Article body with sourced information.",
+    )

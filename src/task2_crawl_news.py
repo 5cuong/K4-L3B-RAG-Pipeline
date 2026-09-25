@@ -15,6 +15,7 @@ Cài browser trước khi chạy:
 
 import asyncio
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,11 +23,11 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "news"
 
 ARTICLE_URLS = [
-    "https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/luu-y-khi-tien-hanh-cac-giao-dich-thuong-mai-dien-tu2.html?utm_source=chatgpt.com",
-    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-day-manh-cong-tac-bao-ve-quyen-loi-nguoi-tieu-dung-trong-thuong-mai-dien-tu.html?utm_source=chatgpt.com",
-    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-canh-bao-nguoi-tieu-dung-ve-rui-ro-khi-mua-sam-tren-cac-nen-tang-tmdt-xuyen-bien-gioi-chua-dang-ky.html?utm_source=chatgpt.com",
-    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-trach-nhiem-quan-trong-ve-bao-ve-quyen-loi-nguoi-tieu-dung-cua-cac-to-chuc-ca-nhan-phan-phoi-ban-le-hang-tieu-dun.html?utm_source=chatgpt.com",
-    "https://moit.gov.vn/tin-tuc/bo-cong-thuong-pho-bien-luat-thuong-mai-dien-tu-va-nghi-dinh-so-248-2026-nd-cp.html?utm_source=chatgpt.com"
+    "https://moit.gov.vn/tin-tuc/thi-truong-nuoc-ngoai/luu-y-khi-tien-hanh-cac-giao-dich-thuong-mai-dien-tu2.html",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-day-manh-cong-tac-bao-ve-quyen-loi-nguoi-tieu-dung-trong-thuong-mai-dien-tu.html",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/bo-cong-thuong-canh-bao-nguoi-tieu-dung-ve-rui-ro-khi-mua-sam-tren-cac-nen-tang-tmdt-xuyen-bien-gioi-chua-dang-ky.html",
+    "https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-trach-nhiem-quan-trong-ve-bao-ve-quyen-loi-nguoi-tieu-dung-cua-cac-to-chuc-ca-nhan-phan-phoi-ban-le-hang-tieu-dun.html",
+    "https://moit.gov.vn/tin-tuc/bo-cong-thuong-pho-bien-luat-thuong-mai-dien-tu-va-nghi-dinh-so-248-2026-nd-cp.html",
 ]
 
 
@@ -42,6 +43,9 @@ async def crawl_article(url: str) -> dict:
     metadata = getattr(result, "metadata", None) or {}
     title = metadata.get("title") or "Unknown"
     content_markdown = getattr(result, "markdown", "") or ""
+    article_heading = re.search(r"(?m)^#\s+(.+)$", content_markdown)
+    if article_heading:
+        title = article_heading.group(1).strip()
 
     return {
         "url": url,
